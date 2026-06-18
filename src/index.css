@@ -1546,6 +1546,7 @@ footer p { margin-bottom: 0.5rem; }
   }
 
   .container {
+    --header-height: 44px;
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -1620,11 +1621,12 @@ footer p { margin-bottom: 0.5rem; }
   }
 
   .tab-content {
-    flex: 1;
+    flex: 0 0 auto;
+    /* 导航栏约 56-72px(含 padding/border/radius)，取 5rem 留足余量 */
+    height: calc(100vh - var(--header-height, 44px) - calc(5rem + env(safe-area-inset-bottom, 16px)));
     display: block !important;
     overflow-y: auto !important;
-    padding: 0.75rem 0.75rem 7rem;
-    padding-bottom: calc(7rem + env(safe-area-inset-bottom, 16px)) !important;
+    padding: 0.75rem 0.75rem 1rem;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
     overscroll-behavior: contain;
