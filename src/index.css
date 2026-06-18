@@ -862,8 +862,12 @@ h1 {
 
 .wiki-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
-  gap: 0.4rem;
+  grid-template-columns: repeat(auto-fill, minmax(58px, 1fr));
+  gap: 0.35rem;
+}
+
+@media (min-width: 768px) {
+  .wiki-grid { grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: 0.5rem; }
 }
 
 .wiki-card {
@@ -1032,16 +1036,18 @@ h1 {
 
 .slots-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.35rem;
 }
 
-@media (min-width: 600px) {
-  .slots-grid { grid-template-columns: repeat(6, 1fr); gap: 0.75rem; }
+@media (min-width: 480px) {
+  .slots-grid { gap: 0.5rem; }
+}
+@media (min-width: 768px) {
+  .slots-grid { gap: 0.6rem; }
 }
 
 .build-slot {
-  aspect-ratio: 1;
   border: 1px dashed rgba(139, 92, 246, 0.2);
   border-radius: 6px;
   background: rgba(0, 0, 0, 0.3);
@@ -1052,10 +1058,9 @@ h1 {
   position: relative;
   cursor: pointer;
   transition: var(--transition-fast);
-  padding: 2px;
+  padding: 4px 2px;
   user-select: none;
-  min-width: 44px;
-  min-height: 44px;
+  min-height: 52px;
 }
 
 .build-slot:focus-visible {
@@ -1074,14 +1079,15 @@ h1 {
 }
 
 .build-slot .slot-icon {
-  font-size: 0.9rem;
+  font-size: 1rem;
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 @media (min-width: 768px) {
-  .build-slot .slot-icon { font-size: 1.2rem; }
+  .build-slot .slot-icon { font-size: 1.1rem; }
 }
 
 .build-slot .slot-name {
@@ -1091,32 +1097,36 @@ h1 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-top: 1px;
+  margin-top: 2px;
   color: var(--color-text-muted);
+  line-height: 1.2;
 }
 
 .build-slot .remove-btn {
   position: absolute;
   top: -3px; right: -3px;
-  width: 18px; height: 18px;
+  width: 16px; height: 16px;
   background: var(--color-danger);
   color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.55rem;
+  font-size: 0.5rem;
   cursor: pointer;
   border: none;
   opacity: 1;
-  min-width: 18px;
-  min-height: 18px;
+  min-width: 16px;
+  min-height: 16px;
+  padding: 0;
+  line-height: 1;
 }
 
 @media (min-width: 768px) {
   .build-slot .remove-btn {
-    top: -5px; right: -5px;
-    width: 20px; height: 20px;
+    top: -4px; right: -4px;
+    width: 18px; height: 18px;
+    font-size: 0.55rem;
     opacity: 0;
     transition: var(--transition-fast);
   }
@@ -1236,8 +1246,12 @@ footer p { margin-bottom: 0.5rem; }
    ========================================================================== */
 .char-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
-  gap: 0.4rem;
+  grid-template-columns: repeat(auto-fill, minmax(58px, 1fr));
+  gap: 0.35rem;
+}
+
+@media (min-width: 768px) {
+  .char-grid { grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: 0.5rem; }
 }
 
 .char-card {
@@ -1519,7 +1533,7 @@ footer p { margin-bottom: 0.5rem; }
 .char-interactive-item .wiki-img,
 .evo-combo-item .wiki-img { width: 20px; height: 20px; }
 
-.build-slot .wiki-img { width: 28px; height: 28px; }
+.build-slot .wiki-img { width: 22px; height: 22px; }
 
 /* ==========================================================================
    11. 移动端 App 式布局
@@ -1614,12 +1628,12 @@ footer p { margin-bottom: 0.5rem; }
   }
 
   .wiki-grid {
-    grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)) !important;
-    gap: 0.5rem !important;
+    grid-template-columns: repeat(auto-fill, minmax(58px, 1fr)) !important;
+    gap: 0.35rem !important;
   }
 
   .wiki-card {
-    padding: 0.5rem 0.25rem !important;
+    padding: 0.35rem 0.15rem !important;
     aspect-ratio: 1 !important;
     justify-content: center !important;
     align-items: center !important;
@@ -1648,8 +1662,8 @@ footer p { margin-bottom: 0.5rem; }
   .wiki-card-icon img { width: 32px !important; height: 32px !important; }
 
   .char-grid {
-    grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)) !important;
-    gap: 0.5rem !important;
+    grid-template-columns: repeat(auto-fill, minmax(58px, 1fr)) !important;
+    gap: 0.35rem !important;
   }
 
   .char-card {
@@ -1658,7 +1672,7 @@ footer p { margin-bottom: 0.5rem; }
     align-items: center !important;
     justify-content: center !important;
     gap: 0.25rem !important;
-    padding: 0.5rem 0.25rem !important;
+    padding: 0.35rem 0.15rem !important;
     border-radius: 8px !important;
     aspect-ratio: 1 !important;
     background: var(--bg-card) !important;
@@ -1920,7 +1934,7 @@ footer p { margin-bottom: 0.5rem; }
     border-radius: 10px;
   }
 
-  /* ---- 百科桌面增强 — 展开完整卡片 ---- */
+  /* 百科/角色过滤器 — 桌面横排 */
   .wiki-filter-panel {
     flex-direction: row !important;
     flex-wrap: wrap;
@@ -1941,197 +1955,26 @@ footer p { margin-bottom: 0.5rem; }
     margin-left: auto;
   }
 
-  /* 百科卡片：从紧凑图标展开为完整信息卡 */
-  .wiki-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 0.75rem;
-  }
-
-  .wiki-card {
-    aspect-ratio: auto;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    border-radius: 12px;
-    min-height: 0;
-  }
-
-  .wiki-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
-  }
-
-  .wiki-card-header {
-    display: flex;
-    flex-direction: row !important;
-    align-items: center;
+  /* 百科/角色卡片 — 桌面仅微调尺寸，保持紧凑 */
+  .wiki-grid, .char-grid {
     gap: 0.6rem;
-    width: 100%;
   }
 
-  .wiki-card-icon {
-    width: 44px; height: 44px;
-    font-size: 1.8rem;
-    border-radius: 8px;
-    flex-shrink: 0;
+  .wiki-card .wiki-card-icon,
+  .char-card .char-avatar-box {
+    width: 40px; height: 40px;
+    font-size: 1.5rem;
   }
 
-  .wiki-card-icon .wiki-img { width: 38px; height: 38px; }
-
-  .wiki-card-title {
-    flex: 1;
-    min-width: 0;
+  .wiki-card .wiki-card-icon .wiki-img,
+  .char-card .char-avatar-box .wiki-img {
+    width: 34px; height: 34px;
   }
 
-  .wiki-card-title h4 {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-text);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .wiki-card-title span {
-    display: block !important;
-    font-size: 0.7rem;
-    color: var(--color-text-dim);
-    margin-top: 2px;
-  }
-
-  .wiki-card-badge {
-    display: inline-flex !important;
-    position: static;
-    align-self: flex-start;
-    margin: 0;
-    font-size: 0.65rem;
-    padding: 2px 6px;
-  }
-
-  .wiki-card-desc {
-    display: block !important;
-    font-size: 0.78rem;
-    color: var(--gray-100);
-    line-height: 1.45;
-    flex: 1;
-  }
-
-  .wiki-card-footer {
-    display: flex !important;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 0.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  .wiki-card-rating {
-    font-size: 0.8rem;
-  }
-
-  .wiki-card-meta {
-    font-size: 0.7rem;
-    color: var(--color-text-dim);
-  }
-
-  /* ---- 角色志桌面增强 — 展开完整卡片 ---- */
-  .char-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 0.75rem;
-  }
-
-  .char-card {
-    aspect-ratio: auto;
-    padding: 1.1rem;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.6rem;
-    border-radius: 12px;
-    min-height: 0;
-    align-items: stretch !important;
-  }
-
-  .char-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 28px rgba(139, 92, 246, 0.18);
-  }
-
-  .char-card-header {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 0.6rem !important;
-    width: 100%;
-  }
-
-  .char-avatar-box {
-    width: 44px; height: 44px;
-    font-size: 1.8rem;
-    border-radius: 8px;
-    flex-shrink: 0;
-  }
-
-  .char-name-group {
-    flex: 1;
-    min-width: 0;
-  }
-
+  .wiki-card-title h4,
   .char-name-group h4 {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--color-text);
-  }
-
-  .char-name-group span {
-    display: block !important;
-    font-size: 0.7rem;
-    color: var(--color-text-dim);
-    margin-top: 2px;
-  }
-
-  .char-badge {
-    display: inline-flex !important;
-    position: static;
-    align-self: flex-start;
-    margin: 0;
     font-size: 0.65rem;
-    padding: 2px 6px;
   }
-
-  .char-desc-block {
-    display: block !important;
-    font-size: 0.8rem;
-    line-height: 1.4;
-    padding: 0.6rem;
-    border-radius: 8px;
-  }
-
-  .char-unlock-cond {
-    display: block !important;
-    font-size: 0.78rem;
-    line-height: 1.4;
-    padding: 0.5rem 0.6rem;
-    border-radius: 8px;
-  }
-
-  .char-build-section {
-    display: block !important;
-  }
-
-  .char-actions {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-  }
-
-  .char-interactive-item {
-    font-size: 0.75rem;
-    padding: 5px 10px;
-    min-height: 34px;
-  }
-}
 
 /* ---- 14c. 宽屏增强 ≥1400px ---- */
 @media (min-width: 1400px) {
@@ -2182,31 +2025,6 @@ footer p { margin-bottom: 0.5rem; }
 
   .sim-item .item-icon { font-size: 2.2rem; }
   .sim-item .item-name { font-size: 0.72rem; }
-
-  /* 百科 — 三列大卡片 */
-  .wiki-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
-  }
-
-  .wiki-card {
-    padding: 1.2rem;
-    border-radius: 14px;
-  }
-
-  .wiki-card-title h4 { font-size: 0.9rem; }
-  .wiki-card-desc { font-size: 0.82rem; line-height: 1.5; }
-
-  /* 角色志 — 双列宽卡 */
-  .char-grid {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1rem;
-  }
-
-  .char-card {
-    padding: 1.3rem;
-    border-radius: 14px;
-  }
 
   /* 规划器 — 宽屏左右双面板 */
   .planner-desktop-layout {

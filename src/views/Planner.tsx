@@ -232,7 +232,7 @@ export const Planner: React.FC<PlannerProps> = ({
               <Icon name="sword" size={18} style={{ color: 'var(--glow-blue)' }} />
               主武器 ({selectedWeaponsCount}/6)
             </h3>
-            <div className="build-slots-grid">
+            <div className="slots-grid">
               {buildWeapons.map((key, index) => {
                 if (key) {
                   const item = VS_DATA.items[key];
@@ -269,7 +269,7 @@ export const Planner: React.FC<PlannerProps> = ({
               <Icon name="shield" size={18} style={{ color: 'var(--glow-green)' }} />
               被动 ({selectedPassivesCount}/6)
             </h3>
-            <div className="build-slots-grid">
+            <div className="slots-grid">
               {buildPassives.map((key, index) => {
                 if (key) {
                   const item = VS_DATA.items[key];
