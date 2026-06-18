@@ -214,7 +214,7 @@ export const Simulator: React.FC<SimulatorProps> = ({
     return 'altar-condition-tip';
   };
 
-  const renderSlotIcon = (name: 'flask' | 'shield' | 'question' | 'close' | 'crown', size?: number, color?: string) => (
+  const renderSlotIcon = (name: 'sword' | 'flask' | 'shield' | 'question' | 'close' | 'crown', size?: number, color?: string) => (
     <Icon name={name} size={size || 28} style={{ color: color || 'var(--color-text-dim)', opacity: 0.6 }} />
   );
 
@@ -397,7 +397,7 @@ export const Simulator: React.FC<SimulatorProps> = ({
                   role="button"
                   tabIndex={0}
                   aria-label={item.name}
-                  aria-disabled={isDisabled}
+                  aria-disabled={isDisabled || undefined}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault();
@@ -441,7 +441,7 @@ export const Simulator: React.FC<SimulatorProps> = ({
                   role="button"
                   tabIndex={0}
                   aria-label={item.name}
-                  aria-disabled={isDisabled}
+                  aria-disabled={isDisabled || undefined}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
                       e.preventDefault();
