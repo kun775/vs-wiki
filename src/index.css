@@ -1825,8 +1825,10 @@ footer p { margin-bottom: 0.5rem; }
   }
 
   /* 内容区 — 仅占中间列，可滚动 */
+  /* min-height: 0 是关键 — 允许 1fr 行收缩，防止导航栏被挤出视口 */
   .tab-content {
     grid-column: 2;
+    min-height: 0;
     display: block !important;
     overflow-y: auto !important;
     padding: 1rem 1.25rem 0.5rem;
