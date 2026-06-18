@@ -31,7 +31,7 @@ export const Planner: React.FC<PlannerProps> = ({
   const [pickerPos, setPickerPos] = useState<PickerPosition>({ top: 0, left: 0 });
   const pickerRef = useRef<HTMLDivElement>(null);
 
-  const handleOpenPicker = (type: 'base' | 'passive', slotIndex: number, event: React.MouseEvent<HTMLDivElement>) => {
+  const handleOpenPicker = (type: 'base' | 'passive', slotIndex: number, event: React.MouseEvent<HTMLDivElement> | React.KeyboardEvent<HTMLDivElement>) => {
     setPickerType(type);
     setPickerSlotIndex(slotIndex);
     const rect = event.currentTarget.getBoundingClientRect();
@@ -240,7 +240,7 @@ export const Planner: React.FC<PlannerProps> = ({
                     <div className="build-slot active" key={index}
                       onClick={(e) => handleOpenPicker('base', index, e)}
                       role="button" tabIndex={0} aria-label={item.name}
-                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleOpenPicker('base', index, e as any); } }}
+                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleOpenPicker('base', index, e); } }}
                     >
                       <span className="slot-icon"><GameIcon item={item} size={20} /></span>
                       <span className="slot-name">{item.name}</span>
@@ -252,7 +252,7 @@ export const Planner: React.FC<PlannerProps> = ({
                   <div className="build-slot" key={index}
                     onClick={(e) => handleOpenPicker('base', index, e)}
                     role="button" tabIndex={0} aria-label={`主武器槽位 ${index + 1}`}
-                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleOpenPicker('base', index, e as any); } }}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleOpenPicker('base', index, e); } }}
                   >
                     <span className="slot-icon">
                       <Icon name="plus" size={18} style={{ color: 'var(--color-text-dim)' }} />
@@ -277,7 +277,7 @@ export const Planner: React.FC<PlannerProps> = ({
                     <div className="build-slot active" key={index}
                       onClick={(e) => handleOpenPicker('passive', index, e)}
                       role="button" tabIndex={0} aria-label={item.name}
-                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleOpenPicker('passive', index, e as any); } }}
+                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleOpenPicker('passive', index, e); } }}
                     >
                       <span className="slot-icon"><GameIcon item={item} size={20} /></span>
                       <span className="slot-name">{item.name}</span>
@@ -289,7 +289,7 @@ export const Planner: React.FC<PlannerProps> = ({
                   <div className="build-slot" key={index}
                     onClick={(e) => handleOpenPicker('passive', index, e)}
                     role="button" tabIndex={0} aria-label={`被动槽位 ${index + 1}`}
-                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleOpenPicker('passive', index, e as any); } }}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleOpenPicker('passive', index, e); } }}
                   >
                     <span className="slot-icon">
                       <Icon name="plus" size={18} style={{ color: 'var(--color-text-dim)' }} />

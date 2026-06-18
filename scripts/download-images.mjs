@@ -6,7 +6,7 @@
  * 用法: node scripts/download-images.mjs
  */
 
-import { mkdirSync, existsSync, writeFileSync, readdirSync, statSync } from 'fs';
+import { mkdirSync, existsSync, writeFileSync, readFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -117,30 +117,34 @@ const ITEM_WIKI_OVERRIDES = {
   'mini_shapeshifter': 'Mini_Shapeshifter',
 };
 
-const CHAR_WIKI_NAMES = {
-  'antonio': 'Antonio_Belpaese',
-  'imelda': 'Imelda_Belpaese',
-  'pasqualina': 'Pasqualina_Belpaese',
-  'gennaro': 'Gennaro_Belpaese',
-  'poe': 'Poe_Ratcho',
-  'suor_clerici': 'Suor_Clerici',
-  'porta': 'Porta_Ladonna',
-  'arca': 'Arca_Ladonna',
-  'krochi': 'Krochi_Freetto',
-  'christine': 'Christine_Davain',
-  'miang': 'Miang_Moonspell',
-  'menya': 'Menya_Moonspell',
-  'syuuto': 'Syuuto_Moonspell',
-  'eleanor': 'Eleanor_Uziron',
-  'maruto': 'Maruto_Cuts',
-  'keitha': 'Keitha_Muort',
-  'crewmate': 'Crewmate_Dino',
-  'impostor': 'Impostor_Rina',
-  'bill': 'Bill_Rizer',
-  'lance': 'Lance_Bean',
-  'simon': 'Simon_Belmont',
-  'alucard': 'Alucard',
-};
+// 所有角色 wiki 名从 char-data.json 自动加载（运行"node scripts/scrape-characters.mjs"后生成）
+let CHAR_WIKI_NAMES = {};
+try {
+  const charDataPath = join(PROJECT_ROOT, 'scripts', 'char-data.json');
+  if (existsSync(charDataPath)) {
+    const charData = JSON.parse(readFileSync(charDataPath, 'utf-8'));
+    for (const [key, data] of Object.entries(charData)) {
+      if (data.wikiPage) {
+        CHAR_WIKI_NAMES[key] = data.wikiPage;
+      }
+    }
+    console.log(`Loaded ${Object.keys(CHAR_WIKI_NAMES).length} character wiki names from char-data.json`);
+  } else {
+    console.log('char-data.json not found, using fallback');
+    CHAR_WIKI_NAMES = {
+      'antonio': 'Antonio_Belpaese', 'imelda': 'Imelda_Belpaese', 'pasqualina': 'Pasqualina_Belpaese',
+      'gennaro': 'Gennaro_Belpaese', 'poe': 'Poe_Ratcho', 'porta': 'Porta_Ladonna',
+      'arca': 'Arca_Ladonna', 'krochi': 'Krochi_Freetto', 'christine': 'Christine_Davain',
+      'simon': 'Simon_Belmont', 'alucard': 'Alucard', 'miang': 'Miang_Moonspell',
+      'menya': 'Menya_Moonspell', 'syuuto': 'Syuuto_Moonspell', 'eleanor': 'Eleanor_Uziron',
+      'maruto': 'Maruto_Cuts', 'keitha': 'Keitha_Muort', 'crewmate': 'Crewmate_Dino',
+      'impostor': 'Impostor_Rina', 'bill': 'Bill_Rizer', 'lance': 'Lance_Bean',
+    };
+  }
+} catch (err) {
+  console.error('Error loading char-data.json:', err.message);
+  CHAR_WIKI_NAMES = {};
+}
 
 function getWikiName(key) {
   const override = ITEM_WIKI_OVERRIDES[key];
@@ -164,17 +168,47 @@ async function downloadFile(url, destPath) {
   }
 }
 
+// 从 vsData.ts 文件中提取 items 的所有 key
+function extractItemKeys() {
+  const vsPath = join(PROJECT_ROOT, 'src', 'data', 'vsData.ts');
+  const content = readFileSync(vsPath, 'utf-8');
+  // 匹配 items: { ... } 块中的顶层 key (形如 "keyname": 的行)
+  const itemsStart = content.indexOf('items: {');
+  if (itemsStart === -1) return [];
+  
+  // 找到 items 块的结束位置
+  let depth = 0;
+  let itemsEnd = -1;
+  for (let i = itemsStart; i < content.length; i++) {
+    if (content[i] === '{') depth++;
+    if (content[i] === '}') {
+      depth--;
+      if (depth === 0) { itemsEnd = i + 1; break; }
+    }
+  }
+  if (itemsEnd === -1) return [];
+  
+  const itemsBlock = content.slice(itemsStart, itemsEnd);
+  // 提取所有字符串 key（顶层，缩进 8 个空格）
+  const keyRegex = /^\s{8}"(\w+)":\s*\{/gm;
+  const keys = [];
+  let match;
+  while ((match = keyRegex.exec(itemsBlock)) !== null) {
+    keys.push(match[1]);
+  }
+  return keys;
+}
+
 async function main() {
   const iconsDir = join(PROJECT_ROOT, 'public', 'icons');
   const charsDir = join(PROJECT_ROOT, 'public', 'characters');
   mkdirSync(iconsDir, { recursive: true });
   mkdirSync(charsDir, { recursive: true });
 
-  // 动态导入 vsData 获取所有 key
-  const { VS_DATA } = await import(join(PROJECT_ROOT, 'src', 'data', 'vsData.ts'));
-
-  const itemKeys = Object.keys(VS_DATA.items);
-  const charKeys = Object.keys(VS_DATA.characters);
+  // 从 vsData.ts 提取物品 key
+  const itemKeys = extractItemKeys();
+  // 从 char-data.json 获取角色 key
+  const charKeys = Object.keys(CHAR_WIKI_NAMES);
 
   console.log(`Downloading ${itemKeys.length} item icons and ${charKeys.length} character portraits...`);
 
