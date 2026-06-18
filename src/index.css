@@ -1621,10 +1621,13 @@ footer p { margin-bottom: 0.5rem; }
 
   .tab-content {
     flex: 1;
+    display: block !important;
     overflow-y: auto !important;
-    padding: 0.75rem 0.75rem 130px 0.75rem !important;
+    padding: 0.75rem 0.75rem 0;
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom, 16px)) !important;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
+    overscroll-behavior: contain;
   }
 
   .wiki-grid {
@@ -1761,9 +1764,12 @@ footer p { margin-bottom: 0.5rem; }
    14. 桌面端增强样式 (≥768px 起，逐级强化)
    ========================================================================== */
 
-/* ---- 14a. 通用增强 ≥768px ---- */
+/* ---- 14a. PC 端三栏居中布局 ≥768px ---- */
 @media (min-width: 768px) {
   body {
+    height: 100vh;
+    height: -webkit-fill-available;
+    overflow: hidden !important;
     background-image:
       radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.12) 0%, transparent 55%),
       radial-gradient(ellipse at 15% 70%, rgba(139, 92, 246, 0.07) 0%, transparent 45%),
@@ -1771,15 +1777,133 @@ footer p { margin-bottom: 0.5rem; }
       radial-gradient(ellipse at 50% 100%, rgba(255, 215, 0, 0.03) 0%, transparent 50%);
   }
 
-  .container { padding: 2rem 2rem 1rem; }
+  /* 三栏容器：左右空白 | 中间内容区 */
+  .container {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 720px) 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    height: -webkit-fill-available;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
 
-  /* Header — 更大更气派 */
+  /* Header — 仅占中间列 */
   header {
-    padding: 3rem 2rem 2.5rem;
-    margin-bottom: 2.5rem;
-    border-radius: 0 0 24px 24px;
-    background: rgba(15, 7, 27, 0.7);
+    grid-column: 2;
+    padding: 1.5rem 1.5rem 1.25rem;
+    margin-bottom: 0;
+    border-radius: 0 0 16px 16px;
+    background: rgba(15, 7, 27, 0.8);
     border-bottom: 1px solid var(--border-color);
+  }
+
+  header::before {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #bd00ff, var(--color-accent), var(--glow-blue), transparent);
+    opacity: 0.7;
+  }
+
+  .header-tag {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 0.35rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    max-width: 500px;
+    line-height: 1.4;
+  }
+
+  /* 内容区 — 仅占中间列，可滚动 */
+  .tab-content {
+    grid-column: 2;
+    display: block !important;
+    overflow-y: auto !important;
+    padding: 1rem 1.25rem 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    scroll-behavior: smooth;
+  }
+
+  .tab-content.active {
+    display: block !important;
+  }
+
+  /* Tab nav — 固定在底部，仅占中间列 */
+  .tabs-nav {
+    grid-column: 2;
+    position: static !important;
+    top: auto !important;
+    margin-bottom: 0 !important;
+    background: rgba(15, 7, 27, 0.98) !important;
+    border-top: 1px solid var(--border-color);
+    border-bottom: none !important;
+    padding: 0.6rem 1.5rem 0.75rem !important;
+    border-radius: 16px 16px 0 0 !important;
+    z-index: 998 !important;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4) !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-around !important;
+    overflow-x: hidden !important;
+    gap: 0.75rem !important;
+  }
+
+  .tab-btn {
+    flex: 1 !important;
+    padding: 0.55rem 0.5rem !important;
+    font-size: 0.9rem !important;
+    border-radius: 10px !important;
+    gap: 0.35rem;
+    box-shadow: none !important;
+    text-align: center;
+    justify-content: center;
+    min-height: 44px;
+    background: rgba(23, 12, 41, 0.9);
+  }
+
+  .tab-btn.active {
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.25) !important;
+  }
+
+  /* Footer — 隐藏（移动端也没有） */
+  footer { display: none !important; }
+
+  /* 段落间呼吸感 */
+  .altar-section,
+  .build-section-card,
+  .radar-panel,
+  .build-evolutions-card {
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    padding-left: 8px;
+  }
+}
+
+/* ---- 14b. 中等桌面增强 ≥1024px ---- */
+@media (min-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr minmax(0, 800px) 1fr;
+  }
+
+  header {
+    padding: 2rem 2rem 1.5rem;
+    border-radius: 0 0 20px 20px;
   }
 
   header::before {
@@ -1788,150 +1912,65 @@ footer p { margin-bottom: 0.5rem; }
     opacity: 0.8;
   }
 
-  .header-tag {
-    font-size: 0.85rem;
-    letter-spacing: 4px;
-    margin-bottom: 0.75rem;
-  }
+  .header-tag { font-size: 0.8rem; letter-spacing: 4px; }
+  h1 { font-size: 1.8rem; }
+  .subtitle { font-size: 0.9rem; }
 
-  h1 {
-    font-size: 2.4rem;
-    letter-spacing: -1px;
-    line-height: 1.2;
-  }
+  .tab-content { padding: 1.25rem 1.5rem 0.75rem; }
 
-  .subtitle {
-    font-size: 1.05rem;
-    max-width: 700px;
-    line-height: 1.6;
-  }
-
-  /* Tab nav — 居中，更大间距 */
   .tabs-nav {
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2.5rem;
-    top: 1rem;
+    padding: 0.65rem 2rem 0.85rem !important;
+    gap: 1rem !important;
   }
 
   .tab-btn {
-    padding: 0.85rem 1.8rem;
-    font-size: 1.1rem;
-    border-radius: 12px;
-    gap: 0.5rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.6rem 0.5rem !important;
+    font-size: 0.95rem !important;
   }
-
-  .tab-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.18);
-  }
-
-  .tab-btn.active {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.35);
-    transform: translateY(-1px);
-  }
-
-  /* 段落间呼吸感 */
-  .altar-section,
-  .build-section-card,
-  .radar-panel,
-  .build-evolutions-card {
-    margin-bottom: 1.75rem;
-  }
-
-  .section-title {
-    font-size: 1rem;
-    margin-bottom: 0.75rem;
-    padding-left: 10px;
-  }
-
-  footer {
-    padding: 3rem 2rem;
-    margin-top: 3rem;
-    font-size: 0.8rem;
-  }
-}
-
-/* ---- 14b. 大幅增强 ≥1024px ---- */
-@media (min-width: 1024px) {
-  .container { padding: 2.5rem 3rem 1.5rem; }
-
-  /* Header 进一步强化 */
-  header {
-    padding: 3.5rem 3rem 3rem;
-    margin-bottom: 3rem;
-  }
-
-  h1 { font-size: 2.8rem; }
-  .subtitle { font-size: 1.1rem; }
-  .header-tag { font-size: 0.9rem; letter-spacing: 5px; }
 
   /* ---- 合成器桌面增强 ---- */
-
-  /* 祭坛更大更气派 */
   .altar-section {
-    padding: 2.5rem 2rem;
-    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
   }
 
-  .altar-slots { gap: 2.5rem; }
+  .altar-slots { gap: 2rem; }
 
   .altar-slot {
-    width: 130px; height: 130px;
-    border-radius: 18px;
-    border-width: 2px;
-    font-size: 0.85rem;
+    width: 110px; height: 110px;
+    border-radius: 14px;
   }
 
-  .altar-slot .slot-icon { font-size: 2.8rem; margin-bottom: 0.3rem; }
-  .altar-slot .slot-name { font-size: 0.8rem; }
+  .altar-slot .slot-icon { font-size: 2.4rem; }
+  .altar-slot .slot-name { font-size: 0.7rem; }
 
   .altar-slot.result-slot {
-    width: 150px; height: 150px;
-    border-width: 4px;
+    width: 130px; height: 130px;
   }
 
-  .altar-plus, .altar-equal { font-size: 1.8rem; }
+  .altar-plus, .altar-equal { font-size: 1.6rem; }
 
-  .altar-title { font-size: 1.1rem; margin-bottom: 1.75rem; }
-
-  /* 选择池 — 更大卡片 */
-  .sim-col { padding: 1.5rem; border-radius: 14px; }
-
-  .sim-selector { gap: 2.5rem; }
+  .sim-col { padding: 1.25rem; border-radius: 14px; }
+  .sim-selector { gap: 2rem; }
 
   .item-grid {
-    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-    gap: 0.6rem;
-    max-height: 480px;
+    grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+    gap: 0.5rem;
+    max-height: 400px;
   }
 
-  .sim-item {
-    border-radius: 10px;
-  }
-
-  .sim-item .item-icon { font-size: 2rem; }
-  .sim-item .item-name { font-size: 0.7rem; margin-top: 0.3rem; }
+  .sim-item .item-icon { font-size: 1.8rem; }
+  .sim-item .item-name { font-size: 0.65rem; }
 
   .sim-item:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 16px rgba(139, 92, 246, 0.2);
   }
 
-  /* 搜索框 */
   .sim-search-box input {
-    padding: 0.7rem 1rem 0.7rem 2.5rem;
-    font-size: 0.9rem;
-    border-radius: 10px;
-  }
-
-  /* 预览路径 */
-  .preview-combo-row {
-    padding: 0.75rem 1rem;
-    border-radius: 10px;
+    padding: 0.6rem 0.75rem 0.6rem 2.3rem;
+    font-size: 0.85rem;
   }
 
   /* 百科/角色过滤器 — 桌面横排 */
@@ -1950,151 +1989,103 @@ footer p { margin-bottom: 0.5rem; }
 
   .wiki-filter-panel .sim-search-box {
     flex: 1;
-    min-width: 200px;
-    max-width: 320px;
+    min-width: 180px;
+    max-width: 280px;
     margin-left: auto;
   }
 
-  /* 百科/角色卡片 — 桌面仅微调尺寸，保持紧凑 */
-  .wiki-grid, .char-grid {
-    gap: 0.6rem;
-  }
-
-  .wiki-card .wiki-card-icon,
-  .char-card .char-avatar-box {
-    width: 40px; height: 40px;
-    font-size: 1.5rem;
-  }
-
-  .wiki-card .wiki-card-icon .wiki-img,
-  .char-card .char-avatar-box .wiki-img {
-    width: 34px; height: 34px;
-  }
-
-  .wiki-card-title h4,
-  .char-name-group h4 {
-    font-size: 0.65rem;
-  }
-
-/* ---- 14c. 宽屏增强 ≥1400px ---- */
-@media (min-width: 1400px) {
-  .container {
-    max-width: 1400px;
-    padding: 3rem 4rem 2rem;
-  }
-
-  header {
-    padding: 4rem 4rem 3.5rem;
-  }
-
-  h1 { font-size: 3.2rem; }
-
-  /* 合成器 — 超宽三列信息布局 */
-  .altar-section {
-    padding: 3rem 3rem;
-  }
-
-  .altar-slots { gap: 3rem; }
-
-  .altar-slot {
-    width: 150px; height: 150px;
-  }
-
-  .altar-slot.result-slot {
-    width: 170px; height: 170px;
-    border-width: 5px;
-  }
-
-  .altar-slot .slot-icon { font-size: 3.2rem; }
-  .altar-slot .slot-name { font-size: 0.85rem; }
-
-  .altar-plus, .altar-equal { font-size: 2rem; }
-
-  /* 选择池在宽屏下左右分栏 */
-  .sim-pools-container {
-    gap: 1.5rem;
-  }
-
-  .sim-selector { gap: 3rem; }
-
-  .item-grid {
-    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-    gap: 0.7rem;
-    max-height: 520px;
-  }
-
-  .sim-item .item-icon { font-size: 2.2rem; }
-  .sim-item .item-name { font-size: 0.72rem; }
-
-  /* 规划器 — 宽屏左右双面板 */
-  .planner-desktop-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .planner-slots-column {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .planner-sidebar-column {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .radar-svg-container {
-    width: 260px; height: 260px;
-  }
-
-  .evolutions-list { max-height: 300px; }
-}
-
-/* ---- 14d. 模态弹窗桌面 ---- */
-@media (min-width: 768px) {
-  .modal {
-    width: 520px;
-    padding: 1.75rem;
-    border-radius: 20px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .modal {
-    width: 560px;
-    max-width: 90vw;
-  }
-}
-
-/* ---- 14e. Build Picker 选择器桌面 ---- */
-@media (min-width: 768px) {
-  #build-picker-container {
-    width: 320px;
-    border-radius: 14px;
-    padding: 1.25rem;
-  }
-}
-
-/* ---- 14f. 规划器桌面布局补丁 ---- */
-@media (min-width: 1024px) {
+  /* 规划器 — 双面板 */
   .build-planner-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
     align-items: start;
   }
 
   .planner-slots-area {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
   .planner-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
+  }
+
+  /* 预览路径 */
+  .preview-combo-row {
+    padding: 0.6rem 0.75rem;
+  }
+}
+
+/* ---- 14c. 宽屏增强 ≥1400px ---- */
+@media (min-width: 1400px) {
+  .container {
+    grid-template-columns: 1fr minmax(0, 880px) 1fr;
+  }
+
+  header {
+    padding: 2.5rem 2.5rem 2rem;
+  }
+
+  h1 { font-size: 2rem; }
+  .subtitle { font-size: 0.95rem; }
+  .header-tag { font-size: 0.85rem; }
+
+  .tab-content { padding: 1.5rem 2rem 1rem; }
+
+  .tabs-nav {
+    padding: 0.7rem 2.5rem 0.9rem !important;
+    gap: 1.5rem !important;
+  }
+
+  .tab-btn { font-size: 1rem !important; }
+
+  /* 合成器 */
+  .altar-section { padding: 2.5rem 2rem; }
+  .altar-slots { gap: 2.5rem; }
+
+  .altar-slot { width: 130px; height: 130px; }
+  .altar-slot .slot-icon { font-size: 2.8rem; }
+  .altar-slot.result-slot { width: 150px; height: 150px; }
+
+  .item-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 0.6rem;
+    max-height: 440px;
+  }
+
+  .sim-item .item-icon { font-size: 2rem; }
+  .sim-item .item-name { font-size: 0.7rem; }
+
+  .sim-selector { gap: 2.5rem; }
+
+  /* 规划器 */
+  .build-planner-layout { gap: 1.5rem; }
+}
+
+/* ---- 14d. 模态弹窗桌面 ---- */
+@media (min-width: 768px) {
+  .modal {
+    width: 480px;
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .modal {
+    width: 500px;
+  }
+}
+
+/* ---- 14e. Build Picker 桌面 ---- */
+@media (min-width: 768px) {
+  #build-picker-container {
+    width: 300px;
+    border-radius: 12px;
+    padding: 1rem;
   }
 }
