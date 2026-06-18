@@ -1623,8 +1623,8 @@ footer p { margin-bottom: 0.5rem; }
     flex: 1;
     display: block !important;
     overflow-y: auto !important;
-    padding: 0.75rem 0.75rem 0;
-    padding-bottom: calc(5rem + env(safe-area-inset-bottom, 16px)) !important;
+    padding: 0.75rem 0.75rem 7rem;
+    padding-bottom: calc(7rem + env(safe-area-inset-bottom, 16px)) !important;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
     overscroll-behavior: contain;
