@@ -224,10 +224,10 @@ export const Planner: React.FC<PlannerProps> = ({
 
   return (
     <div className="planner-tab-content">
-      <div className="build-planner-layout" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem' }}>
-        <div className="slots-area">
+      <div className="build-planner-layout">
+        <div className="planner-slots-column">
           {/* 主武器配置 */}
-          <div className="build-section-card" style={{ marginBottom: '0.75rem' }}>
+          <div className="build-section-card">
             <h3 className="section-title" style={{ borderLeft: '3px solid var(--glow-blue)' }}>
               <Icon name="sword" size={18} style={{ color: 'var(--glow-blue)' }} />
               主武器 ({selectedWeaponsCount}/6)
@@ -301,14 +301,15 @@ export const Planner: React.FC<PlannerProps> = ({
           </div>
         </div>
 
-        {/* 雷达图 */}
-        <div className="radar-area" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-card)', borderRadius: '12px', border: '1px solid var(--border-color)', padding: '1rem' }}>
-          <h3 className="section-title" style={{ color: 'var(--color-text-muted)', marginBottom: '0.75rem' }}>
-            <Icon name="chart" size={18} style={{ color: 'var(--color-text-dim)' }} />
-            综合配装属性五维雷达
-          </h3>
-          <div style={{ position: 'relative', width: '200px', height: '200px' }}>
-            <svg width="200" height="200" style={{ overflow: 'visible' }}>
+        <div className="planner-sidebar-column">
+          {/* 雷达图 */}
+          <div className="radar-area" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-card)', borderRadius: '12px', border: '1px solid var(--border-color)', padding: '1rem' }}>
+            <h3 className="section-title" style={{ color: 'var(--color-text-muted)', marginBottom: '0.75rem' }}>
+              <Icon name="chart" size={18} style={{ color: 'var(--color-text-dim)' }} />
+              综合配装属性五维雷达
+            </h3>
+            <div className="radar-svg-container" style={{ position: 'relative' }}>
+              <svg width="200" height="200" viewBox="0 0 200 200" style={{ overflow: 'visible', width: '100%', height: 'auto', maxWidth: '260px' }}>
               <polygon points={svgData.bg1} fill="rgba(139,92,246,0.05)" stroke="rgba(139,92,246,0.3)" strokeWidth="1" />
               <polygon points={svgData.bg2} fill="none" stroke="rgba(139,92,246,0.15)" strokeWidth="1" />
               <polygon points={svgData.bg3} fill="none" stroke="rgba(139,92,246,0.15)" strokeWidth="1" />
@@ -328,18 +329,19 @@ export const Planner: React.FC<PlannerProps> = ({
             </svg>
           </div>
         </div>
-      </div>
 
-      {/* 进化超武预测 */}
-      <div className="build-evolutions-card" style={{ marginTop: '1rem', background: 'rgba(15, 7, 27, 0.4)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '1rem' }}>
-        <h3 className="section-title" style={{ borderLeft: '3px solid var(--glow-gold)' }}>
-          <Icon name="crystal" size={18} style={{ color: 'var(--glow-gold)' }} />
-          自动合成预测超武列表
-        </h3>
-        <div id="build-evolutions-list">
-          {getEvolutionsPreviewList()}
+        {/* 进化超武预测 */}
+        <div className="build-evolutions-card" style={{ background: 'rgba(15, 7, 27, 0.4)', border: '1px solid var(--border-color)', borderRadius: '12px', padding: '1rem' }}>
+          <h3 className="section-title" style={{ borderLeft: '3px solid var(--glow-gold)' }}>
+            <Icon name="crystal" size={18} style={{ color: 'var(--glow-gold)' }} />
+            自动合成预测超武列表
+          </h3>
+          <div id="build-evolutions-list">
+            {getEvolutionsPreviewList()}
+          </div>
         </div>
       </div>
+    </div>
 
       {/* Popover 选择器 */}
       {pickerOpen && (
