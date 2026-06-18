@@ -323,7 +323,7 @@ export const Simulator: React.FC<SimulatorProps> = ({
       </div>
 
       {/* 选择池网格 */}
-      <div className="sim-pools-container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '0.5rem' }}>
+      <div className="sim-pools-container" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem', marginTop: '0.5rem' }}>
         {/* 主武器池 */}
         <div>
           <h3 className="section-title" style={{ fontSize: '0.85rem', marginBottom: '0.5rem', borderLeft: '3px solid var(--glow-blue)', paddingLeft: '5px' }}>

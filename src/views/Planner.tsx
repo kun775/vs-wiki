@@ -286,7 +286,7 @@ export const Planner: React.FC<PlannerProps> = ({
   return (
     <div className="planner-tab-content">
       {/* 槽位与雷达图并列排布 */}
-      <div className="build-planner-layout" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '1.5rem' }}>
+      <div className="build-planner-layout" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem' }}>
         
         {/* 左侧：槽位区域 */}
         <div className="slots-area">

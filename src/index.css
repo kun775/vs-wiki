@@ -274,6 +274,50 @@
     /* ==========================================================================
        5. 模块一：超武合成模拟器 (Evolution Combiner)
        ========================================================================== */
+
+    /* 模态弹窗 — 固定定位遮罩层 */
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 9998;
+    }
+
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100vw - 2rem);
+      max-width: 480px;
+      max-height: calc(100vh - 4rem);
+      overflow-y: auto;
+      background: var(--bg-card, #0f0a1e);
+      border: 1px solid var(--border-color, rgba(139,92,246,0.3));
+      border-radius: 16px;
+      padding: 1.25rem;
+      z-index: 9999;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+    }
+
+    @media (min-width: 768px) {
+      .modal {
+        width: 480px;
+        padding: 1.5rem;
+      }
+    }
+
+    /* 合成器物品选择池网格 */
+    .sim-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+      gap: 0.4rem;
+    }
+
     .altar-section {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
@@ -763,6 +807,30 @@
         font-size: 8px;
         padding: 1px 3px;
         transform: none;
+      }
+    }
+
+    /* 合成器双栏池：桌面端左右并排 */
+    @media (min-width: 768px) {
+      .sim-pools-container {
+        grid-template-columns: 1fr 1fr !important;
+      }
+      .build-planner-layout {
+        grid-template-columns: 1.2fr 0.8fr !important;
+        gap: 1.5rem !important;
+      }
+    }
+
+    /* 规划器槽位网格 */
+    .build-slots-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .build-slots-grid {
+        grid-template-columns: repeat(6, 1fr);
       }
     }
 
