@@ -82,13 +82,14 @@ body {
 ::-webkit-scrollbar-thumb:hover { background: var(--color-accent-hover); }
 
 .container {
-  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 1rem;
-}
-
-@media (min-width: 768px) {
-  .container { padding: 1.5rem; }
+  padding: 0;
 }
 
 /* ==========================================================================
@@ -96,20 +97,14 @@ body {
    ========================================================================== */
 header {
   text-align: center;
-  margin-bottom: 1.5rem;
-  padding: 1.5rem 0.75rem;
-  background: rgba(15, 7, 27, 0.75);
+  margin-bottom: 0;
+  padding: 0.5rem 0.5rem;
+  background: rgba(6, 2, 12, 0.96);
   border-bottom: 1px solid var(--border-color);
-  border-radius: 0 0 16px 16px;
+  border-radius: 0;
   position: relative;
-}
-
-@media (min-width: 768px) {
-  header {
-    margin-bottom: 2rem;
-    padding: 2rem 1rem;
-    border-radius: 0 0 20px 20px;
-  }
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 header::before {
@@ -165,15 +160,13 @@ h1 {
    ========================================================================== */
 .tabs-nav {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   gap: 0.5rem;
-  margin-bottom: 1.5rem;
-  position: sticky;
-  top: 0.5rem;
+  flex-shrink: 0;
   z-index: 100;
   overflow-x: auto;
   white-space: nowrap;
-  padding: 0.25rem 0.25rem;
+  padding: 0.5rem 0.75rem 0.75rem;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
@@ -234,7 +227,13 @@ h1 {
 
 .tab-content {
   display: none;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
   animation: fadeIn 0.4s ease;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: 0.75rem;
 }
 
 .tab-content.active {
@@ -1540,33 +1539,17 @@ footer p { margin-bottom: 0.5rem; }
    ========================================================================== */
 @media (max-width: 767px) {
   body {
-    height: 100vh;
-    height: -webkit-fill-available;
     overflow: hidden !important;
   }
 
   .container {
-    --header-height: 44px;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    height: -webkit-fill-available;
     padding: 0 !important;
     margin: 0 !important;
     max-width: 100% !important;
   }
 
   header {
-    position: sticky !important;
-    top: 0;
-    z-index: 1001;
-    background: rgba(6, 2, 12, 0.96);
     backdrop-filter: blur(8px);
-    margin-bottom: 0 !important;
-    padding: 0.5rem 0.5rem !important;
-    border-radius: 0 !important;
-    flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   }
 
   header h1 {
@@ -1578,23 +1561,12 @@ footer p { margin-bottom: 0.5rem; }
   header .subtitle { display: none !important; }
 
   .tabs-nav {
-    position: fixed !important;
-    bottom: 0; left: 0; right: 0;
-    top: auto !important;
-    margin-bottom: 0 !important;
     background: rgba(15, 7, 27, 0.98) !important;
     border-top: 1px solid var(--border-color);
     border-bottom: none !important;
-    padding: 0.5rem 0.75rem 0.75rem !important;
+    padding: 0.5rem 0.75rem calc(0.75rem + env(safe-area-inset-bottom, 0px)) !important;
     border-radius: 16px 16px 0 0 !important;
-    z-index: 998 !important;
     box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.5) !important;
-    background: rgba(15, 7, 27, 0.98) !important;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    justify-content: space-around !important;
-    overflow-x: hidden !important;
     gap: 0.35rem !important;
   }
 
@@ -1621,15 +1593,8 @@ footer p { margin-bottom: 0.5rem; }
   }
 
   .tab-content {
-    flex: 0 0 auto;
-    /* 导航栏约 56-72px(含 padding/border/radius)，取 5rem 留足余量 */
-    height: calc(100vh - var(--header-height, 44px) - calc(5rem + env(safe-area-inset-bottom, 16px)));
-    display: block !important;
-    overflow-y: auto !important;
     padding: 0.75rem 0.75rem 1rem;
-    -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
-    overscroll-behavior: contain;
   }
 
   .wiki-grid {
@@ -1766,12 +1731,9 @@ footer p { margin-bottom: 0.5rem; }
    14. 桌面端增强样式 (≥768px 起，逐级强化)
    ========================================================================== */
 
-/* ---- 14a. PC 端三栏居中布局 ≥768px ---- */
+/* ---- 14a. PC 端居中布局 ≥768px ---- */
 @media (min-width: 768px) {
   body {
-    height: 100vh;
-    height: -webkit-fill-available;
-    overflow: hidden !important;
     background-image:
       radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.12) 0%, transparent 55%),
       radial-gradient(ellipse at 15% 70%, rgba(139, 92, 246, 0.07) 0%, transparent 45%),
@@ -1779,26 +1741,15 @@ footer p { margin-bottom: 0.5rem; }
       radial-gradient(ellipse at 50% 100%, rgba(255, 215, 0, 0.03) 0%, transparent 50%);
   }
 
-  /* 三栏容器：左右空白 | 中间内容区 */
+  /* 居中列布局 — 与移动端共享同一套 flex 结构 */
   .container {
-    display: grid;
-    grid-template-columns: 1fr minmax(0, 720px) 1fr;
-    grid-template-rows: auto 1fr auto;
-    height: 100vh;
-    height: -webkit-fill-available;
-    max-width: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
+    max-width: 720px !important;
   }
 
-  /* Header — 仅占中间列 */
   header {
-    grid-column: 2;
     padding: 1.5rem 1.5rem 1.25rem;
-    margin-bottom: 0;
     border-radius: 0 0 16px 16px;
     background: rgba(15, 7, 27, 0.8);
-    border-bottom: 1px solid var(--border-color);
   }
 
   header::before {
@@ -1826,41 +1777,16 @@ footer p { margin-bottom: 0.5rem; }
     line-height: 1.4;
   }
 
-  /* 内容区 — 仅占中间列，可滚动 */
-  /* min-height: 0 是关键 — 允许 1fr 行收缩，防止导航栏被挤出视口 */
   .tab-content {
-    grid-column: 2;
-    min-height: 0;
-    display: block !important;
-    overflow-y: auto !important;
-    padding: 1.25rem 1.25rem 2.5rem;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
-    scroll-behavior: smooth;
+    padding: 1.25rem 1.25rem 1.5rem;
   }
 
-  .tab-content.active {
-    display: block !important;
-  }
-
-  /* Tab nav — 固定在底部，仅占中间列 */
   .tabs-nav {
-    grid-column: 2;
-    position: static !important;
-    top: auto !important;
-    margin-bottom: 0 !important;
     background: rgba(15, 7, 27, 0.98) !important;
     border-top: 1px solid var(--border-color);
-    border-bottom: none !important;
     padding: 0.6rem 1.5rem 0.75rem !important;
     border-radius: 16px 16px 0 0 !important;
-    z-index: 998 !important;
     box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4) !important;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    justify-content: space-around !important;
-    overflow-x: hidden !important;
     gap: 0.75rem !important;
   }
 
@@ -1881,10 +1807,8 @@ footer p { margin-bottom: 0.5rem; }
     box-shadow: 0 0 12px rgba(139, 92, 246, 0.25) !important;
   }
 
-  /* Footer — 隐藏（移动端也没有） */
   footer { display: none !important; }
 
-  /* 段落间呼吸感 */
   .altar-section,
   .build-section-card,
   .radar-panel,
@@ -1902,7 +1826,7 @@ footer p { margin-bottom: 0.5rem; }
 /* ---- 14b. 中等桌面增强 ≥1024px ---- */
 @media (min-width: 1024px) {
   .container {
-    grid-template-columns: 1fr minmax(0, 800px) 1fr;
+    max-width: 800px !important;
   }
 
   header {
@@ -1920,7 +1844,7 @@ footer p { margin-bottom: 0.5rem; }
   h1 { font-size: 1.8rem; }
   .subtitle { font-size: 0.9rem; }
 
-  .tab-content { padding: 1.5rem 1.5rem 3rem; }
+  .tab-content { padding: 1.5rem 1.5rem 1.5rem; }
 
   .tabs-nav {
     padding: 0.65rem 2rem 0.85rem !important;
@@ -2018,7 +1942,6 @@ footer p { margin-bottom: 0.5rem; }
     gap: 0.75rem;
   }
 
-  /* 预览路径 */
   .preview-combo-row {
     padding: 0.6rem 0.75rem;
   }
@@ -2027,7 +1950,7 @@ footer p { margin-bottom: 0.5rem; }
 /* ---- 14c. 宽屏增强 ≥1400px ---- */
 @media (min-width: 1400px) {
   .container {
-    grid-template-columns: 1fr minmax(0, 880px) 1fr;
+    max-width: 880px !important;
   }
 
   header {
@@ -2038,7 +1961,7 @@ footer p { margin-bottom: 0.5rem; }
   .subtitle { font-size: 0.95rem; }
   .header-tag { font-size: 0.85rem; }
 
-  .tab-content { padding: 1.5rem 2rem 3.5rem; }
+  .tab-content { padding: 1.5rem 2rem 1.5rem; }
 
   .tabs-nav {
     padding: 0.7rem 2.5rem 0.9rem !important;
