@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vs-wiki.pages.dev/sitemap.xml

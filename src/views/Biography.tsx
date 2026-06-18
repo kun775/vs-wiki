@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { VS_DATA } from '../data/vsData';
 import type { Character } from '../data/vsData';
 import GameIcon from '../components/GameIcon';
+import { Modal } from '../components/Modal';
 
 interface BiographyProps {
   activeCharKey: string | null;
@@ -172,6 +173,9 @@ export const Biography: React.FC<BiographyProps> = ({
               className="char-card"
               key={key}
               onClick={() => setActiveCharKey(key)}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActiveCharKey(key); } }}
+              role="button"
+              tabIndex={0}
               style={{ cursor: 'pointer' }}
             >
               <div className="char-card-header">
@@ -236,35 +240,8 @@ export const Biography: React.FC<BiographyProps> = ({
       </div>
 
       {/* 角色详情弹窗 */}
-      {activeChar && activeCharKey && (
-        <>
-          <div
-            className="modal-backdrop"
-            id="char-detail-backdrop"
-            style={{ display: 'block' }}
-            onClick={() => setActiveCharKey(null)}
-          />
-          <div
-            className="modal"
-            id="char-detail-modal"
-            style={{ display: 'block' }}
-          >
-            <button
-              onClick={() => setActiveCharKey(null)}
-              style={{
-                position: 'absolute',
-                right: '12px',
-                top: '12px',
-                background: 'none',
-                border: 'none',
-                color: 'var(--color-text-muted)',
-                fontSize: '1.5rem',
-                cursor: 'pointer',
-                lineHeight: 1
-              }}
-            >
-              &times;
-            </button>
+      <Modal open={!!activeChar && !!activeCharKey} onClose={() => setActiveCharKey(null)}>
+        {activeChar && activeCharKey && (
             <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <span className="char-badge" style={{ position: 'static', alignSelf: 'flex-start', margin: 0 }}>
                 {VS_DATA.categories[activeChar.category] || '未知'}
@@ -380,9 +357,8 @@ export const Biography: React.FC<BiographyProps> = ({
                 </button>
               </div>
             </div>
-          </div>
-        </>
-      )}
+        )}
+      </Modal>
     </div>
   );
 };

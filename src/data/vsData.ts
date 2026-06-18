@@ -10,6 +10,9 @@ export interface GameItem {
   rating?: number;
   icon?: string;
   review?: string;
+  img?: string;
+  imgLocal?: string;
+  imgRemote?: string;
   stats?: {
     dps?: number;
     sur?: number;
@@ -29,6 +32,9 @@ export interface Character {
   unlock: string;
   recommends: string[];
   avatar?: string;
+  img?: string;
+  imgLocal?: string;
+  imgRemote?: string;
 }
 
 export interface Evolution {
@@ -382,7 +388,7 @@ export const VS_DATA: VSData = {
       characters: {
         "antonio": {
           name: "安东尼奥",
-          nameEn: "Antonio Belmont",
+          nameEn: "Antonio Belpaese",
           icon: "🧔",
           category: "base",
           initWeaponKey: "whip",
@@ -603,7 +609,11 @@ export const VS_DATA: VSData = {
       }
     };
 
-const WIKI_IMG = 'https://vampire.survivors.wiki/images/';
+const WIKI_IMG_REMOTE = 'https://vampire.survivors.wiki/images/';
+
+// 本地自托管图片路径（运行 npm run download-images 下载到 public/icons/ 和 public/characters/）
+const ICONS_LOCAL = '/icons/';
+const CHARS_LOCAL = '/characters/';
 
 const ITEM_WIKI_OVERRIDES: Record<string, string> = {
   'no_future': 'NO_FUTURE',
@@ -786,17 +796,19 @@ const CHAR_WIKI_NAMES: Record<string, string> = {
   'alucard': 'Alucard',
 };
 
-// 动态拼装图片 URL
+// 动态拼装图片 URL —— 优先使用本地自托管路径，emoji 作为 fallback
 Object.keys(VS_DATA.items).forEach(key => {
   const override = ITEM_WIKI_OVERRIDES[key];
   const wikiName = override || key.split('_').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('_');
-  (VS_DATA.items[key] as any).img = WIKI_IMG + 'Icon-' + wikiName + '.png';
+  VS_DATA.items[key].imgLocal = ICONS_LOCAL + key + '.png';
+  VS_DATA.items[key].imgRemote = WIKI_IMG_REMOTE + 'Icon-' + wikiName + '.png';
 });
 
 Object.keys(VS_DATA.characters).forEach(key => {
   const wikiName = CHAR_WIKI_NAMES[key];
   if (wikiName) {
-    (VS_DATA.characters[key] as any).img = WIKI_IMG + 'Select-' + wikiName + '.png';
+    VS_DATA.characters[key].imgLocal = CHARS_LOCAL + key + '.png';
+    VS_DATA.characters[key].imgRemote = WIKI_IMG_REMOTE + 'Select-' + wikiName + '.png';
   }
 });
 

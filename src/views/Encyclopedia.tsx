@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { VS_DATA } from '../data/vsData';
 import type { GameItem } from '../data/vsData';
 import GameIcon from '../components/GameIcon';
+import { Modal } from '../components/Modal';
 
 interface EncyclopediaProps {
   activeWikiKey: string | null;
@@ -209,6 +210,9 @@ export const Encyclopedia: React.FC<EncyclopediaProps> = ({
               className="wiki-card"
               key={key}
               onClick={() => setActiveWikiKey(key)}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActiveWikiKey(key); } }}
+              role="button"
+              tabIndex={0}
               style={{ cursor: 'pointer' }}
             >
               <span className="wiki-card-badge">{dlcName}</span>
@@ -232,35 +236,8 @@ export const Encyclopedia: React.FC<EncyclopediaProps> = ({
       </div>
 
       {/* 百科详情弹窗 */}
-      {activeItem && activeWikiKey && (
-        <>
-          <div
-            className="modal-backdrop"
-            id="wiki-detail-backdrop"
-            style={{ display: 'block' }}
-            onClick={() => setActiveWikiKey(null)}
-          />
-          <div
-            className="modal"
-            id="wiki-detail-modal"
-            style={{ display: 'block' }}
-          >
-            <button
-              onClick={() => setActiveWikiKey(null)}
-              style={{
-                position: 'absolute',
-                right: '12px',
-                top: '12px',
-                background: 'none',
-                border: 'none',
-                color: 'var(--color-text-muted)',
-                fontSize: '1.5rem',
-                cursor: 'pointer',
-                lineHeight: 1
-              }}
-            >
-              &times;
-            </button>
+      <Modal open={!!activeItem && !!activeWikiKey} onClose={() => setActiveWikiKey(null)}>
+        {activeItem && activeWikiKey && (
             <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <span className="wiki-card-badge" style={{ position: 'static', alignSelf: 'flex-start', margin: 0 }}>
                 {VS_DATA.categories[activeItem.category] || '未知'}
@@ -312,9 +289,8 @@ export const Encyclopedia: React.FC<EncyclopediaProps> = ({
 
               {getEvoInfo(activeWikiKey, activeItem)}
             </div>
-          </div>
-        </>
-      )}
+        )}
+      </Modal>
     </div>
   );
 };

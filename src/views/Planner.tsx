@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { VS_DATA } from '../data/vsData';
 import GameIcon from '../components/GameIcon';
+import { useToast } from '../components/toast-context';
 
 interface PlannerProps {
   buildWeapons: (string | null)[];
@@ -26,6 +27,7 @@ export const Planner: React.FC<PlannerProps> = ({
   setAltarPassive,
   setActiveTab
 }) => {
+  const showToast = useToast();
   const [pickerOpen, setPickerOpen] = useState(false);
   const [pickerType, setPickerType] = useState<'base' | 'passive'>('base');
   const [pickerSlotIndex, setPickerSlotIndex] = useState<number>(0);
@@ -60,7 +62,7 @@ export const Planner: React.FC<PlannerProps> = ({
     
     // 排重校验
     if (list.includes(key) && list[pickerSlotIndex] !== key) {
-      alert(`该${pickerType === 'base' ? '主武器' : '被动道具'}已存在于配装中！`);
+      showToast(`该${pickerType === 'base' ? '主武器' : '被动道具'}已存在于配装中！`);
       return;
     }
 
@@ -209,7 +211,7 @@ export const Planner: React.FC<PlannerProps> = ({
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-        {matchedEvos.map((evo, index) => {
+        {matchedEvos.map((evo) => {
           const wItem = VS_DATA.items[evo.weapon];
           const pItem = VS_DATA.items[evo.passive];
           const eItem = VS_DATA.items[evo.evolved];
@@ -226,7 +228,7 @@ export const Planner: React.FC<PlannerProps> = ({
           return (
             <div 
               className={`evo-combo-item ${hasPassive ? 'completed' : ''}`}
-              key={index}
+              key={`${evo.weapon}-${evo.passive}`}
             >
               <div className="combo-formula">
                 <span 

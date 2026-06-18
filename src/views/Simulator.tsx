@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { VS_DATA } from '../data/vsData';
 import GameIcon from '../components/GameIcon';
 
@@ -16,21 +16,11 @@ export const Simulator: React.FC<SimulatorProps> = ({
   setAltarPassive
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [flashGlow, setFlashGlow] = useState(false);
 
   // 匹配合成
   const match = VS_DATA.evolutions.find(
     evo => evo.weapon === altarWeapon && evo.passive === altarPassive
   );
-
-  // 合成成功触发闪烁
-  useEffect(() => {
-    if (match) {
-      setFlashGlow(true);
-      const timer = setTimeout(() => setFlashGlow(false), 800);
-      return () => clearTimeout(timer);
-    }
-  }, [altarWeapon, altarPassive, match]);
 
   // 高亮与禁用的判定
   const allowedPassives = altarWeapon
@@ -113,7 +103,7 @@ export const Simulator: React.FC<SimulatorProps> = ({
       <>
         <div className="altar-preview-paths-title">{titleText}</div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          {matches.map((evo, index) => {
+          {matches.map((evo) => {
             const w = VS_DATA.items[evo.weapon];
             const p = VS_DATA.items[evo.passive];
             const e = VS_DATA.items[evo.evolved];
@@ -126,7 +116,7 @@ export const Simulator: React.FC<SimulatorProps> = ({
             ) : null;
 
             return (
-              <div className="preview-combo-row" key={index}>
+              <div className="preview-combo-row" key={`${evo.weapon}-${evo.passive}`}>
                 <div className="preview-combo-formula" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.25rem' }}>
                   <span
                     className="preview-combo-item-badge weapon-type"
@@ -212,9 +202,10 @@ export const Simulator: React.FC<SimulatorProps> = ({
       {/* 祭坛区域 */}
       <div className="altar-section">
         <div className="altar-title">🧪 合成进化祭坛 (SYNTHESIZER ALTAR)</div>
-        <div 
-          className="altar-slots" 
-          style={{ animation: flashGlow ? 'altar-glow 0.8s ease-out' : 'none' }}
+        <div
+          className="altar-slots"
+          key={match ? `match-${match.evolved}` : 'no-match'}
+          style={match ? { animation: 'altar-glow 0.8s ease-out' } : undefined}
         >
           {/* 主武器插槽 */}
           <div

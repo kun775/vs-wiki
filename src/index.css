@@ -21,9 +21,9 @@
       --glow-gold: #ffd700;
       --glow-purple: #bd00ff;
       
-      --font-pixel: 'Press Start 2P', cursive;
-      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-      --font-tech: 'Rajdhani', sans-serif;
+      --font-pixel: 'Press Start 2P', 'Courier New', monospace;
+      --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      --font-tech: 'Rajdhani', 'Segoe UI', system-ui, sans-serif;
       
       --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -120,6 +120,17 @@
     @keyframes scanline {
       0% { background-position: -200% 0; }
       100% { background-position: 200% 0; }
+    }
+
+    @keyframes altar-glow {
+      0% { box-shadow: 0 0 0 rgba(255, 215, 0, 0); }
+      30% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
+      100% { box-shadow: 0 0 0 rgba(255, 215, 0, 0); }
+    }
+
+    @keyframes toast-slide {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .header-tag {
@@ -1515,12 +1526,11 @@
        10. 移动端 App 式固定布局与列表紧凑化
        ========================================================================== */
     @media (max-width: 767px) {
-      /* 强制外部不可滚动 */
+      /* App 式固定布局 */
       body {
         height: 100vh;
         height: -webkit-fill-available;
         overflow: hidden !important;
-        touch-action: none;
       }
       .container {
         display: flex;
