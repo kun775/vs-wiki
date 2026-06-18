@@ -27,39 +27,41 @@ export const Encyclopedia: React.FC<EncyclopediaProps> = ({
         const evolved = VS_DATA.items[evo.evolved];
         if (partner && evolved) {
           const condText = evo.cond ? (
-            <div style={{ color: 'var(--glow-gold)', fontSize: '0.75rem', marginTop: '0.25rem' }}>
-              ⚠️ 条件：{evo.cond}
+            <div style={{ color: 'var(--glow-gold)', fontSize: '0.7rem', marginTop: '0.2rem' }}>
+              ⚠️ {evo.cond}
             </div>
           ) : null;
           return (
             <div style={{ marginTop: '0.75rem', borderTop: '1px solid var(--border-color)', paddingTop: '0.75rem' }}>
-              <div style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginBottom: '0.25rem' }}>
+              <div style={{ color: 'var(--color-text-muted)', fontSize: '0.75rem', marginBottom: '0.3rem' }}>
                 🧪 超武合成配方
               </div>
-              <div style={{ fontSize: '0.9rem', lineHeight: 1.5 }}>
-                <span 
+              <div style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', flexWrap: 'nowrap', gap: '0.25rem', overflow: 'hidden' }}>
+                <span
                   onClick={() => setActiveWikiKey(key)}
-                  style={{ cursor: 'pointer', textDecoration: 'underline' }}
+                  style={{ cursor: 'pointer', color: 'var(--color-text)', flexShrink: 0 }}
                 >
-                  <GameIcon item={item} size={20} /> {item.name}
+                  <GameIcon item={item} size={18} /> {item.name}
                 </span>
-                &nbsp;+&nbsp;
-                <span 
+                <span style={{ color: 'var(--color-text-muted)', flexShrink: 0 }}>+</span>
+                <span
                   onClick={() => setActiveWikiKey(partnerKey)}
-                  style={{ cursor: 'pointer', textDecoration: 'underline', color: 'var(--color-text-muted)' }}
+                  style={{ cursor: 'pointer', color: 'var(--color-text-muted)', flexShrink: 0 }}
                 >
-                  <GameIcon item={partner} size={20} /> {partner.name}
+                  <GameIcon item={partner} size={18} /> {partner.name}
                 </span>
-                <br />
-                ➡️&nbsp;
-                <strong 
+                <span style={{ color: 'var(--color-text-muted)', flexShrink: 0 }}>➡️</span>
+                <strong
                   onClick={() => setActiveWikiKey(evo.evolved)}
-                  style={{ cursor: 'pointer', textDecoration: 'underline', color: 'var(--glow-gold)' }}
+                  style={{ cursor: 'pointer', color: 'var(--glow-gold)', flexShrink: 0 }}
                 >
-                  <GameIcon item={evolved} size={20} /> {evolved.name}
+                  <GameIcon item={evolved} size={18} /> {evolved.name}
                 </strong>
-                {condText}
               </div>
+              <div style={{ fontSize: '0.78rem', lineHeight: 1.4, marginTop: '0.3rem', color: '#cbd5e1' }}>
+                {evolved.desc}
+              </div>
+              {condText}
             </div>
           );
         }
@@ -71,35 +73,35 @@ export const Encyclopedia: React.FC<EncyclopediaProps> = ({
         const p = VS_DATA.items[match.passive];
         if (w && p) {
           const condText = match.cond ? (
-            <div style={{ color: 'var(--glow-gold)', fontSize: '0.75rem', marginTop: '0.25rem' }}>
-              ⚠️ 要求：{match.cond}
+            <div style={{ color: 'var(--glow-gold)', fontSize: '0.7rem', marginTop: '0.2rem' }}>
+              ⚠️ {match.cond}
             </div>
           ) : (
-            <div style={{ color: 'var(--color-text-muted)', fontSize: '0.75rem', marginTop: '0.25rem' }}>
+            <div style={{ color: 'var(--color-text-muted)', fontSize: '0.7rem', marginTop: '0.2rem' }}>
               💡 要求：主武器满级 + 被动1级
             </div>
           );
           return (
             <div style={{ marginTop: '0.75rem', borderTop: '1px solid var(--border-color)', paddingTop: '0.75rem' }}>
-              <div style={{ color: 'var(--color-text-muted)', fontSize: '0.85rem', marginBottom: '0.25rem' }}>
+              <div style={{ color: 'var(--color-text-muted)', fontSize: '0.75rem', marginBottom: '0.3rem' }}>
                 🧪 合成公式
               </div>
-              <div style={{ fontSize: '0.9rem', lineHeight: 1.5 }}>
-                <span 
+              <div style={{ fontSize: '0.85rem', display: 'flex', alignItems: 'center', flexWrap: 'nowrap', gap: '0.25rem', overflow: 'hidden' }}>
+                <span
                   onClick={() => setActiveWikiKey(match.weapon)}
-                  style={{ cursor: 'pointer', textDecoration: 'underline' }}
+                  style={{ cursor: 'pointer', color: 'var(--color-text)', flexShrink: 0 }}
                 >
-                  <GameIcon item={w} size={20} /> {w.name}
+                  <GameIcon item={w} size={18} /> {w.name}
                 </span>
-                &nbsp;+&nbsp;
-                <span 
+                <span style={{ color: 'var(--color-text-muted)', flexShrink: 0 }}>+</span>
+                <span
                   onClick={() => setActiveWikiKey(match.passive)}
-                  style={{ cursor: 'pointer', textDecoration: 'underline' }}
+                  style={{ cursor: 'pointer', color: 'var(--color-text-muted)', flexShrink: 0 }}
                 >
-                  <GameIcon item={p} size={20} /> {p.name}
+                  <GameIcon item={p} size={18} /> {p.name}
                 </span>
-                {condText}
               </div>
+              {condText}
             </div>
           );
         }
@@ -136,16 +138,9 @@ export const Encyclopedia: React.FC<EncyclopediaProps> = ({
   return (
     <div className="wiki-tab-content">
       {/* 过滤器面板 */}
-      <div className="wiki-filter-panel" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem', background: 'rgba(23, 12, 41, 0.4)', padding: '0.75rem', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
-        {/* DLC 分类过滤 */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem', alignItems: 'center' }}>
-          <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', marginRight: '0.2rem' }}>DLC 版本:</span>
-          <button
-            className={`filter-badge ${dlcFilter === 'all' ? 'active' : ''}`}
-            onClick={() => setDlcFilter('all')}
-          >
-            全部
-          </button>
+      <div className="wiki-filter-panel" style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '0.6rem', background: 'rgba(15, 7, 27, 0.5)', padding: '0.5rem', borderRadius: '8px', border: '1px solid rgba(139,92,246,0.15)' }}>
+        {/* 第一行：DLC + 类型 */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem', alignItems: 'center' }}>
           {Object.keys(VS_DATA.categories).map(catKey => (
             <button
               key={catKey}
@@ -156,10 +151,7 @@ export const Encyclopedia: React.FC<EncyclopediaProps> = ({
             </button>
           ))}
         </div>
-
-        {/* 道具类型过滤 */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem', alignItems: 'center', marginLeft: 'auto' }}>
-          <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', marginRight: '0.2rem' }}>类型:</span>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem', alignItems: 'center' }}>
           <button
             className={`filter-badge ${typeFilter === 'all' ? 'active' : ''}`}
             onClick={() => setTypeFilter('all')}
@@ -176,21 +168,21 @@ export const Encyclopedia: React.FC<EncyclopediaProps> = ({
             className={`filter-badge ${typeFilter === 'passive' ? 'active' : ''}`}
             onClick={() => setTypeFilter('passive')}
           >
-            被动道具
+            被动
           </button>
           <button
             className={`filter-badge ${typeFilter === 'evolved' ? 'active' : ''}`}
             onClick={() => setTypeFilter('evolved')}
           >
-            超级武器
+            超武
           </button>
         </div>
 
-        {/* 文本搜索输入框 */}
-        <div className="sim-search-box" style={{ width: '100%', margin: '0.4rem 0 0 0' }}>
+        {/* 搜索框 */}
+        <div className="sim-search-box" style={{ width: '100%', margin: 0 }}>
           <input
             type="text"
-            placeholder="输入武器名称、描述或 DLC 检索词..."
+            placeholder="搜索武器名称或描述..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />

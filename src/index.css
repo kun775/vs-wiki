@@ -824,14 +824,8 @@
     /* 规划器槽位网格 */
     .build-slots-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.5rem;
-    }
-
-    @media (min-width: 768px) {
-      .build-slots-grid {
-        grid-template-columns: repeat(6, 1fr);
-      }
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.3rem;
     }
 
     /* ==========================================================================
@@ -951,36 +945,48 @@
 
     .wiki-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+      gap: 0.4rem;
     }
 
     .wiki-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1rem;
+      border-radius: 8px;
+      padding: 0.4rem 0.2rem;
       position: relative;
       overflow: hidden;
       transition: var(--transition-normal);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      gap: 0.6rem;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      aspect-ratio: 1;
+      cursor: pointer;
+    }
+
+    .wiki-card-badge,
+    .wiki-card-desc,
+    .wiki-card-footer {
+      display: none;
     }
 
     .wiki-card-header {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 0.75rem;
+      justify-content: center;
+      gap: 0.2rem;
+      width: 100%;
     }
 
     .wiki-card-icon {
-      font-size: 1.8rem;
-      width: 44px;
-      height: 44px;
+      font-size: 1.3rem;
+      width: 36px;
+      height: 36px;
       background: rgba(6, 2, 12, 0.4);
-      border-radius: 8px;
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -988,24 +994,35 @@
       flex-shrink: 0;
     }
 
+    .wiki-card-icon .wiki-img {
+      width: 32px;
+      height: 32px;
+    }
+
     @media (min-width: 768px) {
       .wiki-card-icon {
-        font-size: 2.2rem;
-        width: 50px;
-        height: 50px;
-        border-radius: 10px;
+        font-size: 1.5rem;
+        width: 40px;
+        height: 40px;
+      }
+      .wiki-card-icon .wiki-img {
+        width: 36px;
+        height: 36px;
       }
     }
 
     .wiki-card-title h4 {
-      font-size: 1rem;
-      font-weight: 600;
+      font-size: 0.6rem;
+      font-weight: 500;
+      text-align: center;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .wiki-card-title span {
-      font-size: 0.7rem;
-      color: var(--color-text-muted);
-      font-family: var(--font-tech);
+      display: none;
     }
 
     .wiki-card-badge {
@@ -1121,8 +1138,8 @@
 
     .build-slot {
       aspect-ratio: 1;
-      border: 2px dashed rgba(139, 92, 246, 0.2);
-      border-radius: 8px;
+      border: 1px dashed rgba(139, 92, 246, 0.2);
+      border-radius: 6px;
       background: rgba(0, 0, 0, 0.3);
       display: flex;
       flex-direction: column;
@@ -1131,7 +1148,8 @@
       position: relative;
       cursor: pointer;
       transition: var(--transition-fast);
-      padding: 0.15rem;
+      padding: 2px;
+      user-select: none;
     }
 
     .build-slot:hover {
@@ -1140,28 +1158,32 @@
     }
 
     .build-slot.active {
-      border: 2px solid var(--color-accent);
+      border: 1px solid var(--color-accent);
       background: rgba(139, 92, 246, 0.1);
     }
 
     .build-slot .slot-icon {
-      font-size: 1.4rem;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     @media (min-width: 768px) {
       .build-slot .slot-icon {
-        font-size: 1.8rem;
+        font-size: 1.2rem;
       }
     }
 
     .build-slot .slot-name {
-      font-size: 0.55rem;
+      font-size: 0.5rem;
       text-align: center;
       width: 100%;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       margin-top: 1px;
+      color: var(--color-text-muted);
     }
 
     .build-slot .remove-btn {
@@ -1322,22 +1344,31 @@
        ========================================================================== */
     .char-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+      gap: 0.4rem;
     }
-    
+
     .char-card {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.25rem 1rem;
+      border-radius: 8px;
+      padding: 0.4rem 0.2rem;
       position: relative;
       overflow: hidden;
       transition: var(--transition-normal);
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
-      backdrop-filter: blur(10px);
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      aspect-ratio: 1;
+      cursor: pointer;
+    }
+
+    .char-card > div:not(.char-card-header),
+    .char-card .char-badge,
+    .char-card .char-actions {
+      display: none;
     }
     
     .char-card:hover {
@@ -1348,45 +1379,48 @@
     
     .char-card-header {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 0.75rem;
+      justify-content: center;
+      gap: 0.2rem;
+      width: 100%;
     }
-    
+
     .char-avatar-box {
-      width: 54px;
-      height: 54px;
+      width: 36px;
+      height: 36px;
       background: rgba(6, 2, 12, 0.5);
-      border-radius: 10px;
+      border-radius: 6px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
+      font-size: 1.3rem;
       border: 1px solid rgba(255,255,255,0.06);
-      box-shadow: 0 0 12px rgba(139, 92, 246, 0.15);
       flex-shrink: 0;
     }
-    
+
     @media (min-width: 768px) {
       .char-avatar-box {
-        width: 60px;
-        height: 60px;
-        border-radius: 12px;
-        font-size: 2.2rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
       }
     }
-    
+
     .char-name-group h4 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #ffffff;
-      line-height: 1.2;
-    }
-    
-    .char-name-group span {
-      font-size: 0.7rem;
-      color: var(--color-text-muted);
-      font-family: var(--font-tech);
+      font-size: 0.6rem;
       font-weight: 500;
+      color: var(--color-text-muted);
+      line-height: 1.2;
+      text-align: center;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .char-name-group span {
+      display: none;
     }
     
     .char-badge {
@@ -1575,9 +1609,9 @@
       height: 36px;
     }
     .char-avatar-box .wiki-img {
-      width: 48px;
-      height: 48px;
-      border-radius: 6px;
+      width: 32px;
+      height: 32px;
+      border-radius: 4px;
     }
     .preview-combo-item-badge .wiki-img,
     .char-interactive-item .wiki-img,

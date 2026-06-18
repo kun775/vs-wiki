@@ -291,9 +291,9 @@ export const Planner: React.FC<PlannerProps> = ({
         {/* 左侧：槽位区域 */}
         <div className="slots-area">
           {/* 主武器配置 */}
-          <div className="build-section-card" style={{ marginBottom: '1rem' }}>
-            <h3 className="section-title" style={{ fontSize: '0.85rem', marginBottom: '0.6rem', borderLeft: '3px solid var(--glow-blue)', paddingLeft: '5px' }}>
-              ⚔️ 已装配主武器 ({selectedWeaponsCount}/6)
+          <div className="build-section-card" style={{ marginBottom: '0.75rem' }}>
+            <h3 className="section-title" style={{ fontSize: '0.8rem', marginBottom: '0.4rem', borderLeft: '3px solid var(--glow-blue)', paddingLeft: '5px' }}>
+              ⚔️ 主武器 ({selectedWeaponsCount}/6)
             </h3>
             <div className="build-slots-grid" id="build-weapons-slots">
               {buildWeapons.map((key, index) => {
@@ -306,7 +306,7 @@ export const Planner: React.FC<PlannerProps> = ({
                       onClick={(e) => handleOpenPicker('base', index, e)}
                     >
                       <span className="slot-icon">
-                        <GameIcon item={item} size={28} />
+                        <GameIcon item={item} size={20} />
                       </span>
                       <span className="slot-name">{item.name}</span>
                       <button
@@ -325,7 +325,6 @@ export const Planner: React.FC<PlannerProps> = ({
                       onClick={(e) => handleOpenPicker('base', index, e)}
                     >
                       <span className="slot-icon">＋</span>
-                      <span className="slot-name">空</span>
                     </div>
                   );
                 }
@@ -335,8 +334,8 @@ export const Planner: React.FC<PlannerProps> = ({
 
           {/* 被动配置 */}
           <div className="build-section-card">
-            <h3 className="section-title" style={{ fontSize: '0.85rem', marginBottom: '0.6rem', borderLeft: '3px solid var(--glow-green)', paddingLeft: '5px' }}>
-              🛡️ 已装配被动道具 ({selectedPassivesCount}/6)
+            <h3 className="section-title" style={{ fontSize: '0.8rem', marginBottom: '0.4rem', borderLeft: '3px solid var(--glow-green)', paddingLeft: '5px' }}>
+              🛡️ 被动 ({selectedPassivesCount}/6)
             </h3>
             <div className="build-slots-grid" id="build-passives-slots">
               {buildPassives.map((key, index) => {
@@ -349,7 +348,7 @@ export const Planner: React.FC<PlannerProps> = ({
                       onClick={(e) => handleOpenPicker('passive', index, e)}
                     >
                       <span className="slot-icon">
-                        <GameIcon item={item} size={28} />
+                        <GameIcon item={item} size={20} />
                       </span>
                       <span className="slot-name">{item.name}</span>
                       <button
@@ -368,7 +367,6 @@ export const Planner: React.FC<PlannerProps> = ({
                       onClick={(e) => handleOpenPicker('passive', index, e)}
                     >
                       <span className="slot-icon">＋</span>
-                      <span className="slot-name">空</span>
                     </div>
                   );
                 }

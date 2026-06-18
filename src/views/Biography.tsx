@@ -131,15 +131,8 @@ export const Biography: React.FC<BiographyProps> = ({
   return (
     <div className="char-tab-content">
       {/* 检索与过滤器面板 */}
-      <div className="wiki-filter-panel" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem', background: 'rgba(23, 12, 41, 0.4)', padding: '0.75rem', borderRadius: '10px', border: '1px solid var(--border-color)' }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem', alignItems: 'center' }}>
-          <span style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', marginRight: '0.2rem' }}>DLC 版本:</span>
-          <button
-            className={`filter-badge ${dlcFilter === 'all' ? 'active' : ''}`}
-            onClick={() => setDlcFilter('all')}
-          >
-            全部
-          </button>
+      <div className="wiki-filter-panel" style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '0.6rem', background: 'rgba(15, 7, 27, 0.5)', padding: '0.5rem', borderRadius: '8px', border: '1px solid rgba(139,92,246,0.15)' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem', alignItems: 'center' }}>
           {Object.keys(VS_DATA.categories).map(catKey => (
             <button
               key={catKey}
@@ -151,10 +144,10 @@ export const Biography: React.FC<BiographyProps> = ({
           ))}
         </div>
 
-        <div className="sim-search-box" style={{ width: '100%', margin: '0.4rem 0 0 0' }}>
+        <div className="sim-search-box" style={{ width: '100%', margin: 0 }}>
           <input
             type="text"
-            placeholder="输入角色名字、解锁条件或被动特性检索..."
+            placeholder="搜索角色名字或解锁条件..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -165,7 +158,6 @@ export const Biography: React.FC<BiographyProps> = ({
       <div className="char-grid">
         {filteredCharKeys.map(key => {
           const char = VS_DATA.characters[key];
-          const dlcName = VS_DATA.categories[char.category] || '未知';
           const initWeapon = VS_DATA.items[char.initWeaponKey];
 
           return (
@@ -180,13 +172,12 @@ export const Biography: React.FC<BiographyProps> = ({
             >
               <div className="char-card-header">
                 <div className="char-avatar-box">
-                  <GameIcon item={char} size={48} />
+                  <GameIcon item={char} size={32} />
                 </div>
                 <div className="char-name-group">
                   <h4>{char.name}</h4>
                   <span>{char.nameEn}</span>
                 </div>
-                <span className="char-badge">{dlcName}</span>
               </div>
               <div className="char-desc-block">
                 <strong>🎭 特性：</strong>

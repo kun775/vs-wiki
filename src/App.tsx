@@ -98,7 +98,7 @@ export const App: React.FC = () => {
             className={`tab-btn ${activeTab === 'simulator' ? 'active' : ''}`}
             onClick={() => handleTabChange('simulator')}
           >
-            合成器
+            合成
           </button>
           <button
             className={`tab-btn ${activeTab === 'encyclopedia' ? 'active' : ''}`}
@@ -110,13 +110,13 @@ export const App: React.FC = () => {
             className={`tab-btn ${activeTab === 'planner' ? 'active' : ''}`}
             onClick={() => handleTabChange('planner')}
           >
-            规划器
+            规划
           </button>
           <button
             className={`tab-btn ${activeTab === 'biography' ? 'active' : ''}`}
             onClick={() => handleTabChange('biography')}
           >
-            角色志
+            角色
           </button>
         </div>
       </div>
