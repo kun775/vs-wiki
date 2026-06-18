@@ -1831,7 +1831,7 @@ footer p { margin-bottom: 0.5rem; }
     min-height: 0;
     display: block !important;
     overflow-y: auto !important;
-    padding: 1rem 1.25rem 0.5rem;
+    padding: 1.25rem 1.25rem 2.5rem;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
     scroll-behavior: smooth;
@@ -1918,7 +1918,7 @@ footer p { margin-bottom: 0.5rem; }
   h1 { font-size: 1.8rem; }
   .subtitle { font-size: 0.9rem; }
 
-  .tab-content { padding: 1.25rem 1.5rem 0.75rem; }
+  .tab-content { padding: 1.5rem 1.5rem 3rem; }
 
   .tabs-nav {
     padding: 0.65rem 2rem 0.85rem !important;
@@ -2036,7 +2036,7 @@ footer p { margin-bottom: 0.5rem; }
   .subtitle { font-size: 0.95rem; }
   .header-tag { font-size: 0.85rem; }
 
-  .tab-content { padding: 1.5rem 2rem 1rem; }
+  .tab-content { padding: 1.5rem 2rem 3.5rem; }
 
   .tabs-nav {
     padding: 0.7rem 2.5rem 0.9rem !important;
