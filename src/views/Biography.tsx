@@ -120,6 +120,7 @@ export const Biography: React.FC<BiographyProps> = ({
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActiveCharKey(key); } }}
               role="button" tabIndex={0}
             >
+              <span className="char-badge">{VS_DATA.categories[char.category] || '未知'}</span>
               <div className="char-card-header">
                 <div className="char-avatar-box">
                   <GameIcon item={char} size={32} />

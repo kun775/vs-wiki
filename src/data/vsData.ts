@@ -396,8 +396,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "whip",
-          passiveDesc: "Antonio starts with +20 and +1 . He gains +10% every 10 levels until level 50. The maximum Might gained this way is +50%. The following table shows how much Might he gains by level: !Levels !Might",
-          unlock: "default",
+          passiveDesc: "安东尼奥 初始 +20，+1。他 获得 +10% 每10级 至 第50级. 通过此方式获得的最高力量为 +50%.",
+          unlock: "初始角色。",
           recommends: []
         },
         "imelda": {
@@ -406,8 +406,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "magic_wand",
-          passiveDesc: "Imelda gains +10% every 5 levels until level 15. The maximum Growth gained this way is +30%. The following table shows how much Growth she gains by level: !Levels!!Growth",
-          unlock: "default",
+          passiveDesc: "伊梅尔达 获得 +10% 每5级 至 第15级. 通过此方式获得的最高成长为 +30%.",
+          unlock: "初始角色。",
           recommends: []
         },
         "pasqualina": {
@@ -416,8 +416,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "runetracer",
-          passiveDesc: "Pasqualina starts with +10% . Additionally, she gains +10% Projectile Speed every 5 levels until level 15. The maximum Projectile Speed gained this way is +30%, or +40% with the starting bonus included. The following table shows how much Speed she gains by level: !Levels !Speed",
-          unlock: "default",
+          passiveDesc: "帕斯夸莉娜 初始拥有 +10%。此外，她 每5级获得 +10% 弹幕 速度，至15级为止. 通过此方式获得的最高弹幕 速度为 +30%,或+40% 含初始加成.",
+          unlock: "初始角色。",
           recommends: []
         },
         "gennaro": {
@@ -426,8 +426,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "knife",
-          passiveDesc: "Gennaro starts with +20 and +1 .",
-          unlock: "default",
+          passiveDesc: "杰纳罗 初始 +20，+1。",
+          unlock: "初始角色。",
           recommends: []
         },
         "arca": {
@@ -436,8 +436,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "fire_wand",
-          passiveDesc: "Arca starts with +10% . He also gains -5% every 10 levels until level 30. The maximum Cooldown reduction gained this way is -15%. The following table shows how much Cooldown reduction he gains by level: !Levels !Cooldown",
-          unlock: "Get [[Fire Wand]] to level 4.",
+          passiveDesc: "阿卡 初始拥有 +10%。他 同时获得 -5% 每10级 至 第30级. 通过此方式获得的最高冷却 减免减免为 -15%.",
+          unlock: "将 火之魔杖 升至4级。",
           recommends: []
         },
         "porta": {
@@ -446,8 +446,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "lightning_ring",
-          passiveDesc: "Porta starts with +30% . Additionally, Porta starts with -90% , however, the bonus depreciates by 30% each level, until the bonus is entirely gone at level 4. !Level!!Cooldown",
-          unlock: "Get [[Lightning Ring]] to level 4.",
+          passiveDesc: "波塔 初始拥有 +30%。此外，波塔 初始拥有 -90%，但加成每级衰减30%，至 此加成 完全归零 在 第4级. !级!!冷却。",
+          unlock: "将 闪电戒指 升至4级。",
           recommends: []
         },
         "lama": {
@@ -456,8 +456,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "axe",
-          passiveDesc: "Lama starts with +10 , +10% , +10% , and +10% . She gains +5% Might, +5% MoveSpeed and +5% Curse every 10 levels until level 40. The maximum stats gained this way is +20%, and +30% in total. The following table shows how much Might, MoveSpeed and Curse she gains by level: !Level!!Might!!MoveSpeed!!Curse",
-          unlock: "Survive 20 minutes with at least 10% {{Stat|Curse}} active.",
+          passiveDesc: "拉玛 初始 +10，+10%，+10%，+10%。她 获得 +5% 力量, +5% 移速，+5% 诅咒 每10级 至 第40级.",
+          unlock: "在至少 10% 诅咒下存活 20 分钟。",
           recommends: []
         },
         "poe": {
@@ -466,8 +466,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "garlic",
-          passiveDesc: "Poe starts with -30 and +25% .",
-          unlock: "Get Garlic to level 7.",
+          passiveDesc: "坡 初始 +30，+25%。",
+          unlock: "将 大蒜 升至7级。",
           recommends: []
         },
         "clerici": {
@@ -476,8 +476,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "santa_water",
-          passiveDesc: "Clerici starts with +50 and +0.5 . Additionally, Clerici starts with +400% , however, the bonus depreciates by 100% each level, until the bonus is entirely gone at level 5. !Level!!Area",
-          unlock: "Recover a total of 1000 HP.",
+          passiveDesc: "克雷莉奇 初始 +50，+0.5。此外，克雷莉奇 初始拥有 +400%，但加成每级衰减100%，至 此加成 完全归零 在 第5级. !级!!范围。",
+          unlock: "累计回复 1000 生命值。",
           recommends: []
         },
         "dommario": {
@@ -486,8 +486,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "king_bible",
-          passiveDesc: "Dommario starts with -40% , +40% , and +40% .",
-          unlock: "Earn 5000 coins in a single run.",
+          passiveDesc: "多马里奥 初始拥有 -40%，+40%，+40%。",
+          unlock: "单局获得 5000 金币。",
           recommends: []
         },
         "krochi": {
@@ -496,8 +496,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "cross",
-          passiveDesc: "Krochi starts with +30% and +1 . He gains +1 Revival at level 33. The following table shows how many Revives he gains by level: !Level!!Revives",
-          unlock: "Defeat a total of 100000 enemies.",
+          passiveDesc: "克罗奇 初始拥有 +30%，+1。他 在第33级获得 +1 复活。",
+          unlock: "累计击败 100,000 个敌人。",
           recommends: []
         },
         "christine": {
@@ -506,8 +506,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "pentagram",
-          passiveDesc: "Christine starts with 1 extra level, -50 , +30% , -35% , and -25% .",
-          unlock: "Get Pentagram to Level 7.",
+          passiveDesc: "克里斯汀 初始 +1 额外1级，-50，+30%，-35%，-25%。",
+          unlock: "将 五芒星 升至7级。",
           recommends: []
         },
         "pugnala": {
@@ -516,8 +516,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "phiera_der_tuphello",
-          passiveDesc: "Pugnala starts with +20% . She gains +1% every level. There is no cap on this bonus.",
-          unlock: "Find and open the coffin in Mad Forest.",
+          passiveDesc: "普格纳拉 初始拥有 +20%。她 获得 +1% 每级. 此加成无上限。",
+          unlock: "在 疯狂森林 找到并打开棺材。",
           recommends: []
         },
         "giovanna": {
@@ -526,8 +526,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "gatti_amari",
-          passiveDesc: "Giovanna starts with +20% . She gains +1% every level; there is no cap on this bonus.",
-          unlock: "Find and open the coffin in Inlaid Library.",
+          passiveDesc: "乔凡娜 初始拥有 +20%。她 获得 +1% 每级; 此加成无上限。",
+          unlock: "在 镶嵌图书馆 找到并打开棺材。",
           recommends: []
         },
         "poppea": {
@@ -536,8 +536,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "song_of_mana",
-          passiveDesc: "Poppea starts with +20% . She gains +1% every level. There is no cap on this bonus.",
-          unlock: "Find and open the coffin in Dairy Plant.",
+          passiveDesc: "波佩亚 初始拥有 +20%。她 获得 +1% 每级. 此加成无上限。",
+          unlock: "在 乳品厂 找到并打开棺材。",
           recommends: []
         },
         "concetta": {
@@ -546,8 +546,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "shadow_pinion",
-          passiveDesc: "Concetta starts with +20% and +10% . She gains +1% every level. There is no cap on this bonus.",
-          unlock: "Find and open the coffin in Gallo Tower.",
+          passiveDesc: "康塞塔 初始拥有 +20%，+10%。她 获得 +1% 每级. 此加成无上限。",
+          unlock: "在 加洛塔 找到并打开棺材。",
           recommends: []
         },
         "mortaccio": {
@@ -556,8 +556,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "bone",
-          passiveDesc: "Mortaccio gains +1 every 20 levels until level 60. The maximum Amount gained this way is +3. The following table shows how much Amount he gains by level: !Levels !Amount",
-          unlock: "Defeat a total of 3000 skeletons or enter the Konami Code in the main menu.",
+          passiveDesc: "莫塔西奥 获得 +1 每20级 至 第60级. 通过此方式获得的最高数量为 +3%.",
+          unlock: "累计击败 3000 个骷髅，或在主菜单输入科乐美秘技后在选人界面输入 spam 并回车。",
           recommends: []
         },
         "yatta": {
@@ -566,8 +566,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "cherry_bomb",
-          passiveDesc: "Cavallo gains +1 every 20 levels until level 60. The maximum Amount gained this way is +3. The following table shows how much Amount he gains by level: !Levels !Amount",
-          unlock: "Defeat a total of 3000 Lion Heads.",
+          passiveDesc: "卡瓦洛 获得 +1 每20级 至 第60级. 通过此方式获得的最高数量为 +3%.",
+          unlock: "累计击败 3000 个 狮头。",
           recommends: []
         },
         "bianca": {
@@ -576,8 +576,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "carrello",
-          passiveDesc: "Ramba gains +1 every 20 levels until level 60. The maximum Amount gained this way is +3. The following table shows how much Amount she gains by level: !Levels !Amount",
-          unlock: "Defeat a total of 3000 Milk Elementals.",
+          passiveDesc: "兰巴 获得 +1 每20级 至 第60级. 通过此方式获得的最高数量为 +3%.",
+          unlock: "累计击败 3000 个 牛奶元素。",
           recommends: []
         },
         "osole": {
@@ -586,8 +586,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "celestial_dusting",
-          passiveDesc: "O'Sole gains +1 every 20 levels until level 60. The maximum Amount gained this way is +3. The following table shows how much Amount it gains by level: !Levels !Amount",
-          unlock: "Defeat a total of 3000 Dragon Shrimps.",
+          passiveDesc: "奥索莱 获得 +1 每20级 至 第60级. 通过此方式获得的最高数量为 +3%.",
+          unlock: "累计击败 3000 个 龙虾。",
           recommends: []
         },
         "ambrojoe": {
@@ -596,8 +596,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "la_robba",
-          passiveDesc: "Ambrojoe starts with +20% , +20% , and +20% . Additionally, Ambrojoe starts with +10 , however, the bonus depreciates by 2 each level, until the bonus is entirely gone at level 6. He gains +1 every 20 levels until level 60. The maximum Amount gained this way is +3. !Levels!!Amount",
-          unlock: "Defeat a total of 6000 Stage Killers.",
+          passiveDesc: "安布罗乔 初始拥有 +20%，+20%，+20%。此外，安布罗乔 初始 +10，但加成每级衰减2%，至 此加成 完全归零 在 第6级. 他 获得 +1 每20级 至 第60级. 通过此方式获得的最高数量为 +3%. !级!!数量。",
+          unlock: "累计击败 6000 个 舞台杀手。",
           recommends: []
         },
         "gallo": {
@@ -606,8 +606,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "clock_lancet",
-          passiveDesc: "Gallo starts with with 1 extra level, +15% , -15% , -50% , +5 , and +5 . They gain +10% every 5 levels up to level 25. The maximum Growth gained this way is +50%. The following table shows how much they gain by level: !Levels!!Growth",
-          unlock: "Obtain the [[Infinite Corridor]]",
+          passiveDesc: "加洛 初始拥有 1 额外1级, +15%，-15%，-50%，+5，+5。他 获得 +10% 每5级 最多 第25级. 通过此方式获得的最高成长为 +50%。",
+          unlock: "获得 无尽回廊。",
           recommends: []
         },
         "divano": {
@@ -616,8 +616,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "laurel",
-          passiveDesc: "Divano starts with 1 extra level, +1 , +30% , -50% , and +10 . They gain +1 every 5 levels up to level 25. The maximum amount of Armor gained this way is +5. The following table shows how much they gain by level: !Levels!!Armor",
-          unlock: "Obtain the [[Crimson Shroud]]",
+          passiveDesc: "迪瓦诺 初始 +1 额外1级，+1，+30%，-50%，+10。他 获得 +1 每5级 最多 第25级. 通过此方式获得的最高数量 的 护甲为 +5%。",
+          unlock: "获得 深红裹尸布。",
           recommends: []
         },
         "ziassunta": {
@@ -626,8 +626,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "vento_sacro",
-          passiveDesc: "Zi'Assunta starts with +20% and +10% . She gains +0.5% , , , and every level. There is no cap on these bonuses.",
-          unlock: "Find and open the coffin in [[Cappella Magna]].",
+          passiveDesc: "齐阿桑塔 初始拥有 +20%，+10%。她 获得 +0.5%，每级. 这些加成无上限。",
+          unlock: "在 大教堂 找到并打开棺材。",
           recommends: []
         },
         "sigma": {
@@ -636,8 +636,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "victory_sword",
-          passiveDesc: "Queen Sigma starts with +233 , +3 , +3 , +50% , +50% , +50% , -25% , +1 , +1 , +100% , +50% , +10% , +108 , +108 , and +108 . She gains +1% Might and +1% every level. There is no cap on these bonuses. At level 2, level 3, level 77, and level 108, the player is allowed to pick one [[Arcana]] from the full list of Arcanas, rather than picking from four randomly chosen ones. Chests that would normally contain Arcanas are replaced with regular chests when playing as her with three or more Arcanas.",
-          unlock: "Complete the [[Collection]].",
+          passiveDesc: "初始 +233，+3，+3，+50%，+50%，+50%，-25%，+1，+1，+100%，+50%，+10%，+108，+108，+108。她 获得 +1% 力量，+1% 每级. 这些加成无上限。在 第2级, 第3级, 第77级,，第108级, 玩家 允许 选取 一个 奥秘 从 满 列表 的 奥秘, 而是 比 选取 从 四 随机 选择 的. 宝箱 会 通常 包含 奥秘 替换 普通 宝箱 当 游玩 当 她的 三或更多 奥秘.",
+          unlock: "完成 收藏 全收集。",
           recommends: []
         },
         "bat_robbert": {
@@ -646,8 +646,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "pako_battiliar",
-          passiveDesc: "Robbert starts with +0.5 , +1 , and +20% . Robbert has an HP-Critical skill that activates as soon as his HP drops below 20% of his , which gives a bonus of +32 Max Health (caps at +665) for the current run and recovers 30% of his HP once triggered. The skill may only be activated again after recovering all of his HP. Receiving fatal damage resulting in a Game Over will not trigger the skill.",
-          unlock: "Evolve the [[Pako Battiliar]].",
+          passiveDesc: "罗贝特 初始拥有 +0.5，+1，+20%。罗贝特 拥有HP暴击技能 激活 一旦 他的 HP 掉落 以下 20% 的 他的，该效果 给予 加成 的 +32 最大生命 (上限为 +665) 持续 当前 游戏，恢复 30% 的 他的 HP 一次 触发. 技能 可能 仅 激活 再次 后 恢复 所有 的 他的 HP. 受到 致命伤害 导致 会 不 触发 技能.",
+          unlock: "进化 帕科战蝠。",
           recommends: []
         },
         "ziappunta": {
@@ -656,8 +656,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "ammo_appalate",
-          passiveDesc: "While playing as Zi'Appunta Belpaese, special [[light source]]s have a chance of appearing in place of regular light sources while moving around. Upon being destroyed, they have small, -based chance to drop a , with another small -based chance for it to be a . Golden Treasure Chests only contain [[weapons]] that the player does not already have, and causes them to appear as [[stage item]]s in a circle around the location the chest was opened instead of equipping them automatically in the player's weapon slots. Finding 10 in a single run will unlock . Zi'Appunta Belpaese can also destroy light sources automatically upon contact with them.",
-          unlock: "Evolve the [[Ammo Appalate]].",
+          passiveDesc: "使用 紫·阿彭塔 贝尔帕斯, 特殊 光源s 有 概率 的 出现 替代 普通 光源 移动时 周围. 当 被 摧毁, 他 有 小, -基于 概率 掉落，另一个 小 -基于 概率 持续 it。宝箱 仅 包含 武器 玩家 不 已经 有,，导致 他们 出现 当 关卡 物品 圆圈 周围 位置 宝箱 打开 取而代之 的 装备 他们 自动 玩家的 武器 栏位. 发现 10 单个 游戏 会 解锁。紫·阿彭塔 贝尔帕斯 可 同时摧毁 光源 自动 当 接触 以 他们.",
+          unlock: "进化 弹药装置。",
           recommends: []
         },
         "big_troubler": {
@@ -666,8 +666,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "unearthly_bolt",
-          passiveDesc: "Big Troubler starts with +20% and +30% . Whenever Big Troubler picks up any amount of [[gold]], he will trigger his starting weapon, or its evolution, regardless of its current [[Weapons#Stats|cooldown]]. His starting weapon will trigger once for every 1 gold gained from that instance, with each activation being delayed by 1 frame. Once Big Troubler has collected gold during a run, he will use it as a shield/secondary [[health]] bar. Any damage taken will be subtracted from the current gold from that run. Once gold reaches 0, the player will begin taking damage to their health again. Big Troubler has a 4 times higher chance of drafting FOIL , and a 2 times chance of drafting a Survarot with an Edition in general.",
-          unlock: "Evolve the Unearthly Bolt",
+          passiveDesc: "大麻烦 初始拥有 +20%，+30%。每当 大麻烦 拾取 任意 数量 金币, 他 会 触发 他的 初始武器,或它的 进化, 无论 的 其 当前 冷却. 他的 初始武器 会 触发 一次 每 1 金币 获得 从 实例, 每 激活 被 延迟 达 1 帧. 一次 大麻烦 拥有 收集 金币 游戏, 他 会 使用 it 作为 护盾/副 生命 条. 任意 伤害 获取 会 减去 从 当前 金币 从 游戏. 一次 金币 达到 0, 玩家 会 开始 受到 伤害 其 生命 再次. 大麻烦 拥有4 次 更高 概率 的 选取，2 次 概率 的 选取 通常.",
+          unlock: "进化 异界闪电。",
           recommends: []
         },
         "she_moon": {
@@ -676,8 +676,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "glass_fandango",
-          passiveDesc: "She-Moon starts with +2 and +20% . She-Moon has an \"HP-Critical\" skill that activates as soon as her HP drops below 20% of her , which [[freeze]]s all enemies for 10 seconds once triggered, similar to an pickup. The skill may only be activated again after recovering all HP. Receiving fatal damage resulting in a game-over will not trigger the skill.",
-          unlock: "默认解锁",
+          passiveDesc: "她-月 初始拥有 +2，+20%。她-月 拥有「HP暴击」技能 激活 一旦 她的 HP 掉落 以下 20% 的 她的，该效果 冰冻 所有 敌人 持续 10 秒 一次 触发, 类似 掉落物. 技能 可能 仅 激活 再次 后 恢复 所有 HP. 受到 致命 伤害 导致 游戏-超过 会 不 触发 技能.",
+          unlock: "默认解锁。",
           recommends: []
         },
         "para_kooleo": {
@@ -686,8 +686,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "",
-          passiveDesc: "Para Kooleo and all of his [[skin]]s start with +30% and +30% . Para Kooleo has an \"HP-Critical\" skill that activates as soon as his HP drops below 20% of his , which triggers a . The skill may only be activated again after recovering all HP. Receiving fatal damage resulting in a game-over will not trigger the skill. *If the player has evolved Penshin Fatcha at least once, this Vacuum will be replaced with a [[Lavatrix Machina]]. Whenever Para Kooleo [[evolution|evolves]] a weapon, his hidden will trigger for 7 seconds. This Acquazzone has a [[base damage]] of 60 and a base of 12. Whenever it is triggered, this Acquazzone gains 6 base damage.",
-          unlock: "Survive 20 minutes in The Lycaeum.",
+          passiveDesc: "帕拉·库雷奥，所有 的 他的 皮肤 初始拥有 +30%，+30%。帕拉·库雷奥 拥有「HP暴击」技能 激活 一旦 他的 HP 掉落 以下 20% 的 他的，该效果 触发。技能 可能 仅 激活 再次 后 恢复 所有 HP. 受到 致命 伤害 导致 游戏-超过 会 不 触发 技能. *If 玩家 拥有 进化 在 至少 一次, 此 真空 会 替换 以获得。每当 帕拉·库雷奥 进化 武器, 他的 隐藏 会 触发 持续 7 秒. 拥有基础伤害 的 60，基数 的 12. 每当是 触发, 此 阿夸佐内 获得 6 基础伤害.",
+          unlock: "在 课堂 存活 20 分钟。",
           recommends: []
         },
         "santa_ladonna": {
@@ -696,8 +696,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "santa_javelin",
-          passiveDesc: "Santa starts with +2 and +30% . Additionally, Santa starts with -70% , however, the bonus depreciates by 20% each level, until the bonus is only -10% at level 4. !Level!!Cooldown Upon reaching level 40 and 80, and will spawn underneath her respectively. Santa has an \"HP-Critical\" skill that activates as soon as her HP drops below 20% of her , which triggers a . The skill may only be activated again after recovering all HP. Receiving fatal damage resulting in a game-over will not trigger the skill.",
-          unlock: "Survive 20 minutes in The [[Laborratory]].",
+          passiveDesc: "圣诞老人 初始拥有 +2，+30%。此外，圣诞老人 初始拥有 -70%，但加成每级衰减20%，至 此加成 仅 -10% 在 第4级. !级!!冷却 达到 第40级，+80,，会 生成 下方 她的 分别. 圣诞老人 拥有「HP暴击」技能 激活 一旦 她的 HP 掉落 以下 20% 的 她的，该效果 触发。技能 可能 仅 激活 再次 后 恢复 所有 HP. 受到 致命 伤害 导致 游戏-超过 会 不 触发 技能.",
+          unlock: "在 实验室 存活 20 分钟。",
           recommends: []
         },
         "gazebo": {
@@ -706,8 +706,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "gaze_of_gaea",
-          passiveDesc: "Gazebo starts with +50% . [[Overhealing]] by +30 provides a stat bonus. After the first time a stat bonus is granted, the bonus will be lessened. Gazebo's sprite will also slightly increase in size for each instance this skill activates. The stats provided and their caps are: !Stat!!Initial Bonus!!Subsequent Bonus!!Max Increase",
-          unlock: "Survive 20 minutes in [[The Coop]]",
+          passiveDesc: "加泽博 初始拥有 +50%。过量治疗 达 +30 提供 属性加成. 后 第一 次 属性加成 授予, 此加成 会 减少. 加泽博的 精灵 会 同时略微 增加 大小 持续 每 实例 此 技能 激活. 属性 提供，其 上限 : 增加。",
+          unlock: "在 鸡舍 存活 20 分钟。",
           recommends: []
         },
         "chula_reh": {
@@ -716,8 +716,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "magi_stone",
-          passiveDesc: "Upon obtaining a , or once every 30 seconds, Chula-Reh rolls a dice above his head. Getting a 2, 3, 4, or 5 just gives him a boost equal to the value rolled for the remainder of the run. * [[Hurry Mode]] does not impact this timer. Rolling a 1 darkens the screen, zooms the camera towards Chula-Reh, and causes the text \"Unlucky!\" to appear above him for about 3 seconds. He then gains +77% and -777% for 30 seconds before triggering to land on him. Rolling a 6 darkens the screen, zooms the camera towards Chula-Reh, and causes the text \"Lucky!\" to appear above him for about 3 seconds. He then gains a bonus of +777% and +77% for 30 seconds and spawns [[light source]]s around him, similar to .",
-          unlock: "Survive 20 minutes in [[Westwoods]].",
+          passiveDesc: "获得，或每30秒, 楚拉-雷 掷出 骰子 上方 他的 头. 获得 2, 3, 4,或5 只 给予 他 加成 等于 数值 掷出 持续 剩余 的 游戏. * 不 影响 此 计时器. 掷出 1 变暗 屏幕, 缩放 镜头 朝向 楚拉-雷,，导致 文字 「倒霉！」 出现 上方 他 持续 大约 3 秒. 他 然后 获得 +77%，-777% 持续 30 秒 之前 触发 落地 在 他. 掷出 6 变暗 屏幕, 缩放 镜头 朝向 楚拉-雷,，导致 文字 「幸运！」 出现 上方 他 持续 大约 3 秒. 他 然后 获得a加成 的 +777%，+77% 持续 30 秒，生成 光源s 周围 他, 类似。",
+          unlock: "在 西林 存活 20 分钟。",
           recommends: []
         },
         "space_dude": {
@@ -726,8 +726,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "phas3r",
-          passiveDesc: "Space Dude starts with +40% . Space Dude will occasionally activate all weapons twice. This effect occurs more often the more reduction the character has. When activated, a green and blue aura circles around Space Dude. At -0% Cooldown, this ability will activate every 10-15 seconds. At the -90% Cooldown cap, it will activate roughly every 3 seconds.",
-          unlock: "Survive 20 minutes in [[Space 54]].",
+          passiveDesc: "太空仔 初始拥有 +40%。太空仔 会偶尔触发 所有武器 两次. 此 效果 发生 更多 频繁地 更多 减免 角色 拥有. 当 激活, 绿色，蓝色 光环 圆圈 周围 太空仔. 在 -0% 冷却, 此 技能 会 激活 每 10-15 秒. 在 -90% 冷却 上限, it 会 激活 大约 每 3 秒.",
+          unlock: "在 太空54 存活 20 分钟。",
           recommends: []
         },
         "exdash": {
@@ -736,8 +736,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "ebony_wings",
-          passiveDesc: "Exdash starts with -23 , -10% , -10% , -10% , -50% , -10% , +10% , and +100% . It gains +10% luck every 10 levels up to level 50. The maximum amount of luck gained that way is +50%, or 150% with the starting bonus included. The following table shows how much Luck it gains by level: !Level!!Luck",
-          unlock: "1) Cast the [[Spells|spell]] x-x1viiq, or find a lot of {{slink|Little Clover|txt=Little Clovers}}.",
+          passiveDesc: "艾克斯达什 初始 +23，-10%，-10%，-10%，-50%，-10%，+10%，+100%。他 每10级获得 +10% 运气 最多 第50级. 最大 数量 的 运气 获得 方式 +50%,或150% 含初始加成.",
+          unlock: "1) Cast spell x-x1viiq, 或 发现 lot 的 Little Clover.",
           recommends: []
         },
         "toastie": {
@@ -746,8 +746,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "peachone",
-          passiveDesc: "Toastie starts with -99 , +20% , -10% , -10% , -50% , -10% , +10% , and +100% . Additionally, Toastie gains more Luck, Max Health and at certain levels: !Level!!Luck!!Max Health!!Armor",
-          unlock: "2) Uppercut a non-red reaper",
+          passiveDesc: "托斯蒂 初始 +99，+20%，-10%，-10%，-50%，-10%，+10%，+100%。此外，托斯蒂 获得 更多 运气, 最大生命，在 特定 级: !级!!运气!!最大生命!!护甲。",
+          unlock: "2)对非红色死神使用上勾拳。",
           recommends: []
         },
         "smith": {
@@ -756,8 +756,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "vandalier",
-          passiveDesc: "Smith starts with -93 , +20% , -10% , -10% , -50% , -10% , +10% , and +100% . It gains +0.01 , +0.7% Might, Area, Projectile Speed, and Duration, -0.25% Cooldown, and +1% Luck every level. There is no cap on these bonuses.",
-          unlock: "3) Sometimes you just need to ask for help.",
+          passiveDesc: "史密斯 初始 +93，+20%，-10%，-10%，-50%，-10%，+10%，+100%。他 获得 +0.01，+0.7% 力量, 范围, 弹幕 速度,，持续, -0.25% 冷却,，+1% 运气 每级. 这些加成无上限。",
+          unlock: "3)有时只需要寻求帮助。",
           recommends: []
         },
         "random": {
@@ -766,8 +766,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "n_a",
-          passiveDesc: "The character is presented with one of eight names, selected at random. The selected name influences the passive bonuses. Below is a table for the stat increases and oscillating stats by name where ''x'' is a decimal value between 0 and 1 and ''y'' is the multiplier from the character.",
-          unlock: "Look under previously owned [[coffin]]s.",
+          passiveDesc: "角色 呈现 一个 的 八 名字, 选择 随机. 选择 名字 影响 被动 加成. 以下 表格 持续 属性 增加，振荡 属性 达 名字 在 ''x'' 十进制 数值 之间 0，+1，''y'' 倍率 从 角色.",
+          unlock: "在之前获得的棺材下寻找。",
           recommends: []
         },
         "boon": {
@@ -776,8 +776,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "thousand_edge",
-          passiveDesc: "Marrabbio starts with +20 , +30% , +20% , -110% , -80% , and +10% .",
-          unlock: "Follow the [[Pickups#Pie|trail]] after pillaging {{slink|Pummarola}} and {{slink|Skull O'Maniac}} from the [[Mad Forest]].",
+          passiveDesc: "马拉比奥 初始 +20，+30%，+20%，-110%，-80%，+10%。",
+          unlock: "在疯狂森林洗劫番茄和骷髅狂之后跟随踪迹。",
           recommends: []
         },
         "avatar": {
@@ -786,8 +786,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "flames_of_misspell",
-          passiveDesc: "Avatar starts with +60 [[Max Health]], +50% , +50% , +100% , +1 , and +10 . He gains +2% , +0.5% Might, -0.25% , and +0.5% every level. There is no cap on these bonuses. He starts with an extra [[Arcanas|Arcana]] .",
-          unlock: "It is tangible only in the inverted [[Inlaid Library]]. [[Peachone|Good]] [[Ebony Wings|friends]] might then show the way.",
+          passiveDesc: "阿凡达 初始拥有 +60 最大生命, +50%，+50%，+100%，+1，+10。他 获得 +2%，+0.5% 力量, -0.25%，+0.5% 每级. 这些加成无上限。他 初始拥有 一个额外的 奥秘。",
+          unlock: "仅在逆镶嵌图书馆中可见。好友会指引方向。",
           recommends: []
         },
         "minnah": {
@@ -796,8 +796,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "bloody_tear",
-          passiveDesc: "Minnah starts with +50 , +0.5 , and -70% . She gains +10% Might every three levels until 24. Her stats change every minute similar to some [[Arcana]]s. Might, , , , and are on a cycle; when Duration, Area, and Cooldown are multiplied by 2, Might and Projectile Speed are divided by 2, and vice versa. !Levels!!Might",
-          unlock: "Deal with the consequence of stealing [[Pickups#Cheese|cheese]] from the [[Dairy Plant]].",
+          passiveDesc: "明娜 初始 +50，+0.5，-70%。她 获得 +10% 力量 每三 级 至 24. 她的 属性 改变 每 分钟 类似 某些 奥秘. 力量,，在 循环; 当 持续, 范围,，冷却 乘以 达 2, 力量，弹幕 速度 除以 达 2,，反之亦然. !级!!力量。",
+          unlock: "承担从乳品厂偷奶酪的后果。",
           recommends: []
         },
         "leda": {
@@ -806,8 +806,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "holy_wand",
-          passiveDesc: "Leda starts with +5 , -20% , +100% , +10% , -10% , and -80% .",
-          unlock: "Investigate the bottom of [[Gallo Tower]].",
+          passiveDesc: "莱达 初始拥有 +5，-20%，+100%，+10%，-10%，-80%。",
+          unlock: "调查加洛塔底部。",
           recommends: []
         },
         "cosmo": {
@@ -816,8 +816,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "n_a",
-          passiveDesc: "Cosmo starts with -80 , +1 , +20% , +30% , and +1 . It also gains +1 Recovery and +1% Luck every level, and +1 Revival every 100 levels (+0.01 Revivals every level). There is no cap on these bonuses. It starts with hidden and without taking up any weapon slots; the actual weapons themselves may still be obtained from level-ups, and doing so results in the character having two of each weapon. The hidden weapons are upgraded every five levels, starting at level 10, up to level 40 when both reach level 8. The birds cannot be united into , and as usual with hidden weapons, they cannot gain limit break stats. Every time Cosmo is revived, it triggers a effect. This will not be converted to a Weird Souls Purifier if the player has .",
-          unlock: "With a [[Golden Egg|pure heart]] and two [[Peachone|good]] [[Ebony Wings|friends]], visit the [[Nduja Fritta Tanto|fiery]] balcony in [[Cappella Magna]].",
+          passiveDesc: "科斯莫 初始 +80，+1，+20%，+30%，+1。他 同时获得 +1 回复，+1% 运气 每级,，+1 复活 每100级 (+0.01 复活 每级). 这些加成无上限。他 初始拥有 隐藏，无 受到 向上 任意 武器 栏位; 实际 武器 自身 可能 仍然 获得 从 级-升级,，造成 因此 导致 角色 拥有 两 的 每 武器. 隐藏 武器 升级 每五 级, 开始 在 第10级, 最多 第40级 当 两者 达到 第8级. 鸟 无法 联合 成，当 通常 隐藏 武器, 他 无法 获得 限制 打破 属性. 每次 科斯莫 复活, it 触发 效果. 此 会 不 转换 净化者 if 玩家 拥有。",
+          unlock: "怀着纯净之心和两个好友，造访大教堂的烈焰阳台。",
           recommends: []
         },
         "peppino": {
@@ -826,8 +826,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "soul_eater",
-          passiveDesc: "Peppino starts with +20 , +2 , -100% , -60% , and +100% . It gains +10% Area on levels 2, 3, 5, 8, 13, and 21. !Levels!!Area",
-          unlock: "Be a good boy in Il Molise.",
+          passiveDesc: "佩皮诺 初始 +20，+2，-100%，-60%，+100%。他 获得 +10% 范围 在第2, 3, 5, 8, 13, 级和 21. !级!!范围。",
+          unlock: "在 伊尔莫利塞 做一只好狗。",
           recommends: []
         },
         "big_trouser": {
@@ -836,8 +836,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "candybox",
-          passiveDesc: "Trouser starts with +30% and +20% . He gains +1% Greed every level. There is no cap on this bonus. Trouser has longer by multiplying its duration cap and duration extension from Gold pickups by 1.5.",
-          unlock: "Master all 16 [[Stage item|accessories]] in [[Moongolow]].",
+          passiveDesc: "特劳瑟 初始拥有 +30%，+20%。他 每级获得 +1% 贪婪. 此加成无上限。特劳瑟 拥有 更长 达 乘以 其 持续 上限，持续 延长 从 金币 掉落物 达 1.5.",
+          unlock: "在 月神谷 精通所有 16 个关卡道具。",
           recommends: []
         },
         "gains": {
@@ -846,8 +846,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "heaven_sword",
-          passiveDesc: "Gains gains +2% every level. There is no cap on this bonus.",
-          unlock: "Find the only one place where flowers bloom in [[The Bone Zone]].",
+          passiveDesc: "获得 获得 +2% 每级. 此加成无上限。",
+          unlock: "在 白骨区 找到唯一开花之处。",
           recommends: []
         },
         "gyorunton": {
@@ -856,8 +856,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "bracelet",
-          passiveDesc: "Gyorunton starts with +200 [[Max Health]], +30% [[Might]], and +2 [[Revival]]. It gains +1% [[Curse]] every level. There is no cap on this bonus. Gyorunton can find [[evolution]]s in any , regardless of any other conditions.",
-          unlock: "Survive the [[Boss Rash]] with just one [[weapon]].",
+          passiveDesc: "焦伦顿 初始拥有 +200 最大生命, +30% 力量,，+2 复活. 他 获得 +1% 诅咒 每级. 此加成无上限。焦伦顿 可以发现 进化 任意，无论 的 任意 其他 条件.",
+          unlock: "仅用一把武器通关 Boss Rush。",
           recommends: []
         },
         "red_death": {
@@ -866,8 +866,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "death_spiral",
-          passiveDesc: "Mask of the Red Death starts with +155 , +100% , and +20% .",
-          unlock: "Settle the score with [[the Reaper]].",
+          passiveDesc: "红死假面 初始 +155，+100%，+20%。",
+          unlock: "与死神算账。",
           recommends: []
         },
         "bats": {
@@ -876,8 +876,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "mazo_familiar",
-          passiveDesc: "Bats Bats Bats starts with +80 , +80% , and +2 . Bats Bats Bats's starting weapon, , which begins at 10 base damage (instead of the normal 40), gains +1 base damage every level. There is no cap to this bonus. Revival increases by 1. If the Revival is consumed, this bonus is lost. Because Bats starts with +2 Revivals, it will always have at least +2 Amount right out of the gate. When the character dies and revives, another Bats Bats Bats appears on the screen. This follower moves about randomly but will not leave the screen. Followers have [[Pako Battiliar]] which functions as normal, spawning bats when they are hit. They can also collect [[Experience Gem|experience gems]] which are given to the player. Every time the player levels up, all followers gain random stat bonuses. If a follower dies it retreats into a coffin to regenerate health, once it is full, the coffin opens and the follower comes out again.",
-          unlock: "It's as simple as ABC: obtain the ring of rings.",
+          passiveDesc: "蝙蝠 初始 +80，+80%，+2。蝙蝠的 初始武器,，该效果 初始为 10 基础伤害 (取而代之 的 正常 40), 每级获得 +1 基础伤害. 无 上限 此加成. 复活 增加 达 1. If 复活 消耗, 此加成 丢失. 初始 +2 复活，it 会 总是 有 在 至少 +2 数量 右侧 出 的 大门. 当 角色 死亡，复活, 另一个 蝙蝠 出现 屏幕上. 此 随从 移动 大约 随机但会 不 离开 屏幕. 随从 有 该效果 功能 当 正常, 生成 蝙蝠 当 他 击中. 他 可 同时收集 经验 宝石 该效果 获得 玩家. 每次 玩家 级 向上, 所有 随从 获得属性加成es. If 随从 死亡 it 撤退 成 棺材 再生 生命, 一次 it 满, 棺材 打开，随从 回来 出 再次.",
+          unlock: "简单如ABC：获得指环之戒。",
           recommends: []
         },
         "rose": {
@@ -886,8 +886,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "fuwalafuwaloo",
-          passiveDesc: "Rose starts with +20% , -90% , -80% , and +100 . She gains +10% every 12 levels until level 108, +10% Growth every 12 levels from level 36 to 84 and +15% Growth on levels 96 and 108. !Levels!!Might!!Growth",
-          unlock: "Her royal shadow lies behind the 46th door.",
+          passiveDesc: "罗斯 初始拥有 +20%，-90%，-80%，+100。她 获得 +10% 每12级 至 第108级, +10% 成长 每12级 从 第36级 84，+15% 成长 在第96 级和 108. !级!!力量!!成长。",
+          unlock: "她的皇家暗影隐藏在 46 号门后。",
           recommends: []
         },
         "torino": {
@@ -896,8 +896,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "n_a",
-          passiveDesc: "Torino starts with a hidden weapon akin to . This can not evolve into and only does retaliatory damage. Additionally, Torino can transform into 2 alternate forms, JoyaTauro at level 16, and Accumulatori at level 36. Upon morphing into Joya Tauro, Torino heals to full HP, loses 20% , and gains 1.35x , +1 , +35% , +20% , and +35% . Torino's hidden weapon will also gain 1.65x [[Base Damage]]. Upon morphing into AccumlaTori, Torino heals to full HP, loses another 20% , and gains 1.8x , +2 , +35% , and +20% . Torino's hidden weapon will gain another +0.65x Base Damage, totaling to 2.3x Base Damage.",
-          unlock: "Witness the 17th Colossus wander to new horizons.",
+          passiveDesc: "托里诺 初始拥有 一个隐藏的 武器（类似。此 无法 进化 成，仅 反击 伤害. 此外，托里诺 可 变身为 2 替代 形态, 在 第16级,，累积器 在 第36级. 当 变形 成，托里诺 治疗 满 HP, 失去 20%，获得 1.35x，+1，+35%，+20%，+35%。托里诺的 隐藏武器 会 同时获得 1.65x。当 变形 成，托里诺 治疗 满 HP, 失去 另一个 20%，获得 1.8x，+2，+35%，+20%。托里诺的 隐藏武器 会 获得 另一个 +0.65x，总计 2.3x。",
+          unlock: "见证第 17 巨像走向新天地。",
           recommends: []
         },
         "scorej": {
@@ -906,8 +906,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "n_a",
-          passiveDesc: "Scorej-Oni starts with +8 [[Max Health]], -20% [[Move Speed|Movement Speed]], and +20% [[Area]]. It starts with a hidden [[Lightning Ring]] and gains an additional one every 8 levels, up to a max of 6 at level 40, without taking up any weapon slots; the actual weapon can still be obtained from level-up choices, allowing the player to have a total of 7 Lightning Rings. After that, each of the hidden weapons is upgraded after every 12 levels, 7 times, up to level 124, where all rings reach their maximum level at level 8; however, they do not gain [[Limit Break]] bonuses. The hidden Lightning Rings also fire whenever the character takes any form of damage.",
-          unlock: "Discover the source of the roaring thunder on the [[Tiny Bridge]].",
+          passiveDesc: "斯科雷吉鬼 初始拥有 +8 最大生命, -20% 移速,，+20% 范围. 他 初始拥有 一个隐藏的，获得 额外 一个 每8级, 最多 最多 6 在 第40级, 无 受到 向上 任意 武器 栏位; 实际 武器 可 仍然 获得 从 级-向上 选项, 允许 玩家 有 总计 7。后，每 的 隐藏 武器 升级 后 每12级, 7 次, 最多 第124级, 在 所有 戒指 达到 其 最大 级 在 第8级; 但, 他 不 获得 加成. 隐藏 同时射击 每当 角色 获得 任意 形态 的 伤害.",
+          unlock: "在小桥上发现咆哮雷声之源。",
           recommends: []
         },
         "gyoruntin": {
@@ -916,8 +916,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "no_future",
-          passiveDesc: "Gyoruntin starts with +30 , +3 , +80% . It gains +1% every level. There is no cap on this bonus. Gyoruntin's starting weapon [[NO FUTURE]], begins at 5 base damage (instead of the normal 30) and gains +1 base damage every level. There is no cap to this bonus. Gyoruntin flies over the terrain and thus ignores any walls, obstacles, and terrain gaps.",
-          unlock: "Forsake victory in favor of sightseeing in [[Carlo Cart]].",
+          passiveDesc: "焦伦丁 初始 +30，+3，+80%。他 获得 +1% 每级. 此加成无上限。焦伦丁的 初始武器，初始为 5 基础伤害 (取而代之 的 正常 30)，每级获得 +1 基础伤害. 无 上限 此加成. 焦伦丁 飞行 超过 地形，因此 忽略 任意 墙壁, 障碍,，地形 间隙.",
+          unlock: "在卡罗卡丁车中放弃胜利，选择观光。",
           recommends: []
         },
         "secretino": {
@@ -926,8 +926,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "kyra_stones",
-          passiveDesc: "Upon starting the run, Secretino will be granted a draft of , giving him a selection of various bonuses. Secretino is also always able to rarely find cards from [[Light source|Light Sources]]. Depending on the Secretino possesses, he will gain a Survarot multiplier in accordance to [[w:Logarithm|a base 10 logarithm]]. This multiplier increases how many [[Level up|level ups]] Survarot cards receive each time the player gains a level. * For example, if Secretino possesses 1,000,000 Golden eggs, he will have a Survarot multiplier of 6. Every time Secretino levels up, each Survarot card will gain 6 levels. This stacks additively with the [[File:Sprite-Holo.png|64x64px]] edition of these cards, which grants a multiplier of 4. ** To receive the maximum multiplier, Secretino must possess 10,000,000,000 Golden Eggs, or 1E+10, costing a total of .",
-          unlock: "Spend your afterparty with the foolish high roller.",
+          passiveDesc: "开始时 游戏, 秘密蒂诺 会 授予 选取 的，给予 他 选择 的 各种 加成. 秘密蒂诺 同时始终 能够 很少 发现 卡牌 从 光源. 取决于 秘密蒂诺 拥有, 他 会 获得 苏瓦罗 倍率 根据 基数 10 对数. 此 倍率 增加 大量 级 升级 苏瓦罗 卡牌 获得 每次 玩家 获得 级. * 持续 例如, if 秘密蒂诺 拥有 1,000,000 金色 蛋, 他 会 有 苏瓦罗 倍率 的 6. 每次 秘密蒂诺 级 向上, 每 苏瓦罗 卡牌 会 获得 6 级. 此 叠加 叠加 64x64px 版本 的 这些 卡牌, 该效果 给予 倍率 的 4. ** 获得 最大 倍率, 秘密蒂诺 必须 拥有 10,000,000,000，或1E+10, 消耗 总计。",
+          unlock: "与愚蠢的豪赌者共度余兴派对。",
           recommends: []
         },
         "space_dette": {
@@ -936,8 +936,8 @@ export const VS_DATA: VSData = {
           icon: "⚔️",
           category: "base",
           initWeaponKey: "photonstorm",
-          passiveDesc: "Space Dette starts with +40% . Space Dette's starting weapon begins at 10 base damage (instead of the normal 25) and gains +10 base damage every 10 levels starting at level 20. There is no cap to this bonus. After killing a certain number of [[Enemies]], Space Dette will spawn a \"fan\" follower that will either: *Follow enemies.",
-          unlock: "Quickly break the bounds of [[Space 54|Space]] and find [[Pummarola|Love]].",
+          passiveDesc: "太空妹 初始拥有 +40%。太空妹的 初始武器 初始为 10 基础伤害 (取而代之 的 正常 25)，每10级获得 +10 基础伤害 开始 在 第20级. 无 上限 此加成. 后 击杀 特定 数量 的 敌人, 太空妹 会 生成 「粉丝」随从 会 或: *跟随 敌人.",
+          unlock: "迅速突破太空边界找到光子风暴。",
           recommends: []
         },
         "miang": {
@@ -946,8 +946,8 @@ export const VS_DATA: VSData = {
           icon: "🌙",
           category: "moonspell",
           initWeaponKey: "silver_wind",
-          passiveDesc: "Miang starts with +20 , +1 , and +20% . Miang gains +0.2 Max Health each time she [[overhealing|overheal]]s. There is no cap on this bonus. Miang also multiplies healing from all sources directly based on Recovery, on top of its usual multiplier which can be ignored by some form of healing like with [[Disco of Gold (XV)]].",
-          unlock: "Find and open the coffin in [[Mt.Moonspell]].",
+          passiveDesc: "米昂 初始 +20，+1，+20%。米昂 获得 +0.2 最大生命 每次 她 过量治疗. 此加成无上限。米昂 同时乘以 治疗 从 所有 源 直接 基于 回复, 在 顶部 的 其 通常 倍率 该效果 可 忽略 达 某些 形态 的 治疗 如 迪斯科 金币 (XV).",
+          unlock: "在 月咒山 找到并打开棺材。",
           recommends: []
         },
         "menya": {
@@ -956,8 +956,8 @@ export const VS_DATA: VSData = {
           icon: "🌙",
           category: "moonspell",
           initWeaponKey: "four_seasons",
-          passiveDesc: "Menya starts with -20 , +10% , -10% , +10% , and +8 . Menya enters a [[Megalo Menya Moonspell|boosted state]] upon defeating a specific amount of [[enemies]]. When this bonus is triggered, all enemies are erased from the screen with the effects of the ; She gains a level 1 which is only active during the boosted duration. While inside this state, she cannot be damaged, gains +200% Might, -20% Cooldown, +50% , and +100% (up to 300% total) (to prevent her from moving too fast). This remains active for 30 real seconds (60 in-game seconds if [[hurry mode]] is active). Menya's boosted state is triggered upon reaching the following numbers of total enemies defeated: *500",
-          unlock: "Evolve the {{slink|Silver Wind}}.",
+          passiveDesc: "门雅 初始 +20，+10%，-10%，+10%，+8。门雅 进入 强化状态 当 击败 特定 数量 的 敌人. 当 此加成 触发, 所有 敌人 抹除 从 屏幕 效果 的 ; 她 获得 第1级 该效果 仅 生效 强化 持续. 当 内部 此 状态, 她 无法受伤, 获得 +200% 力量, -20% 冷却, +50%，+100% (最多 300% 总共) ( 防止 她的 从 移动 也 快速). 此 保留 生效 持续 30 实际 秒 (60 -游戏 秒 if 加速 模式 生效). 门雅的 强化状态 触发 达到 跟随 数字 的 总共 敌人 击败: *500。",
+          unlock: "进化 银风。",
           recommends: []
         },
         "syuuto": {
@@ -966,8 +966,8 @@ export const VS_DATA: VSData = {
           icon: "🌙",
           category: "moonspell",
           initWeaponKey: "summon_night",
-          passiveDesc: "Syuuto starts with +50 , +2 , -20% , +50% , -30% , -30% , and +50% . Once his weapon evolves into , he transforms into a [[Megalo Syuuto Moonspell|stronger form]] with +100 Max Health, +2 Armor, +40% Movement Speed, +30% Projectile Speed, and +30% Area, bringing him to 250 Max Health, +4 Armor, +20% Movement Speed, and negating his Projectile Speed and Area penalties. He gains +1% Might every level. There is no cap on this bonus. He starts with a hidden that can only retaliate without taking up any weapon slots and the weapon version can still be offered. It is upgraded every 10 levels starting at level 20, up to level 80 when it is maxed at level 8. Defeating 100,000 enemies in a single run with him unlocks [[Megalo Syuuto Moonspell|Megalo Syuuto]] as playable character.",
-          unlock: "Evolve the {{slink|Four Seasons}}.",
+          passiveDesc: "修托 初始 +50，+2，-20%，+50%，-30%，-30%，+50%。一次 他的 武器 进化 成，他 变形 成 更强 形态 以 +100 最大生命, +2 护甲, +40% 移速, +30% 弹幕 速度,，+30% 范围, 带来 他 250 最大生命, +4 护甲, +20% 移速,，消除 他的 弹幕 速度，范围 惩罚. 他 每级获得 +1% 力量. 此加成无上限。他 初始拥有 一个隐藏的 可 仅 反击 无 受到 向上 任意 武器 栏位，武器 版本 可 仍然 获得. It 升级 每10级 开始 在 第20级, 最多 第80级 当 it 满级 在 第8级. 击败 100,000 个 敌人 单个 游戏 他 解锁 当 可玩 角色。",
+          unlock: "进化 四季。",
           recommends: []
         },
         "babi_onna": {
@@ -976,8 +976,8 @@ export const VS_DATA: VSData = {
           icon: "🌙",
           category: "moonspell",
           initWeaponKey: "mirage_robe",
-          passiveDesc: "Babi-Onna starts with +10 . She ignores the stat, but poses while moving, using one [[weapon]] each time she poses. The faster she moves, the lower the Cooldown will be for every [[weapon]] the player has.",
-          unlock: "Evolve the {{slink|Summon Night}}.",
+          passiveDesc: "巴比翁纳 初始 +10，她 忽略 属性,但摆姿势 移动时, 使用 一个 武器 每次 她 摆姿势. 更快 她 移动, 更低 冷却 会 每 武器 玩家 拥有.",
+          unlock: "进化 暗夜召唤。",
           recommends: []
         },
         "mccoy_oni": {
@@ -986,8 +986,8 @@ export const VS_DATA: VSData = {
           icon: "🌙",
           category: "moonspell",
           initWeaponKey: "bocce_108",
-          passiveDesc: "McCoy-Oni starts with +8 , +1 , and +20% . His temporarily increases by +150% every second.",
-          unlock: "Evolve the {{slink|Mirage Robe}}.",
+          passiveDesc: "麦考伊鬼 初始拥有 +8，+1，+20%。他的 暂时 增加 达 +150% 每 第二.",
+          unlock: "进化 幻影长袍。",
           recommends: []
         },
         "megalo_menya": {
@@ -996,8 +996,8 @@ export const VS_DATA: VSData = {
           icon: "🌙",
           category: "moonspell",
           initWeaponKey: "n_a",
-          passiveDesc: "Megalo Menya starts with -20 , +100% , +100% , -20% , +10% , and +108 . She cannot be damaged at all but her run ends as soon as the Time Limit is reached. She starts with without taking up any weapon slots and the weapon versions can still be offered. It is upgraded every 10 levels starting at level 20, up to level 80 when it is maxed at level 8.",
-          unlock: "Defeat 100000 enemies in a single run with [[Menya Moonspell]].",
+          passiveDesc: "初始 +20，+100%，+100%，-20%，+10%，+108。她 无法受伤 在 所有但她的 游戏 结束 一旦 达到. 她 初始拥有 无 受到 向上 任意 武器 栏位，武器 版本 可 仍然 获得. It 升级 每10级 开始 在 第20级, 最多 第80级 当 it 满级 在 第8级.",
+          unlock: "用 月咒门也 单局击败 100,000 个敌人。",
           recommends: []
         },
         "megalo_syuuto": {
@@ -1006,8 +1006,8 @@ export const VS_DATA: VSData = {
           icon: "🌙",
           category: "moonspell",
           initWeaponKey: "night_sword",
-          passiveDesc: "Megalo Syuuto starts with +150 , +2 , +20% , +50% , +50% , and +50% . He gains +1% every level. There is no cap on this bonus.",
-          unlock: "Defeat 100000 enemies in a single run with [[Syuuto Moonspell]].",
+          passiveDesc: "初始 +150，+2，+20%，+50%，+50%，+50%。他 获得 +1% 每级. 此加成无上限。",
+          unlock: "用 月咒修吾 单局击败 100,000 个敌人。",
           recommends: []
         },
         "gavet_oni": {
@@ -1016,8 +1016,8 @@ export const VS_DATA: VSData = {
           icon: "🌙",
           category: "moonspell",
           initWeaponKey: "mille_bolle_blu",
-          passiveDesc: "Gav'Et-Oni starts with +20% . They gain +1 every 20 levels until level 80. The maximum Amount gained this way is +4. The following table shows how much Amount they gain by level: !Levels!!Amount",
-          unlock: "Defeat 6000 [[Kappa]].",
+          passiveDesc: "加维特鬼 初始拥有 +20%。他 获得 +1 每20级 至 第80级. 通过此方式获得的最高数量为 +4%。",
+          unlock: "击败 6000 个 河童。",
           recommends: []
         },
         "eleanor": {
@@ -1026,8 +1026,8 @@ export const VS_DATA: VSData = {
           icon: "🌊",
           category: "foscari",
           initWeaponKey: "spellstring",
-          passiveDesc: "Eleanor starts with -10 , +20% , +25% , and +2 . Upon reaching level 10, 20, and 30, , , and will spawn underneath her respectively.",
-          unlock: "Find and open the coffin in Lake Foscari.",
+          passiveDesc: "埃莉诺 初始 +10，+20%，+25%，+2。达到 第10级, 20,，+30,，会 生成 下方 她的 分别.",
+          unlock: "在 福斯卡里湖 找到并打开棺材。",
           recommends: []
         },
         "maruto": {
@@ -1036,8 +1036,8 @@ export const VS_DATA: VSData = {
           icon: "🌊",
           category: "foscari",
           initWeaponKey: "eskizzibur",
-          passiveDesc: "Maruto starts with +20 , +1 , +20% , and +10% . Maruto gains +1 Armor after being damaged, resetting every 10 seconds, getting hit again extends the reset timer by 1 second. Upon reaching level 30, an will spawn underneath him.",
-          unlock: "Unite {{slink|SpellString}}, {{slink|SpellStream}}, and {{slink|SpellStrike}}.",
+          passiveDesc: "马鲁托 初始 +20，+1，+20%，+10%。马鲁托 获得 +1 护甲 后 被 受伤, 重置 每 10 秒, 获得 击中 再次 延长 重置 计时器 达 1 第二. 达到 第30级, 会 生成 下方 他.",
+          unlock: "合体法术弦、法术流、法术打击。",
           recommends: []
         },
         "keitha": {
@@ -1046,8 +1046,8 @@ export const VS_DATA: VSData = {
           icon: "🌊",
           category: "foscari",
           initWeaponKey: "flash_arrow",
-          passiveDesc: "Keitha starts with +40% , +20% , -10% , +10% , and +10% . She gains +1% every level. There is no cap on this bonus. She has a charge ability that charges up when she moves. When fully charged, stopping will cause Keitha to fire a volley of 7 [[Flash Arrow]] projectiles. This is not affected by . The charge time is 10 seconds by default, which is affected by . Upon reaching level 30, an will spawn underneath her.",
-          unlock: "Evolving the [[Eskizzibur]].",
+          passiveDesc: "凯莎 初始拥有 +40%，+20%，-10%，+10%，+10%。她 获得 +1% 每级. 此加成无上限。她 拥有充能 技能 充能 向上 当 她 移动. 当 完全 充能, 停止 会 导致 凯莎 射击 齐射 的 7 弹幕. 此 不 影响 达。充能 次 10 秒 达 默认, 该效果 影响 达。达到 第30级, 会 生成 下方 她的.",
+          unlock: "进化 埃斯基祖尔。",
           recommends: []
         },
         "luminaire": {
@@ -1056,8 +1056,8 @@ export const VS_DATA: VSData = {
           icon: "🌊",
           category: "foscari",
           initWeaponKey: "prismatic_missile",
-          passiveDesc: "Luminaire Foscari starts with +0.5 , +40% , +7 , and +5 . Upon leveling up, Luminaire triggers a . After reviving, she gets a temporary +200% , -100% , and +60% (up to 300%) (to prevent her from moving too fast) bonus. This bonus lasts for <math>(15 + 2 * times\\ revived)</math> seconds, which means it starts at 17 seconds of bonus, then +2 seconds per Revival used. She also gets a longer invincibility frame each time she revives, based on the formula: <math>(4 + 2 * times\\ revived)</math> seconds.",
-          unlock: "With [[Maruto]], break the Seal of the Abyss.",
+          passiveDesc: "初始拥有 +0.5，+40%，+7，+5。升级时, 路米奈尔 触发。后 复活, 她 获得 临时 +200%，-100%，+60% (最多 300%) ( 防止 她的 从 移动 也 快速) 加成. 此加成 持续 持续 <math>(15 + 2 * 次\\ 复活)</math> 秒, 该效果 意味着 it 开始 在 17 秒 的 加成, 然后 +2 秒 每 复活 使用. 她 同时获得 更长 无敌 帧 每次 她 复活, 基于 公式: <math>(4 + 2 * 次\\ 复活)</math> 秒.",
+          unlock: "用 玛鲁托 打破深渊封印。",
           recommends: []
         },
         "je_ne_viv": {
@@ -1066,8 +1066,8 @@ export const VS_DATA: VSData = {
           icon: "🌊",
           category: "foscari",
           initWeaponKey: "shadow_servant",
-          passiveDesc: "Je-Ne-Viv starts with +150 , +5 , +50% , +50% , +50% , and +7 . It gains +1% and +0.5% every level. There is no cap on these bonuses. It starts with without taking up any weapon slots. Upon levelling up, Je-Ne-Viv triggers a . Once per life, it triggers World Eater after receiving fatal damage, becoming invincible for 2 seconds, then killing every enemy on screen like the , and turning them into . Unlike Genevieve, its World Eater can eat through wall tiles, letting the player walk out of bounds, the range being the ground tiles that turn black and smoky when being eaten. The range of this effect is based on the size of Insatiable, which is affected by Magnet. It also triggers World Eater every 6th level, which also physically increases the size of Je-Ne-Viv. Upon reaching level 10, 20, and 30, , , and will spawn underneath it respectively.",
-          unlock: "Defeating 100000 enemies in a single run with [[Genevieve Gruyère]].",
+          passiveDesc: "热内维 初始 +150，+5，+50%，+50%，+50%，+7。他 获得 +1%，+0.5% 每级. 这些加成无上限。他 初始拥有 无 受到 向上 任意 武器 栏位. 当 升级 向上, 热内维 触发。每命一次, it 触发 后 受到 致命伤害, 变成 无敌 持续 2 秒, 然后 击杀 每 敌人 屏幕上 如，变为 他们 成。，其 可 吃 通过 墙壁 地块, 让 玩家 行走 出 的 边界, 范围 被 地面 地块 回合 黑色，烟雾 当 被 吃掉. 范围 的 此 效果 基于 大小 的 永不满足, 该效果 影响 达 磁铁. 他 同时触发 每 6th 级, 该效果 同时物理上 增加 大小 的 热内维. 达到 第10级, 20,，+30,，会 生成 下方 it 分别.",
+          unlock: "用 格涅维芙·格吕耶尔 单局击败 100,000 个敌人。",
           recommends: []
         },
         "sammy": {
@@ -1076,8 +1076,8 @@ export const VS_DATA: VSData = {
           icon: "🌊",
           category: "foscari",
           initWeaponKey: "vicious_hunger",
-          passiveDesc: "Sammy starts with +2 and -60% . It gains +10% Might on levels 2, 3, 5, 8, 13, and 21. !Levels!!Might Whenever Sammy picks up [[Gold Coin (currency)|Coins]], it will gain [[Experience Gem|experience]] as well. The experience gained from coins bypasses [[Game Killer (0)]] multiplying by 0, which means it can still level up with the Arcana. The conversion of gold to experience is 1 to 1, multiplied by the stage gold multiplier, , and Growth. *The exception to this is gold obtained from [[Chests]] and [[Level up]]s, which does not grant experience.",
-          unlock: "Defeat a total of 6000 Sammies.",
+          passiveDesc: "萨米 初始拥有 +2，-60%。他 获得 +10% 力量 在第2, 3, 5, 8, 13, 级和 21. !级!!力量 每当 萨米 拾取 金币, it 会 获得 经验 当 好. 经验 获得 从 金币 绕过 (0) 乘以 达 0, 该效果 意味着 it 可 仍然 级 向上 奥秘. 转换 金币 经验 1 1, 乘以 达 关卡 金币 倍率,，成长. * 例外 此 金币 获得 从 宝箱，级 升级, 该效果 不 给予 经验.",
+          unlock: "累计击败 6000 个 Sammy。",
           recommends: []
         },
         "rottin_ghoul": {
@@ -1086,8 +1086,8 @@ export const VS_DATA: VSData = {
           icon: "🌊",
           category: "foscari",
           initWeaponKey: "party_popper",
-          passiveDesc: "Rottin'Ghoul start with +20% . They gain +1 every 20 levels until level 80. The maximum Amount gained this way is +4. The following table shows how much Amount they gain by level: !Levels!!Amount",
-          unlock: "Defeat 6000 [[Rotting Ghoul]].",
+          passiveDesc: "腐尸 初始拥有 +20%。他 获得 +1 每20级 至 第80级. 通过此方式获得的最高数量为 +4%。",
+          unlock: "击败 6000 个 腐尸。",
           recommends: []
         },
         "crewmate": {
@@ -1096,8 +1096,8 @@ export const VS_DATA: VSData = {
           icon: "🚀",
           category: "amongus",
           initWeaponKey: "report",
-          passiveDesc: "Crewmate starts with +20% . Crewmate gains minor stat bonuses every time a unique weapon or passive item is upgraded to its maximum level, with no limit. This passive also includes maximum level items by teammates in multiplayer. Active weapons will randomly provide one the following stats upon reaching max level, multiplied by the number of levels that weapon has: * : +4% * : +4%",
-          unlock: "Find and open the coffin in [[Polus Replica]].",
+          passiveDesc: "船员 初始拥有 +20%。船员 获得少量属性加成 每次 独特武器或被动 物品 升级 其 最大 级, 无 限制. 此 被动 同时包括 最大 级 物品 达 队友 多人游戏. 生效 武器 会 随机 提供 一个 跟随 属性 达到 最大 级, 乘以 达 数量 的 级 武器 拥有: * : +4% * : +4%。",
+          unlock: "在 波鲁斯复制区 找到并打开棺材。",
           recommends: []
         },
         "engineer": {
@@ -1106,8 +1106,8 @@ export const VS_DATA: VSData = {
           icon: "🚀",
           category: "amongus",
           initWeaponKey: "lucky_swipe",
-          passiveDesc: "Engineer starts with +20% , +20 , +20 , and +20 . Engineer can choose an extra [[Passive items|passive item]] at levels 2, 12 and 22.",
-          unlock: "Evolve the [[Sharp Tongue]]",
+          passiveDesc: "工程师 初始拥有 +20%，+20，+20，+20。工程师 可 选择 一个额外的 被动 物品 在 级 2, 12，+22.",
+          unlock: "进化 利舌。",
           recommends: []
         },
         "ghost_lino": {
@@ -1116,8 +1116,8 @@ export const VS_DATA: VSData = {
           icon: "🚀",
           category: "amongus",
           initWeaponKey: "lifesign_scan",
-          passiveDesc: "Ghost starts with +156 , +100% , and -100% . Ghost cannot be damaged or deal damage directly, but their run ends as soon as the stage Time Limit is reached, even if Endless Mode is turned on. Although the Might modifier can be raised on the character select screen through [[Powerups]] or [[Golden Egg]]s, it will return to -100% in-game and cannot be increased by any means outside of .",
-          unlock: "Evolve the Lifesign Scan",
+          passiveDesc: "幽灵 初始 +156，+100%，-100%。幽灵 无法受伤或造成伤害 直接,但其 游戏 结束 一旦 关卡 达到, 即使 if 开启 在. 虽然 力量 修饰器 可 提升 在 角色 选择 屏幕 通过 强化道具 或，it 会 返还 -100% -游戏，无法 增加 达 任意 意味着 外部 的。",
+          unlock: "进化 生命信号扫描。",
           recommends: []
         },
         "shapeshifter": {
@@ -1126,8 +1126,8 @@ export const VS_DATA: VSData = {
           icon: "🚀",
           category: "amongus",
           initWeaponKey: "just_vent",
-          passiveDesc: "Shapeshifter starts with +1 and +10% . Shapeshifter leaves behind body parts when damaged and has a chance to change into one of 7 forms: *[[Pinthot & Coldellini]] Form: Deals 10 damage to all enemies near the character. This damage is affected by and . *[[Space Apparition]] Form: Deals 10 damage to all enemies near the character. This damage is affected by and .",
-          unlock: "Evolve the Science Rocks",
+          passiveDesc: "变形者 初始拥有 +1，+10%。变形者 留下 身体部件 当 受伤，有概率 改变 成 一个 的 7 形态: *品索 & : 造成 10 伤害 所有 敌人 附近 角色. 此 伤害 影响 达。*形态: 造成 10 伤害 所有 敌人 附近 角色. 此 伤害 影响 达。",
+          unlock: "进化 科学之石。",
           recommends: []
         },
         "guardian": {
@@ -1136,8 +1136,8 @@ export const VS_DATA: VSData = {
           icon: "🚀",
           category: "amongus",
           initWeaponKey: "clear_debris",
-          passiveDesc: "Guardian starts with +0.1 , +1 , +20% , and +1 . Guardian provides +1 Armor and +0.3 Recovery to nearby characters. They can walk through walls. Guardian has a 50% chance, unaffected by , to gain +1 Revival when anyone spends a revival, including themselves.",
-          unlock: "Defeat 1 enemy with Ghost Lino?!",
+          passiveDesc: "守护者 初始拥有 +0.1，+1，+20%，+1。守护者 提供 +1 护甲，+0.3 回复 附近 角色. 他 可 行走 通过 墙壁. 守护者 拥有50% 概率, 不受影响 达，获得 +1 复活 当 任何人 消耗 复活, 包括 自身.",
+          unlock: "用 幽灵里诺 击败1个敌人？！",
           recommends: []
         },
         "impostor": {
@@ -1146,8 +1146,8 @@ export const VS_DATA: VSData = {
           icon: "🚀",
           category: "amongus",
           initWeaponKey: "sharp_tongue",
-          passiveDesc: "Impostor starts with +20 , +20% , and +20% . Imposter enters a [[Megalo Impostor Rina|boosted state]] upon defeating a specific amount of [[enemies]]. When this bonus is triggered, all enemies are erased from the screen with the effects of the ; They gain 6 level 1 [[Sharp Tongue]] which is only active during the boosted duration. While inside this state, they cannot be damaged, gains +200% Might, -20% Cooldown, and 80% . This remains active for 30 real seconds (60 in-game seconds if [[hurry mode]] is active). Impostor's boosted state is triggered upon reaching the following numbers of total enemies defeated: *500",
-          unlock: "Evolve the Report!",
+          passiveDesc: "内鬼 初始 +20，+20%，+20%。内鬼 进入 强化状态 当 击败 特定 数量 的 敌人. 当 此加成 触发, 所有 敌人 抹除 从 屏幕 效果 的 ; 他 获得 6 第1级 该效果 仅 生效 强化 持续. 当 内部 此 状态, 他 无法受伤, 获得 +200% 力量, -20% 冷却,，+80%。此 保留 生效 持续 30 实际 秒 (60 -游戏 秒 if 加速 模式 生效). 内鬼的 强化状态 触发 达到 跟随 数字 的 总共 敌人 击败: *500。",
+          unlock: "进化 报告！",
           recommends: []
         },
         "scientist": {
@@ -1156,8 +1156,8 @@ export const VS_DATA: VSData = {
           icon: "🚀",
           category: "amongus",
           initWeaponKey: "science_rocks",
-          passiveDesc: "Scientist gets -10% every 10 levels until level 90, losing a maximum of 90% Luck. Every 10 levels until level 50, the Scientist can choose to gain 1% , , , , , , , , , or per level. There is no cap on these bonuses. Scientist can select different bonuses or stack the same bonus repeatedly, granting a potential maximum of +5% to any of these stats per level. Despite the wording on the selection screen, selecting 1% per level will grant 0.01 Recovery per level instead of a percentage modifier.",
-          unlock: "Evolve the Lucky Swipe",
+          passiveDesc: "科学家 获得 -10% 每10级 至 第90级, 失去 最多 90% 运气. 每10级 至 第50级, 科学家 可 选择 获得 1%，或每级. 这些加成无上限。科学家 可 选择 不同 加成或叠加 相同 加成 反复, 授予 潜在 最多 +5% 任意 的 这些 属性 每级. 尽管 措辞 在 选择 屏幕, 选择 1% 每级 会 给予 0.01 回复 每级 取而代之 的 百分比 修饰器.",
+          unlock: "进化 幸运一刷。",
           recommends: []
         },
         "horse": {
@@ -1166,8 +1166,8 @@ export const VS_DATA: VSData = {
           icon: "🚀",
           category: "amongus",
           initWeaponKey: "hats",
-          passiveDesc: "Horse start with +20% . It gains +1 every 20 levels until level 80. The maximum Amount gained this way is +4. The following table shows how much Amount they gain by level: !Levels!!Amount",
-          unlock: "Defeat a total of 6000 suspicious looking enemies.",
+          passiveDesc: "马 初始拥有 +20%。他 获得 +1 每20级 至 第80级. 通过此方式获得的最高数量为 +4%。",
+          unlock: "累计击败 6000 个可疑的敌人。",
           recommends: []
         },
         "megalo_impostor": {
@@ -1176,8 +1176,8 @@ export const VS_DATA: VSData = {
           icon: "🚀",
           category: "amongus",
           initWeaponKey: "n_a",
-          passiveDesc: "Megalo Impostor Rina starts with +80 , +80% , +80% , and -10% . Additionally, Rina gains another hidden [[Sharp Tongue]] every 6 levels, up to 6 total. These Sharp Tongues will also be upgraded along with leveling up of the character.",
-          unlock: "Defeat 100000 enemies in a run with Impostor Rina.",
+          passiveDesc: "莉娜 初始 +80，+80%，+80%，-10%。此外，莉娜 获得 另一个 隐藏 每6级, 最多 6 总共. 舌头 会 同时be 升级 随 升级 向上 的 角色.",
+          unlock: "用 莉娜伪装者 单局击败 100,000 个敌人。",
           recommends: []
         },
         "bill": {
@@ -1186,8 +1186,8 @@ export const VS_DATA: VSData = {
           icon: "🔫",
           category: "contra",
           initWeaponKey: "long_gun",
-          passiveDesc: "Receives a bonus to Projectile Speed (max 50%) and to Might when defeating many enemies. Can find special pickups.",
-          unlock: "Find and open the coffin in Neo Galuga",
+          passiveDesc: "获得 加成 弹幕 速度 (最大 50%)，力量 当 击败 大量 敌人. 可以发现 特殊掉落.",
+          unlock: "在 新加鲁加 找到并打开棺材。",
           recommends: []
         },
         "lance": {
@@ -1196,8 +1196,8 @@ export const VS_DATA: VSData = {
           icon: "🔫",
           category: "contra",
           initWeaponKey: "short_gun",
-          passiveDesc: "Receive a bonus to Speed (max 50%) and to Cooldown (max -25%) when defeating many enemies. Can find special pickups.",
-          unlock: "Evolving Long Gun",
+          passiveDesc: "获得 加成 速度 (最大 50%)，冷却 (最大 -25%) 当 击败 大量 敌人. 可以发现 特殊掉落.",
+          unlock: "进化 长枪。",
           recommends: []
         },
         "ariana": {
@@ -1206,8 +1206,8 @@ export const VS_DATA: VSData = {
           icon: "🔫",
           category: "contra",
           initWeaponKey: "spread_shot",
-          passiveDesc: "Move Speed increses {{sic|Armour}}. Can find special pickups.",
-          unlock: "Evolving the Short Gun",
+          passiveDesc: "移速 增加。可以发现 特殊掉落.",
+          unlock: "进化 短枪。",
           recommends: []
         },
         "lucia": {
@@ -1216,8 +1216,8 @@ export const VS_DATA: VSData = {
           icon: "🔫",
           category: "contra",
           initWeaponKey: "c_u_laser",
-          passiveDesc: "Gain a bonus to all stats after Reviving. Can find special pickups.",
-          unlock: "Evolving the Spread Shot",
+          passiveDesc: "获得a加成 所有 属性 后 复活. 可以发现 特殊掉落.",
+          unlock: "进化 散弹。",
           recommends: []
         },
         "brad": {
@@ -1226,8 +1226,8 @@ export const VS_DATA: VSData = {
           icon: "🔫",
           category: "contra",
           initWeaponKey: "firearm",
-          passiveDesc: "When Health is low, Cooldown is decreased and Move Speed and Speed increase. Can find special Pickups.",
-          unlock: "Find and open the coffin in Hectic Highway.",
+          passiveDesc: "当 生命 低, 冷却 减少，移速，速度 增加. 可以发现 特殊掉落.",
+          unlock: "在 繁忙公路 找到并打开棺材。",
           recommends: []
         },
         "browny": {
@@ -1236,8 +1236,8 @@ export const VS_DATA: VSData = {
           icon: "🔫",
           category: "contra",
           initWeaponKey: "sonic_bloom",
-          passiveDesc: "Decreasing Cooldown increases Area. Can find special pickups.",
-          unlock: "Evolving Firearm",
+          passiveDesc: "减少 冷却 增加 范围. 可以发现 特殊掉落.",
+          unlock: "进化 火器。",
           recommends: []
         },
         "sheena": {
@@ -1246,8 +1246,8 @@ export const VS_DATA: VSData = {
           icon: "🔫",
           category: "contra",
           initWeaponKey: "blade_crossbow",
-          passiveDesc: "Move Speed decreases Cooldown. Can find special pickups.",
-          unlock: "Evolving Sonic Bloom",
+          passiveDesc: "移速 减少 冷却. 可以发现 特殊掉落.",
+          unlock: "进化 音速绽放。",
           recommends: []
         },
         "probotector": {
@@ -1256,8 +1256,8 @@ export const VS_DATA: VSData = {
           icon: "🔫",
           category: "contra",
           initWeaponKey: "prism_lass",
-          passiveDesc: "{{sic|Armour}} increases Might. Can find special pickups.",
-          unlock: "Finding 7 Barriers",
+          passiveDesc: "增加 力量. 可以发现 特殊掉落.",
+          unlock: "找到 7 个 屏障。",
           recommends: []
         },
         "stanley": {
@@ -1266,8 +1266,8 @@ export const VS_DATA: VSData = {
           icon: "🔫",
           category: "contra",
           initWeaponKey: "homing_miss",
-          passiveDesc: "Might increases {{sic|Armour}}. Can find special pickups.",
-          unlock: "Finding 14 Rapid Fires",
+          passiveDesc: "力量 增加。可以发现 特殊掉落.",
+          unlock: "找到 14 个 速射。",
           recommends: []
         },
         "newt": {
@@ -1276,8 +1276,8 @@ export const VS_DATA: VSData = {
           icon: "🔫",
           category: "contra",
           initWeaponKey: "diver_mines",
-          passiveDesc: "Projectile Speed increases Might. Can find extra explosive props and special pickups.",
-          unlock: "Finding 21 Grenades",
+          passiveDesc: "弹幕 速度 增加 力量. 可以发现 额外 爆炸道具，特殊掉落.",
+          unlock: "找到 21 个 手雷。",
           recommends: []
         },
         "bahamut": {
@@ -1286,8 +1286,8 @@ export const VS_DATA: VSData = {
           icon: "🔫",
           category: "contra",
           initWeaponKey: "metal_claw",
-          passiveDesc: "Greed and Curse increase Might. Can find special pickups.",
-          unlock: "Defeating Big Fuzz in Neo Galuga",
+          passiveDesc: "贪婪，诅咒 增加 力量. 可以发现 特殊掉落.",
+          unlock: "在新加鲁加击败 大毛球。",
           recommends: []
         },
         "simondo": {
@@ -1296,8 +1296,8 @@ export const VS_DATA: VSData = {
           icon: "🔫",
           category: "contra",
           initWeaponKey: "n_a",
-          passiveDesc: "Simondo says he doesn't even need guns. Gets more projectiles every 20 levels (max +4).",
-          unlock: "Evolving the Divers Mines.",
+          passiveDesc: "西蒙多 说 他 甚至不需要 枪. 获得 更多 弹幕 每20级 (最大 +4).",
+          unlock: "进化 潜水雷。",
           recommends: []
         },
         "leon": {
@@ -1306,8 +1306,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Leon starts with +20 , +1 , +1 and +5 . Leon receives a hidden at Level 5, levelling up whenever Leon's level reaches a multiple of 10. Leon gains additional stats upon evolving the Whip, gaining +80 , +0.1 , +1 , +1 , +1 , +10% , +10% , +10% , +10% , +10% , +10% , and -5% . Leon can find special from [[Light source|light sources]].",
-          unlock: "Find and open the first coffin in [[Ode to Castlevania]]",
+          passiveDesc: "利昂 初始 +20，+1，+1，+5。利昂 获得 一个隐藏的 在 第5级, 升级 向上 每当 利昂的 级 达到 多个 的 10. 利昂 获得 额外 属性 当 进化 鞭子, 获得 +80，+0.1，+1，+1，+1，+10%，+10%，+10%，+10%，+10%，+10%，-5%。利昂 可以发现 特殊 从 光源。",
+          unlock: "在 恶魔城颂歌 找到并打开第一个棺材。",
           recommends: []
         },
         "sonia": {
@@ -1316,8 +1316,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Sonia starts with +40% and +10% . Every time she [[overhealing|overheals]] by 8 health points or more, she triggers a , lasting for 10 seconds. This bonus can not be triggered more than every 5 seconds, but multiple instances of this bonus can be active at the same time. Sonia can find special from [[Light source|light sources]].",
-          unlock: "Find 7 Heart Refresh after opening the Stallion Gate.",
+          passiveDesc: "索妮娅 初始拥有 +40%，+10%。每次 她 过量治疗 达 8 生命 点或更多, 她 触发，持续 持续 10 秒. 此加成 无法 触发 更多 比 每 5 秒,但多个 实例 的 此加成 可 生效 在 相同 次. 索妮娅 可以发现 特殊 从 光源.",
+          unlock: "打开种马之门后找到 7 个 心之刷新。",
           recommends: []
         },
         "trevor": {
@@ -1326,8 +1326,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Trevor starts with +20% . He gains +1 every 10 levels up to level 30. The maximum Amount gained this way is +3. He starts with . Trevor can find special from [[Light source|light sources]].",
-          unlock: "Defeat the Giant Medusa Head with [[Leon Belmont]].",
+          passiveDesc: "特雷弗 初始拥有 +20%。他 获得 +1 每10级 最多 第30级. 通过此方式获得的最高数量为 +3%. 他 初始拥有。特雷弗 可以发现 特殊 从 光源.",
+          unlock: "用 里昂·贝尔蒙特 击败巨大美杜莎之首。",
           recommends: []
         },
         "christopher": {
@@ -1336,8 +1336,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Christopher starts with +20 , +1 , +1 , and +5 . Whenever Christopher damages an enemy, there is a 50% chance for to be added to , and to multiply . Otherwise, nothing happens. Since this is checked every hit, it can rapidly change. Each bonus is independent of the other, and either, both, or neither bonus may be active at a given moment. Christopher can find special from [[Light source|light sources]].",
-          unlock: "Evolve the [[Alucart Sworb]].",
+          passiveDesc: "克里斯托弗 初始 +20，+1，+1，+5。每当 克里斯托弗 伤害 敌人, 50% 概率 持续 加上，乘以。否则, 无 发生. 此后 此 检视 每 击中, it 可 快速 改变. 每 加成 独立 的 其他,，或, 两者,或也非 加成 可能 生效 在 获得 时刻. 克里斯托弗 可以发现 特殊 从 光源.",
+          unlock: "进化 阿鲁卡多之剑。",
           recommends: []
         },
         "simon": {
@@ -1346,8 +1346,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Simon starts with +20 , +1 , +1 , and +5 . Whenever Simon damages an enemy, there is a 50% chance for to be added to , and to multiply . Otherwise, nothing happens. Since this is checked every hit, it can rapidly change. Each bonus is independent of the other, and either, both, or neither bonus may be active at a given moment. Simon can find special from [[Light source|light sources]].",
-          unlock: "Evolve the Jet Black Whip.",
+          passiveDesc: "西蒙 初始 +20，+1，+1，+5。每当 西蒙 伤害 敌人, 50% 概率 持续 加上，乘以。否则, 无 发生. 此后 此 检视 每 击中, it 可 快速 改变. 每 加成 独立 的 其他,，或, 两者,或也非 加成 可能 生效 在 获得 时刻. 西蒙 可以发现 特殊 从 光源.",
+          unlock: "进化 漆黑之鞭。",
           recommends: []
         },
         "juste": {
@@ -1356,8 +1356,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Juste starts with +20% , +20% , +20% , +5 , +5 , and +5 . Until level 7 he will be offered the as a fourth level up choice, regardless if the player has Banished or it, or if the player is at the maximum number of weapons. Every six levels, Juste will level up equipped featured in the Belnades' Spellbook, except for and . Juste can find special from [[Light source|light sources]].",
-          unlock: "Evolve the Wind Whip.",
+          passiveDesc: "贾斯特 初始拥有 +20%，+20%，+20%，+5，+5，+5。至 第7级 他 会 获得 作为 第四 级 向上 选项, 无论 if 玩家 拥有 放逐或it,或if 玩家 在 最大 数量 的 武器. 每 六 级, 贾斯特 会 级 向上 装备 特色 贝尔纳德斯' 魔法书, 除了 持续。贾斯特 可以发现 特殊 从 光源.",
+          unlock: "进化 风之鞭。",
           recommends: []
         },
         "richter": {
@@ -1366,8 +1366,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Richter starts with +20% , -10% , and starts with an extra . He can find special from [[Light source|light sources]]. While playing as him in the [[Ode to Castlevania (stage)|Ode to Castlevania]] [[Stages|stage]], a unique chamber connected by a staircase appears outside the very top of the Clock Tower. Entering this chamber despawns all enemies on the screen and begins a special cutscene with which serves as the prelude to the final boss battle of the Ode to Castlevania DLC.",
-          unlock: "Evolve the Guardian's Targe.",
+          passiveDesc: "里希特 初始拥有 +20%，-10%，初始拥有 一个额外的。他 可以发现 特殊 从 光源. 使用 他 恶魔城颂歌 关卡, 独特 房间 连接 达 楼梯 出现 外部 非常 顶部 的。进入 此 房间 消失 所有 敌人 屏幕上，开始 特殊 过场 该效果 充当 当 前奏 最终 首领 战斗 的 颂歌。",
+          unlock: "进化 守护者盾牌。",
           recommends: []
         },
         "julius": {
@@ -1376,8 +1376,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Julius starts with +80 , +40% , +1 , and +1 . He also starts with . His Might increases depending on the missing proportion of his Max Health, with the formula <math> Might * (1 + ((1 - CurrentHealth/MaxHealth)) * MaxHealth/180) </math>. Thus, missing health will increase Julius's Might more depending on his Max Health. Julius can find special from [[Light source|light sources]].",
-          unlock: "Find and open the second coffin in Ode to Castlevania.",
+          passiveDesc: "尤利乌斯 初始 +80，+40%，+1，+1。他 同时初始拥有。他的 力量 增加 取决于 缺失 比例 的 他的 最大生命, 公式 <math> 力量 * (1 + ((1 - /)) * /180) </math>. 因此, 缺失 生命 会 增加 尤利乌斯的 力量 更多 取决于 他的 最大生命. 尤利乌斯 可以发现 特殊 从 光源.",
+          unlock: "在 恶魔城颂歌 找到并打开第二个棺材。",
           recommends: []
         },
         "grant": {
@@ -1386,8 +1386,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Grant starts with +60% , and +40% . He can find special from [[Light source|light sources]]. Taking damage or [[overhealing]] by +8 will trigger , , and , as well as their evolutions , , , and .",
-          unlock: "Evolve the Water Dragon Whip.",
+          passiveDesc: "给予 初始拥有 +60%，+40%。他 可以发现 特殊 从 光源. 受到 伤害或过量治疗 达 +8 会 触发，,，以及其 进化，。",
+          unlock: "进化 水龙之鞭。",
           recommends: []
         },
         "john_morris": {
@@ -1396,8 +1396,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "John starts with +30 , and +20% . Upon reaching level 10, John will be granted . Every five levels, a will be spawned above him. John can find special from [[Light source|light sources]].",
-          unlock: "Evolve the [[Raging Fire]], [[Ice Fang]], [[Gale Force]], and [[Rock Riot]] across any amount of runs.",
+          passiveDesc: "约翰 初始 +30，+20%。达到 第10级, 约翰 会 授予。每五 级, 会 获得 上方 他. 约翰 可以发现 特殊 从 光源.",
+          unlock: "在多局游戏中进化 烈焰、冰牙、狂风 和 岩石暴乱。",
           recommends: []
         },
         "jonathan": {
@@ -1406,8 +1406,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Jonathan Morris starts with +30 and +20% . He has a Charge ability that charges by standing still. Upon reaching max charge, all equipped weapons are triggered once. This charge time is 15 seconds by default, but can be decreased with down to a minimum of 3 seconds at +400% Speed. Jonathan can find special from [[Light source|light sources]].",
-          unlock: "Evolve the [[Hand Grenade]].",
+          passiveDesc: "初始 +30，+20%。他 拥有充能 技能 充能 达 站立. 达到 最大 充能, 所有 装备 武器 触发 一次. 此 充能 次 15 秒 达 默认,但可 减少 向下 最小 的 3 秒 在 +400% 速度. 乔纳森 可以发现 特殊 从 光源.",
+          unlock: "进化 手雷。",
           recommends: []
         },
         "soma": {
@@ -1416,8 +1416,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Soma starts with +20% , +50% , +5 , +5 , and +5 . He gains +1% every level. Once per life, upon receiving fatal damage, he triggers a hidden . Soma is immune to [[health drain]]. Soma can find special from [[Light source|light sources]].",
-          unlock: "Defeat Gergoth with Julius Belmont.",
+          passiveDesc: "索玛 初始拥有 +20%，+50%，+5，+5，+5。他 获得 +1% 每级. 每命一次, 当 受到 致命伤害, 他 触发 一个隐藏的。索玛 免疫 生命 吸取. 索玛 可以发现 特殊 从 光源.",
+          unlock: "用 尤里乌斯·贝尔蒙特 击败 格戈斯。",
           recommends: []
         },
         "charlotte": {
@@ -1426,8 +1426,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Charlotte starts with +20% , +20% , +20% , +10 , +10 , and +10 . She has a charge ability that charges while she is standing still. When fully charged, all weapons featured in the Belnades' Spellbook will be triggered. The default charge time is 15 seconds, but can decreased by down to a minimum of 3 seconds at +400% Growth. Charlotte can find special from [[Light source|light sources]].",
-          unlock: "Find 7 Mirrors of Truth after opening the Capra Gate.",
+          passiveDesc: "夏洛特 初始拥有 +20%，+20%，+20%，+10，+10，+10。她 拥有充能 技能 充能 当 她 站立. 当 完全 充能, 所有武器 特色 贝尔纳德斯' 魔法书 会 触发. 默认 充能 次 15 秒,但可 减少 达 向下 最小 的 3 秒 在 +400% 成长. 夏洛特 可以发现 特殊 从 光源.",
+          unlock: "打开卡普拉之门后找到 7 个 真理之镜。",
           recommends: []
         },
         "sypha": {
@@ -1436,8 +1436,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Sypha starts with +40% , +40% , +10 , , and . She also starts with an extra . Sypha can find special from [[Light source|light sources]].",
-          unlock: "Defeat Slogra and Gaibon with Grant Danasty.",
+          passiveDesc: "赛法 初始拥有 +40%，+40%，+10，。她 同时初始拥有 一个额外的。赛法 可以发现 特殊 从 光源.",
+          unlock: "用 格兰特·达纳斯提 击败 斯洛格拉 和 盖邦。",
           recommends: []
         },
         "yoko": {
@@ -1446,8 +1446,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Yoko starts with +40% , +40% , +50% , +10 , , and . She also starts with an extra . Yoko can find special from [[Light source|light sources]].",
-          unlock: "Defeat Abaddon with [[Soma Cruz]].",
+          passiveDesc: "洋子 初始拥有 +40%，+40%，+50%，+10，。她 同时初始拥有 一个额外的。洋子 可以发现 特殊 从 光源.",
+          unlock: "用 来须苍真 击败 亚巴顿。",
           recommends: []
         },
         "alucard": {
@@ -1456,8 +1456,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Charge: Soul Steal.<br>LevelUp: Dark Inferno.<br>Overheal +8: Summon Spirit.<br>HP-Critical: Sword Brothers.<br>Immune to health drain.",
-          unlock: "Defeat the Doppelganger with Trevor Belmont.",
+          passiveDesc: "充能:。<br>:。<br>过量治疗 +8:。<br>HP-暴击:。<br>免疫 生命 吸取.",
+          unlock: "用 特雷弗·贝尔蒙特 击败 二重身。",
           recommends: []
         },
         "eric": {
@@ -1466,8 +1466,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Eric starts with +20% , +20% , +20% , +20% , and -5% . He has an HP-Critical skill when his health reaches below 20%, where he becomes invulnerable for 20 seconds, gains -20% Cooldown, and gets a flame aura that deals damage to surrounding enemies. The skill may only be activated again after recovering all HP. Receiving fatal damage resulting in a game-over will not trigger the skill. He can find special from [[Light source|light sources]].",
-          unlock: "Evolve the Javelin.",
+          passiveDesc: "埃里克 初始拥有 +20%，+20%，+20%，+20%，-5%。他 拥有HP暴击技能 当 他的 生命 达到 以下 20%, 在 他 变为 无敌 持续 20 秒, 获得 -20% 冷却,，获得 火焰光环 造成 伤害 周围 敌人. 技能 可能 仅 激活 再次 后 恢复 所有 HP. 受到 致命伤害 导致 游戏-超过 会 不 触发 技能. 他 可以发现 特殊 从 光源.",
+          unlock: "进化 标枪。",
           recommends: []
         },
         "hector": {
@@ -1476,8 +1476,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Hector starts with +25% and +20% , as well as 20 additional , and . He gains a hidden [[Passive items#Familiars|Familiar]] every 10 levels until level 40. The maximum number of Familiars gained this way is 4. Additionally, he is offered a every 7 levels as a 4th level up option up to a max of 16 Familiar Forges, regardless of weapon slot caps. Familiar Forges will stop being offered if the player has no valid weapon or passive weapon level up choices. Hector can find special from [[Light source|light sources]].",
-          unlock: "Find 7 Karma Coins after opening the Scorpion Gate.",
+          passiveDesc: "赫克托 初始拥有 +25%，+20%，以及20 额外，。他 获得 一个隐藏的 使魔 每10级 至 第40级. 最大 数量 的 随从 获得 此 方式 4. 此外，他 提供 每7级 作为 4th 级 向上 选项 最多 最多 16 使魔 锻造, 无论 的 武器 栏位 上限. 使魔 锻造 会 停止 被 提供 if 玩家 拥有 无 有效 武器或被动 武器 级 向上 选项. 赫克托 可以发现 特殊 从 光源.",
+          unlock: "打开蝎子之门后找到 7 个 业力硬币。",
           recommends: []
         },
         "maria": {
@@ -1486,8 +1486,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Maria starts with +40% , +25% , and +25% . [[Overhealing]] will addivitely increase her Might by <math>log(0.001*OverhealingAmount)</math>. At levels 2, 12, 22, and 32 Maria gains a follower, namely the [[Sacred Cardinal]], the [[Sacred Dragon]], the [[Sacred Tiger]], and the [[Sacred Turtle]] followers. They will stay at the fixed north, east, south and west positions around her. * These familiars won't take damage.",
-          unlock: "Complete any stage with Shanoa and Juste Belmont.",
+          passiveDesc: "玛丽亚 初始拥有 +40%，+25%，+25%。过量治疗 会 累加地 增加 她的 力量 达 <math>log(0.001*)</math>. 在 级 2, 12, 22,，+32 玛丽亚 获得 随从, 即，随从. 他 会 保持 在 固定 北, 东, 南，西 位置 周围 她的. * 这些 随从 不会 获得 伤害.",
+          unlock: "用 夏诺雅 和 祖斯特·贝尔蒙特 通关任意关卡。",
           recommends: []
         },
         "shanoa": {
@@ -1496,8 +1496,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Shanoa starts with +20 , +50% , +10 , and . She also gains +1% every level. There is no cap on this bonus. She also has a 30 second Charge ability that charges by standing still that triggers all equipped weapons from the . Shanoa can find special from [[Light source|light sources]].",
-          unlock: "Evolve the Iron Ball and the Alucard Spear.",
+          passiveDesc: "夏诺雅 初始 +20，+50%，+10，。她 同时获得 +1% 每级. 此加成无上限。她 同时拥有30 第二 充能 技能 充能 达 站立 触发 所有 装备 武器 从。夏诺雅 可以发现 特殊 从 光源.",
+          unlock: "进化 铁球 和 阿鲁卡多长矛。",
           recommends: []
         },
         "quincy": {
@@ -1506,8 +1506,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Quincy Morris starts with +20% and +4 . He has a Charge Ability that triggers a upon standing still for a total of 75 seconds. This Charge time is decreased by , down to a minimum of 15 seconds at +400% Might. Upon activating his Charge, Quincy has a 45% chance to lose either 1 health or 35% of his , whichever is higher. The chance to take damage upon activating Quincy's Charge is decreased by . Quincy can find special from [[Light source|light sources]].",
-          unlock: "Evolve the [[Platinum Whip]], after unlocking [[Vlad Tepes Dracula]]",
+          passiveDesc: "初始拥有 +20%，+4。他 拥有充能 技能 触发 当 站立 持续 总计 75 秒. 此 充能 次 减少 达，向下 最小 的 15 秒 在 +400% 力量. 当 激活 他的 充能, 昆西 拥有45% 概率 失去 或 1 生命或35% 的 他的，取其低者 更高. 概率 获得 伤害 当 激活 昆西的 充能 减少 达。昆西 可以发现 特殊 从 光源.",
+          unlock: "解锁 弗拉德·特佩斯·德古拉 后进化 白金之鞭。",
           recommends: []
         },
         "maxim": {
@@ -1516,8 +1516,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Maxim starts with +40 , and +80% . Maxim gains Speed based on how much he [[Overhealing|overheals]], based on <math>log(OverhealingTotal)</math>. However, Maxim does not accumulate overhealing at a 1:1 ratio to normal healing, instead multiplying the amount he overhealed in that instance by 0.001. Maxim's increases while he is [[invulnerable]]. During this state, his Might is multiplied by the lower value between 1.5 + his Speed bonus from overhealing, and 2. Maxim can find special from [[Light source|light sources]].",
-          unlock: "Evolve the [[Vibhuti Whip]], after unlocking [[Vlad Tepes Dracula]]",
+          passiveDesc: "马克西姆 初始 +40，+80%。马克西姆 获得 速度 基于 数量 他 过量治疗, 基于 <math>log()</math>. 但, 马克西姆 不 累积 过量治疗 在 1:1 比率 正常 治疗, 取而代之 乘以 数量 他 过量治疗 实例 达 0.001. 马克西姆的 增加 当 他 无敌. 此 状态, 他的 力量 乘以 达 更低 数值 之间 1.5 + 他的 速度 加成 从 过量治疗,，+2. 马克西姆 可以发现 特殊 从 光源.",
+          unlock: "解锁 弗拉德·特佩斯·德古拉 后进化 圣灰之鞭。",
           recommends: []
         },
         "henry": {
@@ -1526,8 +1526,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Henry starts with +2 and +20% Henry will gain and based on the proportion of on-screen enemies out of 300, with a maximum bonus of +100% of each stat at 300 on-screen enemies. Henry can find special from [[Light source|light sources]].",
-          unlock: "Evolve the [[Tyrfing]]",
+          passiveDesc: "亨利 初始拥有 +2，+20% 亨利 会 获得，基于 比例 的 屏幕上 敌人 出 的 300, 以获得 最大 加成 的 +100% 的 每 属性 在 300 屏幕上 敌人. 亨利 可以发现 特殊 从 光源.",
+          unlock: "进化 提尔锋。",
           recommends: []
         },
         "dracula": {
@@ -1536,8 +1536,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Dracula starts with +566 , +100% , +100% , and +10 , , and . He gains +1% Might every level, and +1 every 100 levels. Each extra 1% of Dracula possesses will increase his Might stat by 1%. Dracula caps incoming damage at 10, as if he had the , albeit without the retaliation effect. This damage cap is subject to decay in [[Endless Mode]]. He is immune to [[Health Drain]].",
-          unlock: "Find and open the third coffin in Ode to Castlevania.",
+          passiveDesc: "德古拉 初始 +566，+100%，+100%，+10，。他 每级获得 +1% 力量,，+1 每100级. 每 额外 1% 的 德古拉 拥有 会 增加 他的 力量 属性 达 1%. 德古拉 上限 来袭 伤害 在 10, 当 if 他 拥有，尽管 无 反击 效果. 此 伤害 上限为 受制于 衰减。他 免疫 生命 吸取.",
+          unlock: "在 恶魔城颂歌 找到并打开第三个棺材。",
           recommends: []
         },
         "julia": {
@@ -1546,8 +1546,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Julia starts with +8 , +3 , +20% , +50% , and +10 , , and . She also starts with an extra . Every 2 levels, a will spawn above Julia. Julia can find special from [[Light source|light sources]].",
-          unlock: "Evolve [[Globus]]",
+          passiveDesc: "朱莉亚 初始拥有 +8，+3，+20%，+50%，+10，。她 同时初始拥有 一个额外的。每2级, 会 生成 上方 朱莉亚. 朱莉亚 可以发现 特殊 从 光源.",
+          unlock: "进化 球体。",
           recommends: []
         },
         "carrie": {
@@ -1556,8 +1556,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Carrie starts with +40% , +1 , +50% , and +10 , , and . She also starts with an extra . Carrie can find special from [[Light source|light sources]].",
-          unlock: "Fully evolve the Cuctos glyphs",
+          passiveDesc: "凯莉 初始拥有 +40%，+1，+50%，+10，。她 同时初始拥有 一个额外的。凯莉 可以发现 特殊 从 光源.",
+          unlock: "完全进化 诅咒雕文。",
           recommends: []
         },
         "rinaldo": {
@@ -1566,8 +1566,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Rinaldo starts with +20 , +1 , +50% , and +10 , , and . He also starts with an extra . Rinaldo can find special from [[Light source|light sources]].",
-          unlock: "Evolve the [[Star Flail]].",
+          passiveDesc: "里纳尔多 初始 +20，+1，+50%，+10，。他 同时初始拥有 一个额外的。里纳尔多 可以发现 特殊 从 光源.",
+          unlock: "进化 星之连枷。",
           recommends: []
         },
         "mina": {
@@ -1576,8 +1576,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Mina starts with +0.5 , +20% , -5% , +100% , and +10 , , and . She also starts with an extra . Mina can find special from [[Light source|light sources]].",
-          unlock: "Evolve the [[Iron Shield]]",
+          passiveDesc: "米娜 初始拥有 +0.5，+20%，-5%，+100%，+10，。她 同时初始拥有 一个额外的。米娜 可以发现 特殊 从 光源.",
+          unlock: "进化 铁盾。",
           recommends: []
         },
         "elizabeth": {
@@ -1586,8 +1586,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "She starts with +100 , +2 +50% and , +100% +10 , , and , and +50 She also is immune to [[Health Drain]]. Elizabeth can find special from [[Light source|light sources]]. After acquiring the , at certain kill thresholds, starting at 1,000 kills, she morphs into a more powerful form, , for 30 seconds, similar to and . In this form, she gains +200% Might and -50% , and becomes [[invulnerable]]. Kill thresholds are as follows:",
-          unlock: "Evolve {{slink|Umbra}}",
+          passiveDesc: "她 初始 +100，+2 +50%，, +100% +10，,，+50 她 同时是 免疫 生命 吸取. 伊丽莎白 可以发现 特殊 从 光源. 后 获得，在 特定 击杀 阈值, 开始 在 1,000 击杀, 她 变形 成 更多 强大 形态,，持续 30 秒, 类似。在此形态下, 她 获得 +200% 力量，-50%，变为 无敌. 击杀 阈值 当 跟随:。",
+          unlock: "进化 暗影。",
           recommends: []
         },
         "reinhardt": {
@@ -1596,8 +1596,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Reinhardt starts with +40 , and +20% . He also starts with an extra . Reinhardt has an extra +1 Critical Damage multiplier. He can find special from [[Light source|light sources]].",
-          unlock: "Find and open the fourth Coffin in Ode to Castlevania.",
+          passiveDesc: "莱因哈特 初始 +40，+20%。他 同时初始拥有 一个额外的。莱因哈特 拥有 一个额外的 +1 倍率. 他 可以发现 特殊 从 光源.",
+          unlock: "在 恶魔城颂歌 找到并打开第四个棺材。",
           recommends: []
         },
         "isaac": {
@@ -1606,8 +1606,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Isaac starts with +20% , +20% , +25% , and +20 , , and Isaac gains a random [[Familiar]] as a follower every 10 levels. This effect caps at 6 followers at level 60. This effect is the exact same as [[Hector]]'s effect, except that Hector caps out at 4 Isaac can find special from [[Light source|light sources]].",
-          unlock: "Evolve the [[Mace]].",
+          passiveDesc: "艾萨克 初始拥有 +20%，+20%，+25%，+20，艾萨克 获得 随机 使魔 作为 随从 每10级. 此 效果 上限为 6 随从 在 第60级. 此 效果 完全 相同 当 赫克托的 效果, 除了 赫克托 上限 出 在 4 艾萨克 可以发现 特殊 从 光源.",
+          unlock: "进化 钉头锤。",
           recommends: []
         },
         "sara": {
@@ -1616,8 +1616,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Sara starts with +20% , and +40% . She gains +0.02 every level. There is no cap on this bonus. Once per life, when she takes fatal damage, she triggers a for all players in the game. Notably it doesn't prevent her from dying, but if she revives, she will have the firebreathing effect still active. When she revives, she evolves the Alchemy Whip into the . The evolution will occur regardless of the whip's level and the is not required. Sara can find special from [[Light source|light sources]].",
-          unlock: "Evolve the [[Alchemy Whip]], after unlocking [[Vlad Tepes Dracula]]",
+          passiveDesc: "莎拉 初始拥有 +20%，+40%。她 获得 +0.02 每级. 此加成无上限。每命一次, 当 她 获得 致命伤害, 她 触发 持续 所有 玩家 游戏. 值得注意的是 it 不 防止 她的 从 死亡,但if 她 复活, 她 会 有 喷火 效果 仍然 生效. 当 她 复活, 她 进化 成。进化 会 发生 无论 的 鞭子的 级，不 需要. 莎拉 可以发现 特殊 从 光源.",
+          unlock: "解锁 弗拉德·特佩斯·德古拉 后进化 炼金之鞭。",
           recommends: []
         },
         "vincent": {
@@ -1626,8 +1626,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Vincent starts with +1 , +20% , and +10 . He also starts with an extra . Vincent gains a Greed bonus while [[overhealing]] based on <math>log(TotalOverhealing)</math>. Note that Vincent does not accumulate overhealing at a 1:1 ratio, instead multiplying overhealing by 0.0005 before adding it to the total. While Vincent is [[invulnerable]], his total Greed is doubled. Vincent can find special from [[Light source|light sources]].",
-          unlock: "Evolve the [[Fulgur]] and [[Keremet Bubbles]] across any amount of runs.",
+          passiveDesc: "文森特 初始拥有 +1，+20%，+10。他 同时初始拥有 一个额外的。文森特 获得贪婪加成 当 过量治疗 基于 <math>log()</math>. 注意 文森特 不 累积 过量治疗 在 1:1 比率, 取而代之 乘以 过量治疗 达 0.0005 之前 加上 it 总共. 无敌, 他的 总共 贪婪 翻倍. 文森特 可以发现 特殊 从 光源.",
+          unlock: "在多局游戏中进化 闪电 和 克雷默气泡。",
           recommends: []
         },
         "albus": {
@@ -1636,8 +1636,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Albus starts with +20 and +40% . Albus gains a bonus to Might and Cooldown based on the proportion of on-screen enemies out of 300. At 300 enemies, Albus has a maximum of -40% Cooldown and +40% Might. He can find special from [[Light source|light sources]].",
-          unlock: "Fully evolve {{slink|Confodere}}",
+          passiveDesc: "阿尔布斯 初始 +20，+40%。阿尔布斯 获得a加成 力量，冷却 基于 比例 的 屏幕上 敌人 出 的 300. 在 300 敌人, 阿尔布斯 拥有最多 -40% 冷却，+40% 力量. 他 可以发现 特殊 从 光源.",
+          unlock: "完全进化 穿刺。",
           recommends: []
         },
         "lisa": {
@@ -1646,8 +1646,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Lisa starts with +20% and +5 , , and . She also gains +1% every level. There is no cap on this bonus. She also starts with an extra . Lisa can find special from [[Light source|light sources]].",
-          unlock: "Evolve the [[Wine Glass]].",
+          passiveDesc: "丽莎 初始拥有 +20%，+5，。她 同时获得 +1% 每级. 此加成无上限。她 同时初始拥有 一个额外的。丽莎 可以发现 特殊 从 光源.",
+          unlock: "进化 酒杯。",
           recommends: []
         },
         "shaft": {
@@ -1656,8 +1656,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "He starts with 100 , +30% , +50% , +1 , and +10 . He also gains +1% every level. When Shaft's health reaches a criticall low level, or 20% of his max health, he will become [[invulnerable]] and deal damage to nearby enemies for 20 seconds. During this time, Shaft gains +200% , -20% , and +50% . The that is summoned when reaching critically low health deals 20 base damage and covers most of the screen around the player character. The skill may only be activated again after recovering all HP. Receiving fatal damage resulting in a game-over will not trigger the skill. Shaft can find special from [[Light source|light sources]].",
-          unlock: "Evolve the [[Luminatio]].",
+          passiveDesc: "他 初始 +100，+30%，+50%，+1，+10。他 同时获得 +1% 每级. 的 生命 达到 严重 低 级,或20% 的 他的 最大生命, 他 会 变为 无敌，造成伤害 附近 敌人 持续 20 秒. 此 次, 竖井 获得 +200%，-20%，+50%。召唤 当 达到 严重 低 生命 造成 20 基础伤害，覆盖 最 的 屏幕 周围 玩家 角色. 技能 可能 仅 激活 再次 后 恢复 所有 HP. 受到 致命伤害 导致 游戏-超过 会 不 触发 技能. 竖井 可以发现 特殊 从 光源.",
+          unlock: "进化 光辉。",
           recommends: []
         },
         "saint_germain": {
@@ -1666,8 +1666,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Saint Germain starts with 100 , +100% and +10 , , and . He gains -0.2 every level. There is no cap on this bonus. He also starts with an extra . Saint Germain can find special from [[Light source|light sources]].",
-          unlock: "Evolving the [[Trident]]",
+          passiveDesc: "初始 +100，+100%，+10，。他 获得 -0.2 每级. 此加成无上限。他 同时初始拥有 一个额外的。可以发现 特殊 从 光源.",
+          unlock: "进化 三叉戟。",
           recommends: []
         },
         "nathan": {
@@ -1676,8 +1676,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Nathan starts with +120 , +1 , and -5% . He also starts with an extra . Upon reaching 7:00 and 14:00, Nathan will be given an extra selection of an [[Arcana]], much like that at the beginning of the run. This allows Nathan to obtain a total of 6 (7 in [[Inverse Mode]]) Arcana throughout a run, including the extra Awake (IV) he starts with. Nathan can find special from [[Light source|light sources]].",
-          unlock: "Evolve the [[Sonic Whip]].",
+          passiveDesc: "内森 初始 +120，+1，-5%。他 同时初始拥有 一个额外的。达到 7:00，+14:00, 内森 会 获得 一个额外的 选择 的 奥秘, 很 如 在 开始 的 游戏. 此 允许 内森 获得 总计 6 (7 ) 奥秘 贯穿 游戏, 包括 额外 觉醒 (IV) 他 初始拥有. 内森 可以发现 特殊 从 光源。",
+          unlock: "进化 音速之鞭。",
           recommends: []
         },
         "cornell": {
@@ -1686,8 +1686,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Cornell starts with 100 , +1 and +10 . He can also transform into by obtaining . In this form, he gains +100 Max Health, +2 , +40% , and +2 Amount. Cornell can pick the Custos weapons he currently does not possess as a 4th leveling up option, as long as they are not in the slot: no matter whether they are unlocked or not, and whether there are weapon slots left or not. These weapons can also appear if they have been , but will not appear again once they have been evolved into Trinum Custodem. Cornell can find special from [[Light source|light sources]].",
-          unlock: "Evolve the [[Silver Revolver]].",
+          passiveDesc: "科内尔 初始 +100，+1，+10。他 可 同时变身为 达 获得。在此形态下, 他 获得 +100 最大生命, +2，+40%，+2 数量. 科内尔 可 选取 库斯托斯 武器 他 当前 不 拥有 作为 4th 升级 向上 选项, 当 长 当 他 不 栏位: 无 关系 是否 他 解锁或不,，是否 武器 栏位 左侧或不. 这些 武器 可 同时出现 if 他 有 已，但会 不 出现 再次 一次 他 有 已 进化 成。科内尔 可以发现 特殊 从 光源.",
+          unlock: "进化 银色左轮。",
           recommends: []
         },
         "barlowe": {
@@ -1696,8 +1696,8 @@ export const VS_DATA: VSData = {
           icon: "🏰",
           category: "castlevania",
           initWeaponKey: "",
-          passiveDesc: "Barlowe starts with +200 , +1 , +20% , +20% , and +10 . Barlowe gains and based on how much he [[Overhealing|overheals]] based on <math>log(OverhealingTotal)</math>. However, Barlowe does not accumulate overhealing at a 1:1 ratio to normal healing, instead multiplying the amount he overhealed in that instance by 0.001 before adding it to the total. Up until level 11, Barlowe will receive Ebony Diabologue as a guaranteed 4th option when he [[Level up|levels up]]. Ebony Diabologue can still appear if it has been . He can find special Castlevania [[pickups]], like Wall Chicken.",
-          unlock: "Evolve the [[Optical Shot]].",
+          passiveDesc: "巴洛 初始 +200，+1，+20%，+20%，+10。巴洛 获得，基于 数量 他 过量治疗 基于 <math>log()</math>. 但, 巴洛 不 累积 过量治疗 在 1:1 比率 正常 治疗, 取而代之 乘以 数量 他 过量治疗 实例 达 0.001 之前 加上 it 总共. 向上 至 第11级, 巴洛 会 获得 作为 必定 4th 选项 当 他 级 向上. 可 仍然 出现 if it 拥有 已。他 可以发现 特殊 恶魔城 掉落物, 如。",
+          unlock: "进化 光学射击。",
           recommends: []
         },
         "tsunanori": {
@@ -1706,8 +1706,8 @@ export const VS_DATA: VSData = {
           icon: "💎",
           category: "emerald_diorama",
           initWeaponKey: "",
-          passiveDesc: "Tsunanori Mido starts with +20% , +20% , and +20% Tsunanori Mido obtains a follower every 20 levels (max 4). * Kugutsu followers will stay close to Tsunanori in fixed north, east, south and west positions around him. * Every Kugutsu follower will use a different weapon.",
-          unlock: "Finding and opening the first coffin in Emerald Diorama.",
+          passiveDesc: "初始拥有 +20%，+20%，+20% 获得 随从 每20级 (最大 4). * 库古苏 随从 会 保持 靠近 纲纪 固定 北, 东, 南，西 位置 周围 他. * 随从 会 使用 不同 武器.",
+          unlock: "在 翡翠幻境 找到并打开第一个棺材。",
           recommends: []
         },
         "bonnie": {
@@ -1716,8 +1716,8 @@ export const VS_DATA: VSData = {
           icon: "💎",
           category: "emerald_diorama",
           initWeaponKey: "",
-          passiveDesc: "Bonnie starts with +40 and +20% . Bonnie gains +0.1% whenever she fires a [[tech|glimmered tech]]. She also teams up with as her secondary character. Formina will follow Bonnie, but will not take damage. If the player chooses a 'solo' skin, Formina will not be summoned. Bonnie will trigger [[Showstopper]] when her health falls below 20%:",
-          unlock: "Fully evolving the {{slink|Splashers}}",
+          passiveDesc: "邦妮 初始 +40，+20%。邦妮 获得 +0.1% 每当射击 闪烁科技。她 同时组队 当 她的 副角色。福尔米纳 会 跟随 邦妮，但会 不 获得 伤害。如果 玩家选择 '单人' 皮肤，福尔米纳 会 不 召唤。邦妮 会 触发 压轴表演 当 她的 生命 降至低于 20%：。",
+          unlock: "完全进化 泼洒者。",
           recommends: []
         },
         "formina": {
@@ -1726,8 +1726,8 @@ export const VS_DATA: VSData = {
           icon: "💎",
           category: "emerald_diorama",
           initWeaponKey: "",
-          passiveDesc: "Formina Franklyn starts with +1 and +20% . Formina Franklyn gains +0.1% whenever she fires a [[tech|glimmered tech]]. This bonus caps at +400% Duration, Formina Franklyn teams up with as secondary character. Secondary character follows the main character and won't take damage. She also triggers [[Showstopper]] at critical health:",
-          unlock: "Fully evolving {{slink|Kick}}.",
+          passiveDesc: "初始拥有 +1，+20%。获得 +0.1% 每当射击 闪烁科技。此加成 上限为 +400% 持续，组队 当 副角色。副角色 跟随 主角色，不会 获得 伤害。她 同时触发 压轴表演 在 暴击 生命：。",
+          unlock: "完全进化 踢击。",
           recommends: []
         },
         "diva5": {
@@ -1736,8 +1736,8 @@ export const VS_DATA: VSData = {
           icon: "💎",
           category: "emerald_diorama",
           initWeaponKey: "super_missile",
-          passiveDesc: "Different skins (body types) of Diva No. 5 have different stats and passive effects. Every skin can trigger [[Showstopper]] at critical health, even if it isn't listed: * Gains greatly increased stats (+100% , -100% , +100% ). * All [[glimmers]] will be triggered by every activation. * The music will also change during Showstopper effect.",
-          unlock: "默认解锁",
+          passiveDesc: "不同 皮肤 (体型) 的 歌姬. 5 有 不同 属性，被动效果。每 皮肤 可 触发 压轴表演 在 暴击 生命，即使未列出：* 获得 大幅增加 属性 (+100%，-100%，+100% )。* 所有 闪烁 会 触发 达 每次 激活。* 音乐 会 同时改变 压轴表演 效果。",
+          unlock: "默认解锁。",
           recommends: []
         },
         "ameya": {
@@ -1746,8 +1746,8 @@ export const VS_DATA: VSData = {
           icon: "💎",
           category: "emerald_diorama",
           initWeaponKey: "spirit_rings",
-          passiveDesc: "Ameya Aisling starts with +20% , +5 , +5 , and +5 . Depending on Ameya's level, more cats will spawn at a higher frequency: * From Lvl. 1 to Lvl. 20, 1 cat spawns every 5 seconds. * From Lvl. 21 to Lvl. 40, 2 cats spawn every 5 seconds.",
-          unlock: "Fully evolving the {{slink|Twin Dragon}}",
+          passiveDesc: "初始拥有 +20%，+5，+5，+5。取决于 阿美雅的 级, 更多 猫 会 生成 在 更高 频率: *。1 级 20, 1 猫 生成 每 5 秒. *。21 级 40, 2 猫 生成 每 5 秒.",
+          unlock: "完全进化 双龙。",
           recommends: []
         },
         "siugnas": {
@@ -1756,8 +1756,8 @@ export const VS_DATA: VSData = {
           icon: "💎",
           category: "emerald_diorama",
           initWeaponKey: "",
-          passiveDesc: "* Siugnas starts with +0.2 [[Recovery]], +20% [[Move Speed]], and +1 [[Amount]]. * Defeated enemies become followers. ** Different enemies may have different behavior as followers. They will take damage, unlike [[Familiar Forge|familiars]]. * Increasing [[Max Health]] increases maximum followers (capped at 4).",
-          unlock: "Finding and opening the second coffin in Emerald Diorama.",
+          passiveDesc: "* 休格纳斯 初始拥有 +0.2 回复, +20% 移速,，+1 数量. * 击败 敌人 变为 随从. ** 不同 敌人 可能 有 不同 行为 当 随从. 他 会 获得 伤害, 不像 随从. * 增加 最大生命 增加 最大 随从 (有上限 在 4).",
+          unlock: "在 翡翠幻境 找到并打开第二个棺材。",
           recommends: []
         },
         "final_emperor": {
@@ -1766,8 +1766,8 @@ export const VS_DATA: VSData = {
           icon: "💎",
           category: "emerald_diorama",
           initWeaponKey: "flamberge",
-          passiveDesc: "Final Emperor starts with +50% and +50% . Final Emperor triggers glimmered techs more often than normal. He also triggers [[Showstopper]] at critical health: * Gains greatly increased stats (+100% , -100% , +100% ).",
-          unlock: "Defeating his demon form with {{slink|Bonnie Blair}} or {{slink|Formina Franklyn}} in Grelon in Inverse Emerald Diorama.",
+          passiveDesc: "初始拥有 +50%，+50%。触发 闪烁科技 更多 频繁地 比正常. 他 同时触发 压轴表演 在 暴击 生命: * 获得 大幅增加 属性 (+100%，-100%，+100% ).",
+          unlock: "在逆翡翠幻境的格雷隆用 邦尼·布莱尔 或 福米娜·弗兰克林 击败他的恶魔形态。",
           recommends: []
         },
         "dolores": {
@@ -1776,8 +1776,8 @@ export const VS_DATA: VSData = {
           icon: "💎",
           category: "emerald_diorama",
           initWeaponKey: "bullova",
-          passiveDesc: "Dolores starts with +20% , +20% , +1 , and +20% . Dolores triggers Showstopper at critical health and on revival. She also gains a -0.8% bonus to every time [[Showstopper]] is triggered (Max -20%). Triggering [[Showstopper]] has the following mechanics: * Gains greatly increased stats (+100% , -100% , +100% ).",
-          unlock: "Defeating the {{slink|Specter of Iwanaga-hime}} with {{slink|Siugnas}} in Yomi in Inverse Emerald Diorama.",
+          passiveDesc: "多洛雷斯 初始拥有 +20%，+20%，+1，+20%。多洛雷斯 触发 压轴表演 在 暴击 生命，在 复活. 她 同时获得 -0.8% 加成 每次 压轴表演 触发 (最大 -20%). 触发 压轴表演 拥有 以下机制: * 获得 大幅增加 属性 (+100%，-100%，+100% ).",
+          unlock: "在逆翡翠幻境的黄泉用 休格纳斯 击败 岩永姬之灵。",
           recommends: []
         },
         "macha": {
@@ -1786,8 +1786,8 @@ export const VS_DATA: VSData = {
           icon: "💎",
           category: "emerald_diorama",
           initWeaponKey: "khukuri",
-          passiveDesc: "Macha Alter Ego starts with +20% , +20% , +20% , -10% , +20% , +5 , +5 , +5 , and +50 . Macha Alter Ego starts with a hidden . She also increases enemy spawn quantity () by 50 and triggers [[Showstopper]] at critical health. During [[Showstopper]]: * Gains greatly increased stats (+100% , -100% , +100% ).",
-          unlock: "Defeating the {{slink|Iron Maiden}} in Avalon in Inverse Emerald Diorama with {{slink|Ameya Aisling}}.",
+          passiveDesc: "伊戈 初始拥有 +20%，+20%，+20%，-10%，+20%，+5，+5，+5，+50。伊戈 初始拥有 一个隐藏的。她 同时增加 敌人 生成 数量 () 达 50，触发 压轴表演 在 暴击 生命. 压轴表演: * 获得 大幅增加 属性 (+100%，-100%，+100% ).",
+          unlock: "在逆翡翠幻境的阿瓦隆用 阿梅娅·艾斯林 击败 铁处女。",
           recommends: []
         },
         "lita": {
@@ -1796,8 +1796,8 @@ export const VS_DATA: VSData = {
           icon: "💎",
           category: "emerald_diorama",
           initWeaponKey: "glaive",
-          passiveDesc: "Lita Caryx starts with +100% , +100% , +1 , +5 , +5 , and +5 . Lita Caryx innately knows the \"Heaven's Thunder\" tech. She also triggers [[Showstopper]] at critical health: * Gains greatly increased stats (+100% , -100% , +100% ).",
-          unlock: "Defeating the {{slink|Earth Dragon}} in Inverese Emerald Diorama, Pulchra with {{slink|Tsunanori Mido}}",
+          passiveDesc: "初始拥有 +100%，+100%，+1，+5，+5，+5。天生知晓「天堂之雷」科技. 她 同时触发 压轴表演 在 暴击 生命: * 获得 大幅增加 属性 (+100%，-100%，+100% ).",
+          unlock: "在逆翡翠幻境中用 御堂纲纪 击败 土龙 普克拉。",
           recommends: []
         },
         "kugutsu": {
@@ -1806,8 +1806,8 @@ export const VS_DATA: VSData = {
           icon: "💎",
           category: "emerald_diorama",
           initWeaponKey: "",
-          passiveDesc: "Kugutsu starts with +20 , +1 , and +30% . Kugutsu gains 1 and 5% every time they [[glimmer]] a new [[tech]]. They also trigger [[Showstopper]] at critical health: * Gains greatly increased stats (+100% , -100% , +100% ).",
-          unlock: "Defeating {{slink|Divine Wood Spirit}} in Miyako City in Inverse Emerald Diorama.",
+          passiveDesc: "库古苏 初始 +20，+1，+30%。库古苏 获得 1，+5% 每次 他 闪烁 新的 科技. 他 同时触发 压轴表演 在 暴击 生命: * 获得 大幅增加 属性 (+100%，-100%，+100% ).",
+          unlock: "在逆翡翠幻境的宫古城击败神木之灵。",
           recommends: []
         },
         "mr_s": {
@@ -1816,8 +1816,8 @@ export const VS_DATA: VSData = {
           icon: "💎",
           category: "emerald_diorama",
           initWeaponKey: "intuition",
-          passiveDesc: "Mr. S starts with +20% . He gains +1 every 20 levels until level 80 (up to +4 amount). The following table shows how much Amount he gains by level: !Levels!!Amount Additionally, Mr. S will trigger the [[Glimmers|techs]] of weapons from [[Emerald Diorama]] with every attack once they are [[Glimmers|glimmered]], instead of the [[Glimmers|techs]] being placed into rotation.",
-          unlock: "Defeat [[Living Anguish]] as [[Diva No. 5]] in [[Emerald Diorama (stage)|Emerald Diorama]] with Inverse Mode enabled.",
+          passiveDesc: "Mr. S 初始拥有 +20%。他 获得 +1 每20级 至 第80级 (最高 +4 数量).",
+          unlock: "在逆模式启用下的翡翠幻境以 歌姬5号 击败 活体痛苦。",
           recommends: []
         },
         "lolo": {
@@ -1826,8 +1826,8 @@ export const VS_DATA: VSData = {
           icon: "💎",
           category: "emerald_diorama",
           initWeaponKey: "n_a",
-          passiveDesc: "Lolo, Hiss, Meow, and Purr start with -50 , +1 , +40% , -60% , -40% , +8 , and +40% . Lolo, Hiss, Meow, and Purr trigger [[Showstopper]] at critical health: * Gains greatly increased stats (+100% , -100% , +100% ). * All [[glimmers]] will be triggered by every activation.",
-          unlock: "Gather the largest cadre of cats, including those that want to fight.",
+          passiveDesc: "洛洛, 希斯, 喵,，普尔 初始 +50，+1，+40%，-60%，-40%，+8，+40%。洛洛, 希斯, 喵,，普尔 触发 压轴表演 在 暴击 生命: * 获得 大幅增加 属性 (+100%，-100%，+100% ). * 所有 闪烁 会 触发 达 每 激活.",
+          unlock: "集结最庞大的猫军团，包括那些想战斗的猫。",
           recommends: []
         },
         "kina": {
@@ -1836,8 +1836,8 @@ export const VS_DATA: VSData = {
           icon: "💎",
           category: "emerald_diorama",
           initWeaponKey: "n_a",
-          passiveDesc: "Kina start with +10 , +20% , and +20% . Kina innately knows the \"Swallow Slice\" and \"Airwave\" [[tech]]s. They also gain between +0.10 and +1.00 bonus whenever [[Showstopper]] is triggered at critical health. Triggering [[Showstopper]] also: * Grants greatly increased stats (+100% , -100% , +100% ).",
-          unlock: "Defy the call to adventure in Emerald Diorama.",
+          passiveDesc: "基娜 初始 +10，+20%，+20%。基娜 天生知晓「燕返」和「气浪」科技s. 他 同时获得 之间 +0.10，+1.00 加成 每当 压轴表演 触发 在 暴击 生命. 触发 压轴表演 也: * 给予 大幅增加 属性 (+100%，-100%，+100% ).",
+          unlock: "在翡翠幻境违抗冒险的召唤。",
           recommends: []
         },
         "imakoo": {
@@ -1846,8 +1846,8 @@ export const VS_DATA: VSData = {
           icon: "💎",
           category: "emerald_diorama",
           initWeaponKey: "n_a",
-          passiveDesc: "Imakoo start with +20 , +10% , +30% , and -40% . Imakoo innately knows the \"Hell's Fury\" and \"Blood Rage\" [[Glimmers|techs]]. They also gain between +5% and +50% bonus whenever [[Showstopper]] is triggered at critical health. Triggering [[Showstopper]] also:",
-          unlock: "End anguish with an otherworldly melody as the greatest mechanical songstress.",
+          passiveDesc: "伊玛库 初始 +20，+10%，+30%，-40%。伊玛库 天生知晓「地狱之怒」和「血怒」科技. 他 同时获得 之间 +5%，+50% 加成 每当 压轴表演 触发 在 暴击 生命. 触发 压轴表演 也:。",
+          unlock: "以最伟大的机械歌姬的异世旋律终结痛苦。",
           recommends: []
         },
         "door_spirit": {
@@ -1856,8 +1856,8 @@ export const VS_DATA: VSData = {
           icon: "💎",
           category: "emerald_diorama",
           initWeaponKey: "blood_chalice",
-          passiveDesc: "Malevolent Door Spirit start with +77 , +1 , -30% , +30% , +30% , -30% , +100% , and +10 . Malevolent Door Spirit innately knows the \"Vermillion Sands\" [[tech]]. Malevolent Door Spirit gains a Might bonuses based on <math>0.25 * log(TotalGlimmersFired)</math>. * Note that this is different than Glimmering, where the latter will only happen once, while this multiplier increases as a weapon fires its tech.",
-          unlock: "Let the last ruler re-freeze his most monstrous form.",
+          passiveDesc: "恶意门灵 初始 +77，+1，-30%，+30%，+30%，-30%，+100%，+10。恶意门灵 天生知晓「朱砂沙」科技。恶意门灵根据 <math>0.25 * log()</math> 获得力量加成。* 注意这与闪烁不同，后者仅触发一次，而此倍率随武器触发科技而增加。",
+          unlock: "让最后的统治者重新冻结他最怪物的形态。",
           recommends: []
         },
         "jimbo": {
@@ -1866,8 +1866,8 @@ export const VS_DATA: VSData = {
           icon: "🎭",
           category: "ante_chamber",
           initWeaponKey: "infernolatro",
-          passiveDesc: "Jimbo starts with +20 , +20% , , and , and +7 . Jimbo starts each run with a draft of , and is able to gain more from [[Light source|Light Sources]]. * The chance to get a Survarot from a Light Source decreases as Jimbo gets more Survarots. Also, Jimbo has a permanent [[Survarot#Accumulating Levels|Survarot Multiplier]] of 4, meaning Survarot cards that appear as him will gain 4 more levels than normal.",
-          unlock: "Find and open the coffin in the Ante Chamber.",
+          passiveDesc: "吉姆博 初始 +20，+20%，,，+7。吉姆博 每局开始 游戏 以获得 选取 的，可以 获得 更多 从 光源. * 概率 获得 苏瓦罗 从 光源 减少 当 吉姆博 获得 更多 苏瓦罗. 也, 吉姆博 拥有永久 的 4, 意味着 苏瓦罗 卡牌 出现 当 他 会 获得 4 更多 级 比正常.",
+          unlock: "在 前厅 找到并打开棺材。",
           recommends: []
         },
         "canio": {
@@ -1876,8 +1876,8 @@ export const VS_DATA: VSData = {
           icon: "🎭",
           category: "ante_chamber",
           initWeaponKey: "fibonacci_spritz",
-          passiveDesc: "Canio starts with -10% , +20% , and +7 . Canio can ''not'' find from [[Light source|Light Sources]] and does ''not'' start the run with a draft. Instead, Canio has a chance to trigger a Survarot draft by a [[Level up|Level Up]]. * The chance for Canio to get a Survarot with each Skip starts at 100%, decreasing by 5% for every Survarot obtained until a minimum of 10% is reached.",
-          unlock: "Evolve Infernolatro.",
+          passiveDesc: "卡尼奥 初始拥有 -10%，+20%，+7。卡尼奥 可 '不' 发现 从 光源，'不' 开始 游戏 以获得 选取. 取而代之, 卡尼奥 有概率 触发 苏瓦罗 选取 达。* 概率 持续 卡尼奥 获得 苏瓦罗 每 跳过 开始 在 100%, 减少 达 5% 每 苏瓦罗 获得 至 最小 的 10% 达到.",
+          unlock: "进化 地狱崇拜。",
           recommends: []
         },
         "chicot": {
@@ -1886,8 +1886,8 @@ export const VS_DATA: VSData = {
           icon: "🎭",
           category: "ante_chamber",
           initWeaponKey: "gros_michel",
-          passiveDesc: "Chicot starts with +20% and , as well as +7 . Chicot starts each run with a draft of , and is able to gain more from [[Light source|Light Sources]]. * The chance to get a Survarot from a Light Source decreases as Chicot gets more Survarots. Chicot halves the Health of all [[Boss|Bosses]] and disables certain special attacks, namely those from the Boss Blinds on [[Ante Chamber (stage)|Ante Chamber]].",
-          unlock: "Evolve Fibonacci Spritz.",
+          passiveDesc: "奇科 初始 +20%，以及+7。奇科 每局开始 游戏 以获得 选取 的，可以 获得 更多 从 光源. * 概率 获得 苏瓦罗 从 光源 减少 当 奇科 获得 更多 苏瓦罗. 奇科 减半 生命 的 所有 首领，禁用 特定 特殊 攻击, 即 那些 从 在。",
+          unlock: "进化 斐波那契喷雾。",
           recommends: []
         },
         "perkeo": {
@@ -1896,8 +1896,8 @@ export const VS_DATA: VSData = {
           icon: "🎭",
           category: "ante_chamber",
           initWeaponKey: "celestial_booster",
-          passiveDesc: "Perkeo starts with +20 , +20% , and +7 . Perkeo is able to find from [[Light source|Light Sources]]. * Notably, Perkeo does not ''start'' with a draft, unlike , , and . Perkeo also has 100 slots for [[Passive Items|Passive Weapons]]. This allows him to carry every Passive Weapon in the game without issue.",
-          unlock: "Evolve the Gros Michel.",
+          passiveDesc: "珀基奥 初始 +20，+20%，+7。珀基奥 可以 发现 从 光源. * 值得注意的是, 珀基奥 不 ''开始'' 以获得 选取, 不像，。珀基奥 同时有 100 栏位 持续。此 允许 他 携带 每 游戏 无 问题.",
+          unlock: "进化 大麦克。",
           recommends: []
         },
       }
