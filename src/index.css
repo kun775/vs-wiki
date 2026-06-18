@@ -1,1833 +1,1739 @@
 
-    /* ==========================================================================
-       1. CSS 设计系统与变量定义
-       ========================================================================== */
-    :root {
-      --bg-darker: #06020c;
-      --bg-dark: #0f071b;
-      --bg-card: rgba(23, 12, 41, 0.7);
-      --bg-card-hover: rgba(43, 24, 74, 0.85);
-      --border-color: rgba(139, 92, 246, 0.2);
-      --border-color-glow: rgba(139, 92, 246, 0.6);
-      
-      --color-text: #e2d8f0;
-      --color-text-muted: #a78bfa;
-      --color-accent: #8b5cf6; /* 皇家紫 */
-      
-      /* 霓虹发光色系 */
-      --glow-red: #ff3e3e;
-      --glow-blue: #00d2ff;
-      --glow-green: #39ff14;
-      --glow-gold: #ffd700;
-      --glow-purple: #bd00ff;
-      
-      --font-pixel: 'Press Start 2P', 'Courier New', monospace;
-      --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-      --font-tech: 'Rajdhani', 'Segoe UI', system-ui, sans-serif;
-      
-      --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    /* ==========================================================================
-       2. 全局重置与基础样式
-       ========================================================================== */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scrollbar-width: thin;
-      scrollbar-color: var(--color-accent) var(--bg-darker);
-    }
-
-    body {
-      background-color: var(--bg-darker);
-      background-image: 
-        radial-gradient(circle at 50% 10%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
-        radial-gradient(circle at 10% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 40%),
-        radial-gradient(circle at 90% 90%, rgba(244, 63, 94, 0.08) 0%, transparent 40%);
-      background-attachment: fixed;
-      color: var(--color-text);
-      font-family: var(--font-sans);
-      min-height: 100vh;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* 滚动条定制 */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--bg-darker);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: var(--color-accent);
-      border-radius: 3px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #a78bfa;
-    }
-
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 1rem;
-    }
-
-    @media (min-width: 768px) {
-      .container {
-        padding: 1.5rem;
-      }
-    }
-
-    /* ==========================================================================
-       3. 页面头部 (Header) 像素与现代风融合
-       ========================================================================== */
-    header {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      padding: 1.5rem 0.75rem;
-      background: rgba(15, 7, 27, 0.6);
-      border-bottom: 1px solid var(--border-color);
-      backdrop-filter: blur(10px);
-      position: relative;
-      overflow: hidden;
-      border-radius: 0 0 16px 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-    }
-
-    @media (min-width: 768px) {
-      header {
-        margin-bottom: 2rem;
-        padding: 2rem 1rem;
-        border-radius: 0 0 20px 20px;
-      }
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--color-accent), var(--glow-blue), var(--glow-red), var(--color-accent), transparent);
-      animation: scanline 4s linear infinite;
-    }
-
-    @keyframes scanline {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-
-    @keyframes altar-glow {
-      0% { box-shadow: 0 0 0 rgba(255, 215, 0, 0); }
-      30% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
-      100% { box-shadow: 0 0 0 rgba(255, 215, 0, 0); }
-    }
-
-    @keyframes toast-slide {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .header-tag {
-      font-family: var(--font-pixel);
-      font-size: 0.65rem;
-      color: var(--glow-red);
-      text-shadow: 0 0 8px rgba(255, 62, 62, 0.6);
-      margin-bottom: 0.5rem;
-      letter-spacing: 1.5px;
-    }
-
-    @media (min-width: 768px) {
-      .header-tag {
-        font-size: 0.75rem;
-        margin-bottom: 0.75rem;
-        letter-spacing: 2px;
-      }
-    }
-
-    h1 {
-      font-family: var(--font-sans);
-      font-weight: 800;
-      font-size: 1.5rem;
-      letter-spacing: -0.5px;
-      background: linear-gradient(135deg, #ffffff 30%, #c084fc 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
-      margin-bottom: 0.5rem;
-    }
-
-    @media (min-width: 768px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-    }
-
-    .subtitle {
-      color: var(--color-text-muted);
-      font-size: 0.85rem;
-      max-width: 650px;
-      margin: 0 auto;
-      font-weight: 300;
-      line-height: 1.4;
-    }
-
-    @media (min-width: 768px) {
-      .subtitle {
-        font-size: 1rem;
-        line-height: 1.6;
-      }
-    }
-
-    /* ==========================================================================
-       4. 导航选项卡 (Tabs Navigation)
-       ========================================================================== */
-    .tabs-nav {
-      display: flex;
-      justify-content: flex-start;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-      position: sticky;
-      top: 0.5rem;
-      z-index: 100;
-      overflow-x: auto;
-      white-space: nowrap;
-      padding: 0.25rem 0.25rem;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .tabs-nav::-webkit-scrollbar {
-      display: none;
-    }
-
-    @media (min-width: 768px) {
-      .tabs-nav {
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 2rem;
-        top: 1rem;
-      }
-    }
-
-    .tab-btn {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      color: var(--color-text-muted);
-      padding: 0.6rem 1rem;
-      border-radius: 10px;
-      cursor: pointer;
-      font-family: var(--font-tech);
-      font-weight: 700;
-      font-size: 0.95rem;
-      letter-spacing: 0.5px;
-      transition: var(--transition-normal);
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      flex-shrink: 0;
-    }
-
-    @media (min-width: 768px) {
-      .tab-btn {
-        padding: 0.75rem 1.5rem;
-        font-size: 1.1rem;
-        border-radius: 12px;
-        gap: 0.5rem;
-      }
-    }
-
-    .tab-btn:hover {
-      border-color: var(--border-color-glow);
-      color: #ffffff;
-      transform: translateY(-1px);
-    }
-
-    .tab-btn.active {
-      background: var(--color-accent);
-      border-color: var(--color-accent);
-      color: #ffffff;
-      box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
-    }
-
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.4s ease;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ==========================================================================
-       5. 模块一：超武合成模拟器 (Evolution Combiner)
-       ========================================================================== */
-
-    /* 模态弹窗 — 固定定位遮罩层 */
-    .modal-backdrop {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(4px);
-      z-index: 9998;
-    }
-
-    .modal {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: calc(100vw - 2rem);
-      max-width: 480px;
-      max-height: calc(100vh - 4rem);
-      overflow-y: auto;
-      background: var(--bg-card, #0f0a1e);
-      border: 1px solid var(--border-color, rgba(139,92,246,0.3));
-      border-radius: 16px;
-      padding: 1.25rem;
-      z-index: 9999;
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
-    }
-
-    @media (min-width: 768px) {
-      .modal {
-        width: 480px;
-        padding: 1.5rem;
-      }
-    }
-
-    /* 合成器物品选择池网格 */
-    .sim-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
-      gap: 0.4rem;
-    }
-
-    .altar-section {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 1.25rem 1rem;
-      margin-bottom: 1.5rem;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-      position: relative;
-    }
-
-    @media (min-width: 768px) {
-      .altar-section {
-        padding: 2rem;
-        margin-bottom: 2rem;
-      }
-    }
-
-    .altar-title {
-      font-family: var(--font-pixel);
-      font-size: 0.65rem;
-      color: var(--glow-gold);
-      text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
-      margin-bottom: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    @media (min-width: 768px) {
-      .altar-title {
-        font-size: 0.8rem;
-        margin-bottom: 1.5rem;
-      }
-    }
-
-    .altar-slots {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.35rem;
-      flex-wrap: nowrap;
-    }
-
-    @media (min-width: 480px) {
-      .altar-slots {
-        gap: 0.75rem;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .altar-slots {
-        gap: 2rem;
-      }
-    }
-
-    .altar-slot {
-      width: 72px;
-      height: 72px;
-      border: 2px dashed rgba(139, 92, 246, 0.3);
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: rgba(6, 2, 12, 0.5);
-      position: relative;
-      transition: var(--transition-normal);
-      font-size: 0.55rem;
-      color: rgba(226, 216, 240, 0.4);
-      text-align: center;
-      padding: 0.15rem;
-      flex-shrink: 0;
-    }
-
-    @media (min-width: 480px) {
-      .altar-slot {
-        width: 85px;
-        height: 85px;
-        border-radius: 12px;
-        font-size: 0.7rem;
-        padding: 0.25rem;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .altar-slot {
-        width: 110px;
-        height: 110px;
-        border-radius: 16px;
-        font-size: 0.8rem;
-        padding: 0.5rem;
-      }
-    }
-
-    .altar-slot.active {
-      border: 2px solid var(--color-accent);
-      background: rgba(139, 92, 246, 0.1);
-      box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
-      color: var(--color-text);
-    }
-
-    .altar-slot .slot-icon {
-      font-size: 1.8rem;
-      margin-bottom: 0.2rem;
-      filter: drop-shadow(0 0 6px rgba(255,255,255,0.2));
-    }
-
-    @media (min-width: 768px) {
-      .altar-slot .slot-icon {
-        font-size: 2.5rem;
-        margin-bottom: 0.25rem;
-      }
-    }
-
-    .altar-slot .slot-name {
-      font-size: 0.6rem;
-      font-weight: 600;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%;
-    }
-
-    @media (min-width: 768px) {
-      .altar-slot .slot-name {
-        font-size: 0.75rem;
-      }
-    }
-
-    .altar-slot .slot-clear {
-      position: absolute;
-      top: -4px;
-      right: -4px;
-      width: 18px;
-      height: 18px;
-      background: var(--glow-red);
-      color: #fff;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      font-size: 0.65rem;
-      font-weight: bold;
-      border: none;
-      box-shadow: 0 0 6px rgba(255,62,62,0.8);
-      opacity: 1;
-    }
-
-    @media (min-width: 768px) {
-      .altar-slot .slot-clear {
-        top: -6px;
-        right: -6px;
-        width: 20px;
-        height: 20px;
-        font-size: 0.7rem;
-        opacity: 0;
-        transition: var(--transition-fast);
-      }
-      .altar-slot:hover .slot-clear {
-        opacity: 1;
-      }
-    }
-
-    .altar-plus, .altar-equal {
-      font-family: var(--font-pixel);
-      font-size: 1.1rem;
-      color: var(--color-text-muted);
-    }
-
-    @media (min-width: 768px) {
-      .altar-plus, .altar-equal {
-        font-size: 1.5rem;
-      }
-    }
-
-    /* 超武结果插槽 */
-    .altar-slot.result-slot {
-      width: 80px;
-      height: 80px;
-      border-style: double;
-      border-width: 3px;
-      border-color: rgba(255, 215, 0, 0.3);
-    }
-
-    @media (min-width: 480px) {
-      .altar-slot.result-slot {
-        width: 100px;
-        height: 100px;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .altar-slot.result-slot {
-        width: 130px;
-        height: 130px;
-        border-width: 4px;
-      }
-    }
-
-    .altar-slot.result-slot.evolved-active {
-      border-color: var(--glow-gold);
-      background: rgba(255, 215, 0, 0.1);
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-      animation: pulse-gold 2s infinite alternate;
-    }
-
-    /* 条件和配方提示栏 */
-    .altar-condition-tip {
-      margin-top: 1rem;
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--color-text-muted);
-      font-weight: 500;
-      min-height: 22px;
-      padding: 0.25rem 0.5rem;
-      border-radius: 6px;
-      background: rgba(6, 2, 12, 0.3);
-      display: inline-block;
-      width: 100%;
-    }
-
-    @media (min-width: 768px) {
-      .altar-condition-tip {
-        font-size: 0.85rem;
-        margin-top: 1.25rem;
-      }
-    }
-
-    .altar-condition-tip.special-cond {
-      color: var(--glow-gold);
-      text-shadow: 0 0 8px rgba(255, 215, 0, 0.2);
-      background: rgba(255, 215, 0, 0.05);
-      border: 1px solid rgba(255, 215, 0, 0.15);
-    }
-
-    /* 动态合成路径效果展示板 */
-    .altar-preview-paths {
-      margin-top: 1rem;
-      width: 100%;
-      border: 1px dashed var(--border-color);
-      border-radius: 10px;
-      padding: 0.75rem;
-      background: rgba(15, 7, 27, 0.6);
-      transition: var(--transition-normal);
-    }
-
-    @media (min-width: 768px) {
-      .altar-preview-paths {
-        margin-top: 1.25rem;
-        padding: 1rem;
-      }
-    }
-
-    .altar-preview-paths-title {
-      font-family: var(--font-tech);
-      font-weight: 700;
-      font-size: 1rem;
-      color: #ffffff;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 0.4rem;
-      margin-bottom: 0.6rem;
-      text-align: left;
-    }
-
-    @media (min-width: 768px) {
-      .altar-preview-paths-title {
-        font-size: 1.1rem;
-      }
-    }
-
-    .preview-combo-row {
-      background: rgba(6, 2, 12, 0.45);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 0.6rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .preview-combo-formula {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-      font-size: 0.8rem;
-    }
-
-    @media (min-width: 600px) {
-      .preview-combo-formula {
-        font-size: 0.85rem;
-      }
-    }
-
-    .preview-combo-item-badge {
-      cursor: pointer;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-weight: 600;
-      transition: var(--transition-fast);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.2rem;
-    }
-
-    .preview-combo-item-badge:hover {
-      filter: brightness(1.2);
-      transform: translateY(-1px);
-    }
-
-    .preview-combo-item-badge.weapon-type {
-      background: rgba(139, 92, 246, 0.12);
-      border: 1px solid rgba(139, 92, 246, 0.3);
-    }
-
-    .preview-combo-item-badge.passive-type {
-      background: rgba(57, 255, 20, 0.1);
-      border: 1px solid rgba(57, 255, 20, 0.25);
-    }
-
-    .preview-combo-item-badge.evolved-type {
-      background: rgba(255, 215, 0, 0.08);
-      border: 1px solid rgba(255, 215, 0, 0.25);
-      color: var(--glow-gold);
-    }
-
-    .preview-combo-desc {
-      font-size: 0.75rem;
-      color: #cbd5e1;
-      border-left: 2px solid var(--color-accent);
-      padding-left: 0.5rem;
-      margin-top: 2px;
-      line-height: 1.4;
-      text-align: left;
-    }
-
-    /* 模拟器选择区 */
-    .sim-selector {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 900px) {
-      .sim-selector {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-      }
-    }
-
-    .sim-col {
-      background: rgba(15, 7, 27, 0.4);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1rem;
-    }
-
-    @media (min-width: 768px) {
-      .sim-col {
-        padding: 1.5rem;
-      }
-    }
-
-    .sim-col h3 {
-      font-family: var(--font-tech);
-      font-size: 1.2rem;
-      border-bottom: 2px solid var(--border-color);
-      padding-bottom: 0.5rem;
-      margin-bottom: 0.75rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .sim-col h3 span {
-      font-size: 0.8rem;
-      color: var(--color-text-muted);
-    }
-
-    .item-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(58px, 1fr));
-      gap: 0.35rem;
-      max-height: 350px;
-      overflow-y: auto;
-      padding-right: 0.25rem;
-    }
-
-    @media (min-width: 768px) {
-      .item-grid {
-        grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
-        gap: 0.5rem;
-        max-height: 450px;
-        padding-right: 0.5rem;
-      }
-    }
-
-    .sim-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      aspect-ratio: 1;
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      position: relative;
-      transition: var(--transition-fast);
-      user-select: none;
-      padding: 0.15rem;
-    }
-
-    .sim-item:hover {
-      transform: scale(1.03);
-      border-color: var(--border-color-glow);
-    }
-
-    .sim-item .item-icon {
-      font-size: 1.3rem;
-    }
-
-    @media (min-width: 768px) {
-      .sim-item .item-icon {
-        font-size: 1.8rem;
-      }
-    }
-
-    .sim-item .item-name {
-      font-size: 0.55rem;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: 100%;
-      margin-top: 0.2rem;
-      color: var(--color-text-muted);
-    }
-
-    @media (min-width: 768px) {
-      .sim-item .item-name {
-        font-size: 0.65rem;
-        margin-top: 0.25rem;
-      }
-    }
-
-    .sim-item.disabled {
-      opacity: 0.15;
-      cursor: not-allowed;
-      transform: none;
-      filter: grayscale(80%);
-    }
-
-    .sim-item.highlighted {
-      border-color: var(--glow-green);
-      box-shadow: 0 0 12px rgba(57, 255, 20, 0.35);
-      background: rgba(57, 255, 20, 0.05);
-      transform: scale(1.03);
-      z-index: 2;
-    }
-
-    .sim-item.selected {
-      border-color: var(--color-accent);
-      background: rgba(139, 92, 246, 0.2);
-      box-shadow: 0 0 10px rgba(139, 92, 246, 0.4);
-    }
-
-    .sim-item .dlc-badge {
-      position: absolute;
-      top: 1px;
-      right: 1px;
-      font-size: 6px;
-      padding: 0px 2px;
-      border-radius: 2px;
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      transform: scale(0.9);
-    }
-
-    @media (min-width: 768px) {
-      .sim-item .dlc-badge {
-        top: 2px;
-        right: 2px;
-        font-size: 8px;
-        padding: 1px 3px;
-        transform: none;
-      }
-    }
-
-    /* 合成器双栏池：桌面端左右并排 */
-    @media (min-width: 768px) {
-      .sim-pools-container {
-        grid-template-columns: 1fr 1fr !important;
-      }
-      .build-planner-layout {
-        grid-template-columns: 1.2fr 0.8fr !important;
-        gap: 1.5rem !important;
-      }
-    }
-
-    /* 规划器槽位网格 */
-    .build-slots-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 0.3rem;
-    }
-
-    /* ==========================================================================
-       6. 模块二：DLC 武器百科 (Encyclopedia)
-       ========================================================================== */
-    .wiki-header {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px 12px 0 0;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      backdrop-filter: blur(10px);
-    }
-
-    .wiki-search-box {
-      position: relative;
-      width: 100%;
-    }
-
-    .wiki-search-box input {
-      width: 100%;
-      background: rgba(6, 2, 12, 0.6);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 0.6rem 0.75rem 0.6rem 2.2rem;
-      color: var(--color-text);
-      font-size: 0.9rem;
-      transition: var(--transition-normal);
-    }
-
-    @media (min-width: 768px) {
-      .wiki-search-box input {
-        padding: 0.75rem 1rem 0.75rem 2.5rem;
-        font-size: 1rem;
-      }
-    }
-
-    .wiki-search-box input:focus {
-      outline: none;
-      border-color: var(--border-color-glow);
-      box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
-    }
-
-    .wiki-search-box::before {
-      content: '🔍';
-      position: absolute;
-      left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      opacity: 0.5;
-    }
-
-    .filter-group {
-      display: flex;
-      gap: 0.4rem;
-      overflow-x: auto;
-      white-space: nowrap;
-      padding-bottom: 0.25rem;
-      scrollbar-width: none;
-    }
-
-    .filter-group::-webkit-scrollbar {
-      display: none;
-    }
-
-    @media (min-width: 768px) {
-      .filter-group {
-        gap: 0.5rem;
-        flex-wrap: wrap;
-        overflow-x: visible;
-        white-space: normal;
-        padding-bottom: 0;
-      }
-    }
-
-    .filter-btn {
-      background: rgba(23, 12, 41, 0.5);
-      border: 1px solid var(--border-color);
-      color: var(--color-text-muted);
-      padding: 0.35rem 0.7rem;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: var(--transition-fast);
-      flex-shrink: 0;
-    }
-
-    @media (min-width: 768px) {
-      .filter-btn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.85rem;
-      }
-    }
-
-    .filter-btn:hover, .filter-btn.active {
-      background: var(--bg-card-hover);
-      color: #ffffff;
-      border-color: var(--border-color-glow);
-    }
-
-    .filter-btn.active {
-      border-color: var(--color-accent);
-      background: rgba(139, 92, 246, 0.15);
-      box-shadow: 0 0 8px rgba(139, 92, 246, 0.2);
-    }
-
-    .wiki-body {
-      background: rgba(15, 7, 27, 0.3);
-      border: 1px solid var(--border-color);
-      border-top: none;
-      border-radius: 0 0 12px 12px;
-      padding: 1rem;
-      min-height: 400px;
-    }
-
-    .wiki-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
-      gap: 0.4rem;
-    }
-
-    .wiki-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 0.4rem 0.2rem;
-      position: relative;
-      overflow: hidden;
-      transition: var(--transition-normal);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.2rem;
-      aspect-ratio: 1;
-      cursor: pointer;
-    }
-
-    .wiki-card-badge,
-    .wiki-card-desc,
-    .wiki-card-footer {
-      display: none;
-    }
-
-    .wiki-card-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.2rem;
-      width: 100%;
-    }
-
-    .wiki-card-icon {
-      font-size: 1.3rem;
-      width: 36px;
-      height: 36px;
-      background: rgba(6, 2, 12, 0.4);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(255,255,255,0.05);
-      flex-shrink: 0;
-    }
-
-    .wiki-card-icon .wiki-img {
-      width: 32px;
-      height: 32px;
-    }
-
-    @media (min-width: 768px) {
-      .wiki-card-icon {
-        font-size: 1.5rem;
-        width: 40px;
-        height: 40px;
-      }
-      .wiki-card-icon .wiki-img {
-        width: 36px;
-        height: 36px;
-      }
-    }
-
-    .wiki-card-title h4 {
-      font-size: 0.6rem;
-      font-weight: 500;
-      text-align: center;
-      max-width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .wiki-card-title span {
-      display: none;
-    }
-
-    .wiki-card-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 0.6rem;
-      padding: 1px 4px;
-      border-radius: 4px;
-      background: rgba(139, 92, 246, 0.2);
-      border: 1px solid var(--border-color);
-      color: var(--text-muted);
-    }
-
-    .wiki-card-desc {
-      font-size: 0.8rem;
-      color: #cbd5e1;
-      flex-grow: 1;
-      line-height: 1.4;
-      text-align: left;
-    }
-
-    .wiki-card.base-type { border-left: 3px solid var(--glow-blue); }
-    .wiki-card.passive-type { border-left: 3px solid var(--glow-green); }
-    .wiki-card.evolved-type { border-left: 3px solid var(--glow-gold); }
-
-    .wiki-card-footer {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      padding-top: 0.6rem;
-      font-size: 0.75rem;
-    }
-
-    .wiki-card-meta {
-      display: flex;
-      justify-content: space-between;
-      color: var(--color-text-muted);
-    }
-
-    .wiki-card-rating {
-      color: var(--glow-gold);
-      font-weight: bold;
-    }
-
-    .wiki-card-review {
-      font-style: italic;
-      color: #94a3b8;
-      font-size: 0.7rem;
-      margin-top: 0.2rem;
-      text-align: left;
-    }
-
-    /* ==========================================================================
-       7. 模块三：配装模拟器 (Build Planner)
-       ========================================================================== */
-    .build-layout {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 1000px) {
-      .build-layout {
-        grid-template-columns: 2fr 1fr;
-      }
-    }
-
-    .build-panel {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1rem;
-      backdrop-filter: blur(10px);
-    }
-
-    .build-slots-container {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .build-slots-row {
-      background: rgba(6, 2, 12, 0.4);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 0.75rem;
-    }
-
-    .build-slots-row h4 {
-      font-family: var(--font-tech);
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-      color: var(--color-text-muted);
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .slots-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.5rem;
-    }
-
-    @media (min-width: 600px) {
-      .slots-grid {
-        grid-template-columns: repeat(6, 1fr);
-        gap: 0.75rem;
-      }
-    }
-
-    .build-slot {
-      aspect-ratio: 1;
-      border: 1px dashed rgba(139, 92, 246, 0.2);
-      border-radius: 6px;
-      background: rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      cursor: pointer;
-      transition: var(--transition-fast);
-      padding: 2px;
-      user-select: none;
-    }
-
-    .build-slot:hover {
-      border-color: var(--border-color-glow);
-      background: rgba(139, 92, 246, 0.05);
-    }
-
-    .build-slot.active {
-      border: 1px solid var(--color-accent);
-      background: rgba(139, 92, 246, 0.1);
-    }
-
-    .build-slot .slot-icon {
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    @media (min-width: 768px) {
-      .build-slot .slot-icon {
-        font-size: 1.2rem;
-      }
-    }
-
-    .build-slot .slot-name {
-      font-size: 0.5rem;
-      text-align: center;
-      width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-top: 1px;
-      color: var(--color-text-muted);
-    }
-
-    .build-slot .remove-btn {
-      position: absolute;
-      top: -3px;
-      right: -3px;
-      width: 15px;
-      height: 15px;
-      background: var(--glow-red);
-      color: #fff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.5rem;
-      cursor: pointer;
-      border: none;
-      opacity: 1;
-    }
-
-    @media (min-width: 768px) {
-      .build-slot .remove-btn {
-        top: -4px;
-        right: -4px;
-        width: 16px;
-        height: 16px;
-        opacity: 0;
-        transition: var(--transition-fast);
-      }
-      .build-slot:hover .remove-btn {
-        opacity: 1;
-      }
-    }
-
-    /* 属性雷达与评估栏 */
-    .radar-panel {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      backdrop-filter: blur(10px);
-      align-items: center;
-      width: 100%;
-    }
-
-    .radar-title {
-      font-family: var(--font-tech);
-      font-size: 1.2rem;
-      color: #fff;
-      width: 100%;
-      text-align: left;
-      border-bottom: 2px solid var(--border-color);
-      padding-bottom: 0.5rem;
-    }
-
-    .radar-svg-container {
-      width: 200px;
-      height: 200px;
-      position: relative;
-    }
-
-    .build-eval-results {
-      width: 100%;
-    }
-
-    .build-eval-results h4 {
-      font-family: var(--font-tech);
-      font-size: 1.1rem;
-      margin-bottom: 0.75rem;
-      color: var(--color-text-muted);
-    }
-
-    .evolutions-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      max-height: 250px;
-      overflow-y: auto;
-    }
-
-    .evo-combo-item {
-      background: rgba(6, 2, 12, 0.4);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 0.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    @media (min-width: 600px) {
-      .evo-combo-item {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.5rem;
-      }
-    }
-
-    .evo-combo-item.completed {
-      border-color: var(--glow-gold);
-      background: rgba(255, 215, 0, 0.05);
-    }
-
-    .combo-formula {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.75rem;
-    }
-
-    .combo-result {
-      font-size: 0.75rem;
-      font-weight: bold;
-      color: var(--color-text-muted);
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      flex-wrap: wrap;
-    }
-
-    .combo-result.active {
-      color: var(--glow-gold);
-      text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
-    }
-
-    .combo-condition-label {
-      font-size: 0.65rem;
-      color: var(--glow-gold);
-      background: rgba(255, 215, 0, 0.1);
-      padding: 1px 4px;
-      border-radius: 3px;
-      margin-left: 2px;
-      border: 1px solid rgba(255, 215, 0, 0.2);
-    }
-
-    /* ==========================================================================
-       8. 页面尾部 (Footer)
-       ========================================================================== */
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 2rem;
-      color: var(--color-text-muted);
-      font-size: 0.75rem;
-      border-top: 1px solid var(--border-color);
-    }
-
-    footer p {
-      margin-bottom: 0.5rem;
-    }
-
-    /* ==========================================================================
-       9. 角色百科与检索联动额外样式
-       ========================================================================== */
-    .char-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
-      gap: 0.4rem;
-    }
-
-    .char-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 0.4rem 0.2rem;
-      position: relative;
-      overflow: hidden;
-      transition: var(--transition-normal);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.2rem;
-      aspect-ratio: 1;
-      cursor: pointer;
-    }
-
-    .char-card > div:not(.char-card-header),
-    .char-card .char-badge,
-    .char-card .char-actions {
-      display: none;
-    }
-    
-    .char-card:hover {
-      border-color: var(--border-color-glow);
-      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.25);
-      transform: translateY(-2px);
-    }
-    
-    .char-card-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.2rem;
-      width: 100%;
-    }
-
-    .char-avatar-box {
-      width: 36px;
-      height: 36px;
-      background: rgba(6, 2, 12, 0.5);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      border: 1px solid rgba(255,255,255,0.06);
-      flex-shrink: 0;
-    }
-
-    @media (min-width: 768px) {
-      .char-avatar-box {
-        width: 40px;
-        height: 40px;
-        font-size: 1.5rem;
-      }
-    }
-
-    .char-name-group h4 {
-      font-size: 0.6rem;
-      font-weight: 500;
-      color: var(--color-text-muted);
-      line-height: 1.2;
-      text-align: center;
-      max-width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .char-name-group span {
-      display: none;
-    }
-    
-    .char-badge {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 0.6rem;
-      padding: 1px 4px;
-      border-radius: 4px;
-      background: rgba(139, 92, 246, 0.15);
-      border: 1px solid var(--border-color);
-      color: var(--color-text-muted);
-    }
-    
-    .char-prop-title {
-      font-size: 0.7rem;
-      color: var(--color-text-muted);
-      font-weight: 700;
-      margin-bottom: 0.2rem;
-      letter-spacing: 0.5px;
-    }
-    
-    .char-desc-block {
-      background: rgba(6, 2, 12, 0.35);
-      border: 1px solid rgba(255,255,255,0.03);
-      border-radius: 6px;
-      padding: 0.5rem;
-      font-size: 0.75rem;
-      line-height: 1.4;
-      color: #cbd5e1;
-      text-align: left;
-    }
-    
-    .char-unlock-cond {
-      background: rgba(255, 215, 0, 0.04);
-      border: 1px solid rgba(255, 215, 0, 0.18);
-      border-radius: 6px;
-      padding: 0.4rem 0.5rem;
-      font-size: 0.72rem;
-      color: var(--glow-gold);
-      line-height: 1.4;
-      text-align: left;
-    }
-    
-    .char-interactive-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-      background: rgba(139, 92, 246, 0.1);
-      border: 1px solid rgba(139, 92, 246, 0.25);
-      border-radius: 4px;
-      padding: 2px 6px;
-      font-size: 0.72rem;
-      color: #ffffff;
-      cursor: pointer;
-      transition: var(--transition-fast);
-      font-weight: 500;
-    }
-    
-    .char-interactive-item:hover {
-      background: rgba(139, 92, 246, 0.25);
-      border-color: var(--color-accent);
-      transform: translateY(-1px);
-    }
-    
-    .char-build-items {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.3rem;
-      margin-top: 0.15rem;
-    }
-    
-    .char-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.4rem;
-      margin-top: 0.3rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding-top: 0.6rem;
-    }
-    
-    .char-action-btn {
-      background: rgba(139, 92, 246, 0.08);
-      border: 1px solid rgba(139, 92, 246, 0.2);
-      border-radius: 4px;
-      padding: 4px 6px;
-      font-size: 0.7rem;
-      color: #fff;
-      cursor: pointer;
-      transition: var(--transition-fast);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.2rem;
-      font-weight: 600;
-    }
-    
-    .char-action-btn:hover {
-      background: var(--color-accent);
-      border-color: var(--color-accent);
-      box-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
-    }
-    
-    /* 模拟器搜索框 */
-    .sim-search-box {
-      margin-top: 0.4rem;
-      margin-bottom: 0.6rem;
-      position: relative;
-      width: 100%;
-    }
-    
-    .sim-search-box input {
-      width: 100%;
-      background: rgba(6, 2, 12, 0.5);
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      padding: 0.35rem 0.5rem 0.35rem 1.6rem;
-      color: var(--color-text);
-      font-size: 0.75rem;
-      transition: var(--transition-normal);
-    }
-    
-    .sim-search-box input:focus {
-      outline: none;
-      border-color: var(--border-color-glow);
-      box-shadow: 0 0 8px rgba(139, 92, 246, 0.2);
-    }
-    
-    .sim-search-box::before {
-      content: '🔍';
-      position: absolute;
-      left: 6px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 0.7rem;
-      opacity: 0.5;
-    }
-    
-    .search-hidden {
-      display: none !important;
-    }
-    
-    .jump-highlight {
-      animation: pulse-glow-border 0.4s ease infinite alternate;
-      border-width: 2px !important;
-      box-shadow: 0 0 25px var(--color-accent) !important;
-      transform: scale(1.02);
-      z-index: 50;
-    }
-    
-    @keyframes pulse-glow-border {
-      from { border-color: var(--border-color-glow); }
-      to { border-color: #ffffff; }
-    }
-
-    #build-picker-container {
-      position: absolute;
-      z-index: 1000;
-      width: 290px;
-      max-width: calc(100vw - 32px);
-      background: rgba(15, 7, 27, 0.96);
-      border: 1px solid var(--border-color-glow);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(139, 92, 246, 0.35);
-      backdrop-filter: blur(15px);
-      padding: 1rem;
-      border-radius: 12px;
-      display: none;
-      margin-top: 0;
-    }
-
-    /* ==========================================================================
-       11. Wiki 实际图片图标样式
-       ========================================================================== */
-    .wiki-img {
-      display: inline-block;
-      vertical-align: middle;
-      image-rendering: pixelated;
-      image-rendering: -moz-crisp-edges;
-      border-radius: 3px;
-      object-fit: contain;
-    }
-    .item-icon .wiki-img,
-    .slot-icon .wiki-img,
-    .wiki-card-icon .wiki-img {
-      width: 36px;
-      height: 36px;
-    }
-    .char-avatar-box .wiki-img {
-      width: 32px;
-      height: 32px;
-      border-radius: 4px;
-    }
-    .preview-combo-item-badge .wiki-img,
-    .char-interactive-item .wiki-img,
-    .evo-combo-item .wiki-img {
-      width: 20px;
-      height: 20px;
-    }
-    .build-slot .wiki-img {
-      width: 28px;
-      height: 28px;
-    }
-
-    /* ==========================================================================
-       10. 移动端 App 式固定布局与列表紧凑化
-       ========================================================================== */
-    @media (max-width: 767px) {
-      /* App 式固定布局 */
-      body {
-        height: 100vh;
-        height: -webkit-fill-available;
-        overflow: hidden !important;
-      }
-      .container {
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-        height: -webkit-fill-available;
-        padding: 0 !important;
-        margin: 0 !important;
-        max-width: 100% !important;
-      }
-      
-      /* 强粘置顶固定页头 */
-      header {
-        position: sticky !important;
-        top: 0;
-        z-index: 1001;
-        background: rgba(6, 2, 12, 0.96);
-        backdrop-filter: blur(10px);
-        margin-bottom: 0 !important;
-        padding: 0.5rem 0.5rem !important;
-        border-radius: 0 !important;
-        flex-shrink: 0;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-      }
-      header h1 {
-        font-size: 1.15rem !important;
-        margin-bottom: 0 !important;
-      }
-      header .header-tag, 
-      header .subtitle {
-        display: none !important;
-      }
-      
-      /* 固定导航栏在底部且不可横向滚动 */
-      .tabs-nav {
-        position: fixed !important;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        top: auto !important;
-        margin-bottom: 0 !important;
-        background: rgba(15, 7, 27, 0.98) !important;
-        border-top: 1px solid var(--border-color);
-        border-bottom: none !important;
-        padding: 0.5rem 0.75rem !important;
-        border-radius: 16px 16px 0 0 !important;
-        z-index: 998 !important;
-        box-shadow: 0 -8px 24px rgba(0,0,0,0.6) !important;
-        backdrop-filter: blur(15px);
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        justify-content: space-around !important;
-        overflow-x: hidden !important;
-        gap: 0.35rem !important;
-      }
-      .tab-btn {
-        flex: 1 !important;
-        padding: 0.5rem 0.15rem !important;
-        font-size: 0.85rem !important;
-        border-radius: 10px !important;
-        text-align: center;
-        justify-content: center;
-        box-shadow: none !important;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-      
-      /* 隐藏页脚 */
-      footer {
-        display: none !important;
-      }
-      
-      /* 中间区域独立滚动，调高底部边距以防遮挡 */
-      .tab-content {
-        flex: 1;
-        overflow-y: auto !important;
-        padding: 0.75rem 0.75rem 130px 0.75rem !important;
-        -webkit-overflow-scrolling: touch;
-        touch-action: pan-y;
-      }
-      
-      /* 百科改为和合成器物品列表一样紧凑：图标+名称正方形卡片 */
-      .wiki-grid {
-        grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)) !important;
-        gap: 0.5rem !important;
-      }
-      .wiki-card {
-        padding: 0.5rem 0.25rem !important;
-        aspect-ratio: 1 !important;
-        justify-content: center !important;
-        align-items: center !important;
-        flex-direction: column !important;
-        gap: 0.25rem !important;
-        border-radius: 8px !important;
-      }
-      .wiki-card-badge, 
-      .wiki-card-desc, 
-      .wiki-card-footer {
-        display: none !important;
-      }
-      .wiki-card-header {
-        margin-bottom: 0 !important;
-        display: flex;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 0.25rem;
-        width: 100%;
-      }
-      .wiki-card-title span {
-        display: none !important;
-      }
-      .wiki-card-title h4 {
-        display: block !important;
-        font-size: 0.75rem !important;
-        font-weight: 500;
-        color: var(--color-text-muted);
-        text-align: center;
-        max-width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-      .wiki-card-icon {
-        margin-right: 0 !important;
-        width: 36px !important;
-        height: 36px !important;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .wiki-card-icon img {
-        width: 32px !important;
-        height: 32px !important;
-      }
-      
-      /* 角色志改为和合成器物品列表一样紧凑：图标+名称正方形卡片 */
-      .char-grid {
-        grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)) !important;
-        gap: 0.5rem !important;
-      }
-      .char-card {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 0.25rem !important;
-        padding: 0.5rem 0.25rem !important;
-        border-radius: 8px !important;
-        aspect-ratio: 1 !important;
-        background: var(--bg-card) !important;
-        border: 1px solid var(--border-color) !important;
-      }
-      .char-card > div:not(.char-card-header), 
-      .char-card .char-badge, 
-      .char-card .char-actions {
-        display: none !important;
-      }
-      .char-card-header {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 0.25rem;
-        width: 100%;
-      }
-      .char-name-group span {
-        display: none !important;
-      }
-      .char-name-group h4 {
-        font-size: 0.75rem !important;
-        font-weight: 500;
-        color: var(--color-text-muted);
-        text-align: center;
-        max-width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-      .char-avatar-box {
-        margin-right: 0 !important;
-        width: 36px !important;
-        height: 36px !important;
-        font-size: 1.3rem !important;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .char-avatar-box img {
-        width: 32px !important;
-        height: 32px !important;
-      }
-    }
-  
+/* ==========================================================================
+   1. CSS 设计系统与变量定义
+   ========================================================================== */
+:root {
+  --bg-darker: #06020c;
+  --bg-dark: #0f071b;
+  --bg-card: rgba(23, 12, 41, 0.85);
+  --bg-card-hover: rgba(35, 20, 60, 0.9);
+  --border-color: rgba(139, 92, 246, 0.2);
+  --border-color-glow: rgba(139, 92, 246, 0.5);
+
+  /* WCAG AA accessible text palette */
+  --color-text: #ede8f4;
+  --color-text-muted: #c4b5e3;
+  --color-text-dim: #8b7aa8;
+  --color-accent: #8b5cf6;
+  --color-accent-hover: #a78bfa;
+
+  /* Semantic status */
+  --color-success: #39ff14;
+  --color-danger: #ff3e3e;
+  --color-warning: #ffd700;
+
+  /* 辉光色 — 保留用于游戏主题，但降低强度 */
+  --glow-red: #ff3e3e;
+  --glow-blue: #00d2ff;
+  --glow-green: #39ff14;
+  --glow-gold: #ffd700;
+  --glow-purple: #bd00ff;
+
+  /* 灰色阶 — 用于分割线和 subtle 表面 */
+  --gray-100: #cbd5e1;
+  --gray-200: #94a3b8;
+
+  /* Typography */
+  --font-pixel: 'Press Start 2P', 'Courier New', monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-tech: 'Rajdhani', 'Segoe UI', system-ui, sans-serif;
+
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================================================
+   2. 全局重置与基础样式
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) var(--bg-darker);
+}
+
+body {
+  background-color: var(--bg-darker);
+  background-image:
+    radial-gradient(circle at 50% 10%, rgba(99, 102, 241, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 10% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, rgba(244, 63, 94, 0.04) 0%, transparent 40%);
+  background-attachment: fixed;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-darker); }
+::-webkit-scrollbar-thumb { background: var(--color-accent); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent-hover); }
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .container { padding: 1.5rem; }
+}
+
+/* ==========================================================================
+   3. 页面头部 — 去掉毛玻璃与扫描线，追求克制
+   ========================================================================== */
+header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 0.75rem;
+  background: rgba(15, 7, 27, 0.75);
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 0 0 16px 16px;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  header {
+    margin-bottom: 2rem;
+    padding: 2rem 1rem;
+    border-radius: 0 0 20px 20px;
+  }
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), var(--glow-blue), transparent);
+  opacity: 0.6;
+}
+
+.header-tag {
+  font-family: var(--font-tech);
+  font-size: 0.7rem;
+  color: var(--glow-red);
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .header-tag { font-size: 0.8rem; margin-bottom: 0.75rem; letter-spacing: 3px; }
+}
+
+h1 {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  h1 { font-size: 2.2rem; }
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  max-width: 650px;
+  margin: 0 auto;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  .subtitle { font-size: 1rem; line-height: 1.6; }
+}
+
+/* ==========================================================================
+   4. 导航选项卡 — 去掉毛玻璃，纯色背景
+   ========================================================================== */
+.tabs-nav {
+  display: flex;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  position: sticky;
+  top: 0.5rem;
+  z-index: 100;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0.25rem 0.25rem;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabs-nav::-webkit-scrollbar { display: none; }
+
+@media (min-width: 768px) {
+  .tabs-nav { justify-content: center; gap: 1rem; margin-bottom: 2rem; top: 1rem; }
+}
+
+.tab-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--color-text-muted);
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: var(--font-tech);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: var(--transition-normal);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+  /* Removed backdrop-filter — solid tint instead */
+}
+
+@media (min-width: 768px) {
+  .tab-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    gap: 0.5rem;
+  }
+}
+
+.tab-btn:hover {
+  border-color: var(--border-color-glow);
+  color: #ffffff;
+  transform: translateY(-1px);
+  background: var(--bg-card-hover);
+}
+
+.tab-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.tab-btn.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   5. 模块一：超武合成模拟器
+   ========================================================================== */
+
+/* 模态弹窗 */
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(3px);
+  z-index: 9998;
+}
+
+.modal {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100vw - 2rem);
+  max-width: 480px;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.25rem;
+  z-index: 9999;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+}
+
+@media (min-width: 768px) {
+  .modal { width: 480px; padding: 1.5rem; }
+}
+
+.sim-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 0.4rem;
+}
+
+.altar-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.25rem 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .altar-section { padding: 2rem; margin-bottom: 2rem; }
+}
+
+.altar-title {
+  font-family: var(--font-tech);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--glow-gold);
+  letter-spacing: 1px;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .altar-title { font-size: 1rem; margin-bottom: 1.5rem; }
+}
+
+.altar-slots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: nowrap;
+}
+
+@media (min-width: 480px) { .altar-slots { gap: 0.75rem; } }
+@media (min-width: 768px) { .altar-slots { gap: 2rem; } }
+
+.altar-slot {
+  width: 72px; height: 72px;
+  border: 2px dashed rgba(139, 92, 246, 0.3);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(6, 2, 12, 0.5);
+  position: relative;
+  transition: var(--transition-normal);
+  font-size: 0.55rem;
+  color: var(--color-text-dim);
+  text-align: center;
+  padding: 0.15rem;
+  flex-shrink: 0;
+}
+
+@media (min-width: 480px) {
+  .altar-slot { width: 85px; height: 85px; border-radius: 12px; font-size: 0.7rem; padding: 0.25rem; }
+}
+@media (min-width: 768px) {
+  .altar-slot { width: 110px; height: 110px; border-radius: 16px; font-size: 0.8rem; padding: 0.5rem; }
+}
+
+.altar-slot.active {
+  border: 2px solid var(--color-accent);
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--color-text);
+}
+
+.altar-slot .slot-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.2rem;
+}
+
+@media (min-width: 768px) {
+  .altar-slot .slot-icon { font-size: 2.5rem; margin-bottom: 0.25rem; }
+}
+
+.altar-slot .slot-name {
+  font-size: 0.6rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .altar-slot .slot-name { font-size: 0.75rem; }
+}
+
+.altar-slot .slot-clear {
+  position: absolute;
+  top: -5px; right: -5px;
+  width: 22px; height: 22px;
+  background: var(--color-danger);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 0 4px rgba(255, 62, 62, 0.5);
+  min-width: 22px;
+  min-height: 22px;
+}
+
+@media (min-width: 768px) {
+  .altar-slot .slot-clear {
+    top: -6px; right: -6px;
+    width: 24px; height: 24px;
+    font-size: 0.75rem;
+    opacity: 0;
+    transition: var(--transition-fast);
+  }
+  .altar-slot:hover .slot-clear { opacity: 1; }
+}
+
+.altar-plus, .altar-equal {
+  font-family: var(--font-tech);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text-dim);
+}
+
+@media (min-width: 768px) {
+  .altar-plus, .altar-equal { font-size: 1.6rem; }
+}
+
+.altar-slot.result-slot {
+  width: 80px; height: 80px;
+  border-style: double;
+  border-width: 3px;
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+@media (min-width: 480px) { .altar-slot.result-slot { width: 100px; height: 100px; } }
+@media (min-width: 768px) {
+  .altar-slot.result-slot { width: 130px; height: 130px; border-width: 4px; }
+}
+
+.altar-slot.result-slot.evolved-active {
+  border-color: var(--glow-gold);
+  background: rgba(255, 215, 0, 0.1);
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.25);
+  animation: pulse-gold 2s infinite alternate;
+}
+
+@keyframes pulse-gold {
+  0% { box-shadow: 0 0 12px rgba(255, 215, 0, 0.15); }
+  100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.35); }
+}
+@keyframes altar-glow {
+  0% { box-shadow: 0 0 0 rgba(255, 215, 0, 0); }
+  30% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.35); }
+  100% { box-shadow: 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+.altar-condition-tip {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  min-height: 22px;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  background: rgba(6, 2, 12, 0.3);
+  display: inline-block;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .altar-condition-tip { font-size: 0.85rem; margin-top: 1.25rem; }
+}
+
+.altar-condition-tip.special-cond {
+  color: var(--glow-gold);
+  background: rgba(255, 215, 0, 0.05);
+  border: 1px solid rgba(255, 215, 0, 0.15);
+}
+
+.altar-preview-paths {
+  margin-top: 1rem;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 0.75rem;
+  background: rgba(15, 7, 27, 0.6);
+}
+
+@media (min-width: 768px) {
+  .altar-preview-paths { margin-top: 1.25rem; padding: 1rem; }
+}
+
+.altar-preview-paths-title {
+  font-family: var(--font-tech);
+  font-weight: 700;
+  font-size: 1rem;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .altar-preview-paths-title { font-size: 1.1rem; }
+}
+
+.preview-combo-row {
+  background: rgba(6, 2, 12, 0.45);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.preview-combo-formula {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 600px) {
+  .preview-combo-formula { font-size: 0.85rem; }
+}
+
+.preview-combo-item-badge {
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.preview-combo-item-badge:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+}
+
+.preview-combo-item-badge.weapon-type {
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.preview-combo-item-badge.passive-type {
+  background: rgba(57, 255, 20, 0.1);
+  border: 1px solid rgba(57, 255, 20, 0.25);
+}
+
+.preview-combo-item-badge.evolved-type {
+  background: rgba(255, 215, 0, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  color: var(--glow-gold);
+}
+
+.preview-combo-desc {
+  font-size: 0.75rem;
+  color: var(--gray-100);
+  border-left: 2px solid var(--color-accent);
+  padding-left: 0.5rem;
+  margin-top: 2px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.sim-selector {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .sim-selector { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+
+.sim-col {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .sim-col { padding: 1.5rem; }
+}
+
+.sim-col h3 {
+  font-family: var(--font-tech);
+  font-size: 1.2rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sim-col h3 span {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(58px, 1fr));
+  gap: 0.35rem;
+  max-height: 350px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .item-grid { grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: 0.5rem; max-height: 450px; padding-right: 0.5rem; }
+}
+
+.sim-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  aspect-ratio: 1;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition-fast);
+  user-select: none;
+  padding: 0.15rem;
+}
+
+.sim-item:hover {
+  transform: scale(1.03);
+  border-color: var(--border-color-glow);
+}
+
+.sim-item:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.sim-item .item-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 1.3rem;
+}
+
+@media (min-width: 768px) {
+  .sim-item .item-icon { font-size: 1.8rem; }
+}
+
+.sim-item .item-name {
+  font-size: 0.55rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  margin-top: 0.2rem;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 768px) {
+  .sim-item .item-name { font-size: 0.65rem; margin-top: 0.25rem; }
+}
+
+.sim-item.disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+  transform: none;
+  filter: grayscale(80%);
+}
+
+.sim-item.highlighted {
+  border-color: var(--glow-green);
+  box-shadow: 0 0 8px rgba(57, 255, 20, 0.2);
+  background: rgba(57, 255, 20, 0.05);
+  transform: scale(1.03);
+  z-index: 2;
+}
+
+.sim-item.selected {
+  border-color: var(--color-accent);
+  background: rgba(139, 92, 246, 0.2);
+  box-shadow: 0 0 6px rgba(139, 92, 246, 0.25);
+}
+
+.sim-item .dlc-badge {
+  position: absolute;
+  top: 2px; right: 2px;
+  font-size: 7px;
+  padding: 1px 3px;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .sim-item .dlc-badge { top: 2px; right: 2px; font-size: 8px; padding: 1px 3px; }
+}
+
+.sim-pools-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .sim-pools-container { grid-template-columns: 1fr 1fr; }
+}
+
+.build-section-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+/* ==========================================================================
+   6. 模块二：武器百科
+   ========================================================================== */
+.wiki-header {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px 12px 0 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.wiki-search-box {
+  position: relative;
+  width: 100%;
+}
+
+.wiki-search-box input {
+  width: 100%;
+  background: rgba(6, 2, 12, 0.6);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem 0.6rem 2.4rem;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  transition: var(--transition-normal);
+}
+
+@media (min-width: 768px) {
+  .wiki-search-box input { padding: 0.75rem 1rem 0.75rem 2.5rem; font-size: 1rem; }
+}
+
+.wiki-search-box input:focus {
+  outline: none;
+  border-color: var(--border-color-glow);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.2);
+}
+
+/* Search icon — pure CSS, no emoji */
+.wiki-search-box::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px; height: 16px;
+  border: 2px solid var(--color-text-dim);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.wiki-search-box::after {
+  content: '';
+  position: absolute;
+  left: 26px;
+  top: calc(50% + 4px);
+  width: 6px; height: 2px;
+  background: var(--color-text-dim);
+  transform: rotate(45deg);
+  opacity: 0.5;
+  border-radius: 1px;
+}
+
+.filter-group {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 0.25rem;
+  scrollbar-width: none;
+}
+
+.filter-group::-webkit-scrollbar { display: none; }
+
+@media (min-width: 768px) {
+  .filter-group { gap: 0.5rem; flex-wrap: wrap; overflow-x: visible; white-space: normal; padding-bottom: 0; }
+}
+
+.filter-btn {
+  background: rgba(23, 12, 41, 0.5);
+  border: 1px solid var(--border-color);
+  color: var(--color-text-muted);
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  flex-shrink: 0;
+  min-height: 36px;
+}
+
+@media (min-width: 768px) {
+  .filter-btn { padding: 0.5rem 0.85rem; font-size: 0.85rem; }
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: var(--bg-card-hover);
+  color: #ffffff;
+  border-color: var(--border-color-glow);
+}
+
+.filter-btn.active {
+  border-color: var(--color-accent);
+  background: rgba(139, 92, 246, 0.15);
+  box-shadow: 0 0 6px rgba(139, 92, 246, 0.15);
+}
+
+.filter-badge {
+  background: rgba(23, 12, 41, 0.5);
+  border: 1px solid var(--border-color);
+  color: var(--color-text-muted);
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  min-height: 34px;
+}
+
+.filter-badge.active {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: var(--color-accent);
+  color: #ffffff;
+}
+
+.wiki-body {
+  background: rgba(15, 7, 27, 0.3);
+  border: 1px solid var(--border-color);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  padding: 1rem;
+  min-height: 400px;
+}
+
+.wiki-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 0.4rem;
+}
+
+.wiki-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.4rem 0.2rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+
+.wiki-card:hover {
+  border-color: var(--border-color-glow);
+}
+
+.wiki-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.wiki-card-badge,
+.wiki-card-desc,
+.wiki-card-footer { display: none; }
+
+.wiki-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  width: 100%;
+}
+
+.wiki-card-icon {
+  font-size: 1.3rem;
+  width: 36px; height: 36px;
+  background: rgba(6, 2, 12, 0.4);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  flex-shrink: 0;
+}
+
+.wiki-card-icon .wiki-img { width: 32px; height: 32px; }
+
+@media (min-width: 768px) {
+  .wiki-card-icon { font-size: 1.5rem; width: 40px; height: 40px; }
+  .wiki-card-icon .wiki-img { width: 36px; height: 36px; }
+}
+
+.wiki-card-title h4 {
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wiki-card-title span { display: none; }
+
+.wiki-card-badge {
+  position: absolute;
+  top: 10px; right: 10px;
+  font-size: 0.6rem;
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: rgba(139, 92, 246, 0.2);
+  border: 1px solid var(--border-color);
+  color: var(--color-text-muted);
+}
+
+.wiki-card-desc {
+  font-size: 0.8rem;
+  color: var(--gray-100);
+  flex-grow: 1;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.wiki-card.base-type { border-left: 3px solid var(--glow-blue); }
+.wiki-card.passive-type { border-left: 3px solid var(--glow-green); }
+.wiki-card.evolved-type { border-left: 3px solid var(--glow-gold); }
+
+.wiki-card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 0.6rem;
+  font-size: 0.75rem;
+}
+
+.wiki-card-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-text-muted);
+}
+
+.wiki-card-rating {
+  color: var(--glow-gold);
+  font-weight: bold;
+}
+
+.wiki-card-review {
+  font-style: italic;
+  color: var(--gray-200);
+  font-size: 0.7rem;
+  margin-top: 0.2rem;
+  text-align: left;
+}
+
+/* ==========================================================================
+   7. 模块三：配装规划器
+   ========================================================================== */
+.build-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1000px) {
+  .build-layout { grid-template-columns: 2fr 1fr; }
+}
+
+.build-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.build-slots-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.build-slots-row {
+  background: rgba(6, 2, 12, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 0.75rem;
+}
+
+.build-slots-row h4 {
+  font-family: var(--font-tech);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+.slots-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+@media (min-width: 600px) {
+  .slots-grid { grid-template-columns: repeat(6, 1fr); gap: 0.75rem; }
+}
+
+.build-slot {
+  aspect-ratio: 1;
+  border: 1px dashed rgba(139, 92, 246, 0.2);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  padding: 2px;
+  user-select: none;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.build-slot:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.build-slot:hover {
+  border-color: var(--border-color-glow);
+  background: rgba(139, 92, 246, 0.05);
+}
+
+.build-slot.active {
+  border: 1px solid var(--color-accent);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.build-slot .slot-icon {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .build-slot .slot-icon { font-size: 1.2rem; }
+}
+
+.build-slot .slot-name {
+  font-size: 0.5rem;
+  text-align: center;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 1px;
+  color: var(--color-text-muted);
+}
+
+.build-slot .remove-btn {
+  position: absolute;
+  top: -3px; right: -3px;
+  width: 18px; height: 18px;
+  background: var(--color-danger);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.55rem;
+  cursor: pointer;
+  border: none;
+  opacity: 1;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+@media (min-width: 768px) {
+  .build-slot .remove-btn {
+    top: -5px; right: -5px;
+    width: 20px; height: 20px;
+    opacity: 0;
+    transition: var(--transition-fast);
+  }
+  .build-slot:hover .remove-btn { opacity: 1; }
+}
+
+.radar-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+}
+
+.radar-title {
+  font-family: var(--font-tech);
+  font-size: 1.2rem;
+  color: #fff;
+  width: 100%;
+  text-align: left;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.radar-svg-container {
+  width: 200px; height: 200px;
+  position: relative;
+}
+
+.build-eval-results { width: 100%; }
+
+.build-eval-results h4 {
+  font-family: var(--font-tech);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.evolutions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.evo-combo-item {
+  background: rgba(6, 2, 12, 0.4);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+@media (min-width: 600px) {
+  .evo-combo-item { flex-direction: row; align-items: center; justify-content: space-between; padding: 0.5rem; }
+}
+
+.evo-combo-item.completed {
+  border-color: var(--glow-gold);
+  background: rgba(255, 215, 0, 0.05);
+}
+
+.combo-formula {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+}
+
+.combo-result {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.combo-result.active {
+  color: var(--glow-gold);
+}
+
+.combo-condition-label {
+  font-size: 0.65rem;
+  color: var(--glow-gold);
+  background: rgba(255, 215, 0, 0.1);
+  padding: 1px 4px;
+  border-radius: 3px;
+  margin-left: 2px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+/* ==========================================================================
+   8. 页面尾部
+   ========================================================================== */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  color: var(--color-text-dim);
+  font-size: 0.75rem;
+  border-top: 1px solid var(--border-color);
+}
+
+footer p { margin-bottom: 0.5rem; }
+
+/* ==========================================================================
+   9. 角色百科
+   ========================================================================== */
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 0.4rem;
+}
+
+.char-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.4rem 0.2rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+
+.char-card > div:not(.char-card-header),
+.char-card .char-badge,
+.char-card .char-actions { display: none; }
+
+.char-card:hover {
+  border-color: var(--border-color-glow);
+  box-shadow: 0 6px 18px rgba(139, 92, 246, 0.15);
+  transform: translateY(-2px);
+}
+
+.char-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+.char-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  width: 100%;
+}
+
+.char-avatar-box {
+  width: 36px; height: 36px;
+  background: rgba(6, 2, 12, 0.5);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .char-avatar-box { width: 40px; height: 40px; font-size: 1.5rem; }
+}
+
+.char-name-group h4 {
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  line-height: 1.2;
+  text-align: center;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.char-name-group span { display: none; }
+
+.char-badge {
+  position: absolute;
+  top: 10px; right: 10px;
+  font-size: 0.6rem;
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid var(--border-color);
+  color: var(--color-text-muted);
+}
+
+.char-prop-title {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.5px;
+}
+
+.char-desc-block {
+  background: rgba(6, 2, 12, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--gray-100);
+  text-align: left;
+}
+
+.char-unlock-cond {
+  background: rgba(255, 215, 0, 0.04);
+  border: 1px solid rgba(255, 215, 0, 0.18);
+  border-radius: 6px;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.72rem;
+  color: var(--glow-gold);
+  line-height: 1.4;
+  text-align: left;
+}
+
+.char-interactive-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.72rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  font-weight: 500;
+  min-height: 32px;
+}
+
+.char-interactive-item:hover {
+  background: rgba(139, 92, 246, 0.25);
+  border-color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.char-build-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.15rem;
+}
+
+.char-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+  margin-top: 0.3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 0.6rem;
+}
+
+.char-action-btn {
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 0.7rem;
+  color: #fff;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-weight: 600;
+  min-height: 36px;
+}
+
+.char-action-btn:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.3);
+}
+
+.char-action-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.sim-search-box {
+  margin-top: 0.4rem;
+  margin-bottom: 0.6rem;
+  position: relative;
+  width: 100%;
+}
+
+.sim-search-box input {
+  width: 100%;
+  background: rgba(6, 2, 12, 0.5);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.4rem 0.5rem 0.4rem 2rem;
+  color: var(--color-text);
+  font-size: 0.75rem;
+  transition: var(--transition-normal);
+}
+
+.sim-search-box input:focus {
+  outline: none;
+  border-color: var(--border-color-glow);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.2);
+}
+
+/* Search icon — CSS-drawn */
+.sim-search-box::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px; height: 12px;
+  border: 1.5px solid var(--color-text-dim);
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.sim-search-box::after {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: calc(50% + 3px);
+  width: 5px; height: 1.5px;
+  background: var(--color-text-dim);
+  transform: rotate(45deg);
+  opacity: 0.5;
+  border-radius: 1px;
+}
+
+.search-hidden { display: none !important; }
+
+.jump-highlight {
+  animation: pulse-glow-border 0.8s ease infinite alternate;
+  border-width: 2px !important;
+  box-shadow: 0 0 18px var(--color-accent) !important;
+  transform: scale(1.02);
+  z-index: 50;
+}
+
+@keyframes pulse-glow-border {
+  from { border-color: var(--border-color-glow); }
+  to { border-color: #ffffff; }
+}
+
+#build-picker-container {
+  position: absolute;
+  z-index: 1000;
+  width: 290px;
+  max-width: calc(100vw - 32px);
+  background: rgba(15, 7, 27, 0.96);
+  border: 1px solid var(--border-color-glow);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 12px rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(8px);
+  padding: 1rem;
+  border-radius: 12px;
+  display: none;
+  margin-top: 0;
+}
+
+/* ==========================================================================
+   10. Wiki 图片图标
+   ========================================================================== */
+.wiki-img {
+  display: inline-block;
+  vertical-align: middle;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  border-radius: 3px;
+  object-fit: contain;
+}
+
+.item-icon .wiki-img,
+.slot-icon .wiki-img,
+.wiki-card-icon .wiki-img { width: 36px; height: 36px; }
+
+.char-avatar-box .wiki-img { width: 32px; height: 32px; border-radius: 4px; }
+
+.preview-combo-item-badge .wiki-img,
+.char-interactive-item .wiki-img,
+.evo-combo-item .wiki-img { width: 20px; height: 20px; }
+
+.build-slot .wiki-img { width: 28px; height: 28px; }
+
+/* ==========================================================================
+   11. 移动端 App 式布局
+   ========================================================================== */
+@media (max-width: 767px) {
+  body {
+    height: 100vh;
+    height: -webkit-fill-available;
+    overflow: hidden !important;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: -webkit-fill-available;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  header {
+    position: sticky !important;
+    top: 0;
+    z-index: 1001;
+    background: rgba(6, 2, 12, 0.96);
+    backdrop-filter: blur(8px);
+    margin-bottom: 0 !important;
+    padding: 0.5rem 0.5rem !important;
+    border-radius: 0 !important;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  header h1 {
+    font-size: 1.15rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  header .header-tag,
+  header .subtitle { display: none !important; }
+
+  .tabs-nav {
+    position: fixed !important;
+    bottom: 0; left: 0; right: 0;
+    top: auto !important;
+    margin-bottom: 0 !important;
+    background: rgba(15, 7, 27, 0.98) !important;
+    border-top: 1px solid var(--border-color);
+    border-bottom: none !important;
+    padding: 0.5rem 0.75rem 0.75rem !important;
+    border-radius: 16px 16px 0 0 !important;
+    z-index: 998 !important;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.5) !important;
+    background: rgba(15, 7, 27, 0.98) !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-around !important;
+    overflow-x: hidden !important;
+    gap: 0.35rem !important;
+  }
+
+  .tab-btn {
+    flex: 1 !important;
+    padding: 0.55rem 0.25rem !important;
+    font-size: 0.85rem !important;
+    border-radius: 10px !important;
+    text-align: center;
+    justify-content: center;
+    box-shadow: none !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-height: 44px;
+    background: rgba(23, 12, 41, 0.9);
+  }
+
+  footer { display: none !important; }
+
+  .tab-content {
+    flex: 1;
+    overflow-y: auto !important;
+    padding: 0.75rem 0.75rem 130px 0.75rem !important;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+
+  .wiki-grid {
+    grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)) !important;
+    gap: 0.5rem !important;
+  }
+
+  .wiki-card {
+    padding: 0.5rem 0.25rem !important;
+    aspect-ratio: 1 !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column !important;
+    gap: 0.25rem !important;
+    border-radius: 8px !important;
+  }
+
+  .wiki-card-badge,
+  .wiki-card-desc,
+  .wiki-card-footer { display: none !important; }
+
+  .wiki-card-header {
+    margin-bottom: 0 !important;
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.25rem;
+    width: 100%;
+  }
+
+  .wiki-card-title span { display: none !important; }
+  .wiki-card-title h4 { display: block !important; font-size: 0.75rem !important; font-weight: 500; color: var(--color-text-muted); text-align: center; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .wiki-card-icon { margin-right: 0 !important; width: 36px !important; height: 36px !important; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .wiki-card-icon img { width: 32px !important; height: 32px !important; }
+
+  .char-grid {
+    grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)) !important;
+    gap: 0.5rem !important;
+  }
+
+  .char-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.25rem !important;
+    padding: 0.5rem 0.25rem !important;
+    border-radius: 8px !important;
+    aspect-ratio: 1 !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+  }
+
+  .char-card > div:not(.char-card-header),
+  .char-card .char-badge,
+  .char-card .char-actions { display: none !important; }
+
+  .char-card-header { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 0.25rem; width: 100%; }
+  .char-name-group span { display: none !important; }
+  .char-name-group h4 { font-size: 0.75rem !important; font-weight: 500; color: var(--color-text-muted); text-align: center; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .char-avatar-box { margin-right: 0 !important; width: 36px !important; height: 36px !important; font-size: 1.3rem !important; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+  .char-avatar-box img { width: 32px !important; height: 32px !important; }
+}
+
+/* ==========================================================================
+   12. Empty state & section title
+   ========================================================================== */
+.section-title {
+  font-family: var(--font-tech);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  padding-left: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--color-text-dim);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  border: 1px dashed var(--border-color);
+  border-radius: 12px;
+  background: rgba(6, 2, 12, 0.3);
+}
+
+.empty-state svg {
+  display: block;
+  margin: 0 auto 0.75rem;
+  color: var(--color-text-dim);
+  opacity: 0.5;
+}
+
+.empty-state-title {
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 0.35rem;
+  font-size: 0.9rem;
+}
+
+.empty-state-hint {
+  font-size: 0.8rem;
+  color: var(--color-text-dim);
+  margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   13. Toast — 增强动画
+   ========================================================================== */
+@keyframes toast-enter {
+  from { opacity: 0; transform: translateY(-12px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes toast-exit {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(-8px) scale(0.96); }
+}
+
+.toast-enter {
+  animation: toast-enter 0.3s ease-out forwards;
+}
+
+.toast-exit {
+  animation: toast-exit 0.2s ease-in forwards;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import type { ReactNode } from 'react';
+import Icon from './Icon';
 
 interface Props {
   children: ReactNode;
@@ -45,17 +46,19 @@ export class ErrorBoundary extends Component<Props, State> {
           color: '#e2d8f0',
           fontFamily: 'system-ui, sans-serif',
         }}>
-          <div style={{ fontSize: '3rem' }}>🎮</div>
+          <div style={{ marginBottom: '0.5rem' }}>
+            <Icon name="gamepad" size={48} style={{ color: 'var(--color-accent)' }} />
+          </div>
           <h2 style={{ fontSize: '1.25rem', fontWeight: 600 }}>
             页面出了点问题
           </h2>
-          <p style={{ fontSize: '0.85rem', color: '#a78bfa', maxWidth: '400px' }}>
+          <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', maxWidth: '400px' }}>
             {this.state.error?.message || '发生了未知错误'}
           </p>
           <button
             onClick={this.handleReset}
             style={{
-              background: '#8b5cf6',
+              background: 'var(--color-accent)',
               border: 'none',
               color: '#fff',
               padding: '0.6rem 1.5rem',
@@ -63,6 +66,7 @@ export class ErrorBoundary extends Component<Props, State> {
               cursor: 'pointer',
               fontSize: '0.9rem',
               fontWeight: 600,
+              minHeight: '44px',
             }}
           >
             重新加载

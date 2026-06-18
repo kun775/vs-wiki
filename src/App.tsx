@@ -1,9 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import Simulator from './views/Simulator';
-import Encyclopedia from './views/Encyclopedia';
-import Planner from './views/Planner';
-import Biography from './views/Biography';
+import Icon from './components/Icon';
+
+const Simulator = lazy(() => import('./views/Simulator'));
+const Encyclopedia = lazy(() => import('./views/Encyclopedia'));
+const Planner = lazy(() => import('./views/Planner'));
+const Biography = lazy(() => import('./views/Biography'));
+
+const TabFallback: React.FC = () => (
+  <div style={{
+    display: 'flex', alignItems: 'center', justifyContent: 'center',
+    height: '200px', color: 'var(--color-text-dim)', fontSize: '0.9rem'
+  }}>
+    加载中...
+  </div>
+);
+
+interface TabDef {
+  key: string;
+  label: string;
+  icon: React.ComponentProps<typeof Icon>['name'];
+}
+
+const tabs: TabDef[] = [
+  { key: 'simulator', label: '合成', icon: 'flask' },
+  { key: 'encyclopedia', label: '百科', icon: 'book' },
+  { key: 'planner', label: '规划', icon: 'chart' },
+  { key: 'biography', label: '角色', icon: 'user' },
+];
 
 export const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('simulator');
@@ -16,11 +40,10 @@ export const App: React.FC = () => {
   const [buildWeapons, setBuildWeapons] = useState<(string | null)[]>(Array(6).fill(null));
   const [buildPassives, setBuildPassives] = useState<(string | null)[]>(Array(6).fill(null));
 
-  // 弹窗状态 (Key)
+  // 弹窗状态
   const [activeWikiKey, setActiveWikiKey] = useState<string | null>(null);
   const [activeCharKey, setActiveCharKey] = useState<string | null>(null);
 
-  // 切换 Tab：重置滚动 + 关闭弹窗
   const handleTabChange = (tab: string) => {
     setActiveTab(tab);
     window.scrollTo(0, 0);
@@ -80,7 +103,10 @@ export const App: React.FC = () => {
     <ErrorBoundary>
       <div className="container">
         <header>
-          <h1>🎮 吸血鬼幸存者 v1.15 百科 & 模拟器</h1>
+          <h1>
+            <Icon name="gamepad" size={22} style={{ marginRight: '6px', color: 'var(--color-accent)' }} />
+            吸血鬼幸存者 v1.15 百科 &amp; 模拟器
+          </h1>
           <div className="header-tag">DATABASE</div>
           <div className="subtitle">最全面的合成配方查询与配装属性雷达分析</div>
         </header>
@@ -90,35 +116,32 @@ export const App: React.FC = () => {
           id={activeTab}
           style={{ scrollBehavior: 'smooth' }}
         >
-          {renderActiveTabContent()}
+          <Suspense fallback={<TabFallback />}>
+            {renderActiveTabContent()}
+          </Suspense>
         </div>
 
-        <div className="tabs-nav">
-          <button
-            className={`tab-btn ${activeTab === 'simulator' ? 'active' : ''}`}
-            onClick={() => handleTabChange('simulator')}
-          >
-            合成
-          </button>
-          <button
-            className={`tab-btn ${activeTab === 'encyclopedia' ? 'active' : ''}`}
-            onClick={() => handleTabChange('encyclopedia')}
-          >
-            百科
-          </button>
-          <button
-            className={`tab-btn ${activeTab === 'planner' ? 'active' : ''}`}
-            onClick={() => handleTabChange('planner')}
-          >
-            规划
-          </button>
-          <button
-            className={`tab-btn ${activeTab === 'biography' ? 'active' : ''}`}
-            onClick={() => handleTabChange('biography')}
-          >
-            角色
-          </button>
-        </div>
+        <nav className="tabs-nav" role="tablist" aria-label="功能导航">
+          {tabs.map(tab => (
+            <button
+              key={tab.key}
+              className={`tab-btn ${activeTab === tab.key ? 'active' : ''}`}
+              onClick={() => handleTabChange(tab.key)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleTabChange(tab.key);
+                }
+              }}
+              role="tab"
+              aria-selected={activeTab === tab.key}
+              tabIndex={activeTab === tab.key ? 0 : -1}
+            >
+              <Icon name={tab.icon} size={18} />
+              {tab.label}
+            </button>
+          ))}
+        </nav>
       </div>
     </ErrorBoundary>
   );

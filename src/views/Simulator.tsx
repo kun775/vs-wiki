@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { VS_DATA } from '../data/vsData';
 import GameIcon from '../components/GameIcon';
+import Icon from '../components/Icon';
 
 interface SimulatorProps {
   altarWeapon: string | null;
@@ -17,12 +18,10 @@ export const Simulator: React.FC<SimulatorProps> = ({
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
-  // 匹配合成
   const match = VS_DATA.evolutions.find(
     evo => evo.weapon === altarWeapon && evo.passive === altarPassive
   );
 
-  // 高亮与禁用的判定
   const allowedPassives = altarWeapon
     ? VS_DATA.evolutions.filter(evo => evo.weapon === altarWeapon).map(evo => evo.passive)
     : [];
@@ -32,22 +31,13 @@ export const Simulator: React.FC<SimulatorProps> = ({
     : [];
 
   const handleSelectWeapon = (key: string) => {
-    if (altarWeapon === key) {
-      setAltarWeapon(null);
-    } else {
-      setAltarWeapon(key);
-    }
+    setAltarWeapon(altarWeapon === key ? null : key);
   };
 
   const handleSelectPassive = (key: string) => {
-    if (altarPassive === key) {
-      setAltarPassive(null);
-    } else {
-      setAltarPassive(key);
-    }
+    setAltarPassive(altarPassive === key ? null : key);
   };
 
-  // 搜索过滤后的项目
   const filteredWeaponKeys = Object.keys(VS_DATA.items).filter(key => {
     const item = VS_DATA.items[key];
     if (item.type !== 'base') return false;
@@ -70,12 +60,13 @@ export const Simulator: React.FC<SimulatorProps> = ({
     );
   });
 
-  // 获取预测路径数据
   const getPreviewPaths = () => {
     if (!altarWeapon && !altarPassive) {
       return (
-        <div style={{ color: 'var(--color-text-muted)', fontSize: '0.8rem', textAlign: 'center' }}>
-          💡 点击下方任意主武器，即可在此直接预览其可合成的被动、超武效果与专家点评
+        <div className="empty-state">
+          <Icon name="lightbulb" size={28} />
+          <div className="empty-state-title">开始探索合成配方</div>
+          <div className="empty-state-hint">点击下方任意主武器，即可预览其所有可行合成路径、超武效果与专家点评</div>
         </div>
       );
     }
@@ -89,19 +80,23 @@ export const Simulator: React.FC<SimulatorProps> = ({
 
     if (matches.length === 0) {
       return (
-        <div style={{ color: 'var(--glow-red)', fontSize: '0.8rem', textAlign: 'center' }}>
-          ❌ 该物品暂无超武合成配方
+        <div className="empty-state" style={{ borderColor: 'rgba(255,62,62,0.25)' }}>
+          <Icon name="cross" size={28} style={{ color: 'var(--color-danger)' }} />
+          <div className="empty-state-title" style={{ color: 'var(--color-danger)' }}>该物品暂无超武合成配方</div>
         </div>
       );
     }
 
     const titleText = altarWeapon
-      ? `🔮 「${VS_DATA.items[altarWeapon].name}」进化路径及超武特效`
-      : `🔮 适配「${VS_DATA.items[altarPassive as string].name}」的可合成超武`;
+      ? `「${VS_DATA.items[altarWeapon].name}」进化路径及超武特效`
+      : `适配「${VS_DATA.items[altarPassive as string].name}」的可合成超武`;
 
     return (
       <>
-        <div className="altar-preview-paths-title">{titleText}</div>
+        <div className="altar-preview-paths-title">
+          <Icon name="crystal" size={16} style={{ marginRight: '4px' }} />
+          {titleText}
+        </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
           {matches.map((evo) => {
             const w = VS_DATA.items[evo.weapon];
@@ -122,18 +117,24 @@ export const Simulator: React.FC<SimulatorProps> = ({
                     className="preview-combo-item-badge weapon-type"
                     onClick={() => handleSelectWeapon(evo.weapon)}
                     style={{ cursor: 'pointer' }}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleSelectWeapon(evo.weapon); } }}
                   >
                     <GameIcon item={w} size={20} /> {w.name}
                   </span>
-                  <span style={{ color: 'var(--color-text-muted)' }}>+</span>
+                  <span style={{ color: 'var(--color-text-dim)' }}>+</span>
                   <span
                     className="preview-combo-item-badge passive-type"
                     onClick={() => handleSelectPassive(evo.passive)}
                     style={{ cursor: 'pointer' }}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleSelectPassive(evo.passive); } }}
                   >
                     <GameIcon item={p} size={20} /> {p.name}
                   </span>
-                  <span style={{ color: 'var(--color-text-muted)' }}>➡️</span>
+                  <Icon name="arrow" size={16} style={{ color: 'var(--color-text-dim)' }} />
                   <span className="preview-combo-item-badge evolved-type">
                     <GameIcon item={e} size={20} /> {e.name}
                   </span>
@@ -149,7 +150,7 @@ export const Simulator: React.FC<SimulatorProps> = ({
                       border: '1px solid var(--color-accent)',
                       color: '#fff',
                       borderRadius: '4px',
-                      padding: '2px 6px',
+                      padding: '4px 8px',
                       fontSize: '0.7rem',
                       cursor: 'pointer',
                       fontWeight: 600
@@ -162,8 +163,9 @@ export const Simulator: React.FC<SimulatorProps> = ({
                   <strong>合成超武效果：</strong>
                   {e.desc}
                   {e.review && (
-                    <div style={{ color: '#94a3b8', fontStyle: 'italic', marginTop: '0.15rem' }}>
-                      💬 点评：{e.review}
+                    <div style={{ color: 'var(--gray-200)', fontStyle: 'italic', marginTop: '0.15rem', display: 'flex', alignItems: 'flex-start', gap: '4px' }}>
+                      <Icon name="chat" size={14} style={{ color: 'var(--gray-200)', marginTop: '2px' }} />
+                      点评：{e.review}
                     </div>
                   )}
                 </div>
@@ -177,17 +179,32 @@ export const Simulator: React.FC<SimulatorProps> = ({
 
   const getConditionTip = () => {
     if (!altarWeapon && !altarPassive) {
-      return '💡 提示：在下方选择主武器和被动道具来测试合成配方';
+      return (
+        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+          <Icon name="lightbulb" size={14} style={{ color: 'var(--color-text-dim)' }} />
+          提示：在下方选择主武器和被动道具来测试合成配方
+        </span>
+      );
     }
     if (!altarWeapon || !altarPassive) {
-      return '💡 提示：继续选择另一个配件以查看是否能合成';
+      return (
+        <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+          <Icon name="lightbulb" size={14} style={{ color: 'var(--color-text-dim)' }} />
+          继续选择另一个配件以查看是否能合成
+        </span>
+      );
     }
     if (match) {
       return match.cond
-        ? `⚠️ 进化条件：${match.cond}`
-        : '💡 进化条件：主武器满级（8级） + 被动道具（1级即可）';
+        ? `进化条件：${match.cond}`
+        : '进化条件：主武器满级（8级）+ 被动道具（1级即可）';
     }
-    return '❌ 该主武器与被动道具不匹配，无法进化出超级武器！';
+    return (
+      <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+        <Icon name="close" size={14} style={{ color: 'var(--color-danger)' }} />
+        该主武器与被动道具不匹配，无法进化出超级武器！
+      </span>
+    );
   };
 
   const getConditionTipClass = () => {
@@ -197,11 +214,18 @@ export const Simulator: React.FC<SimulatorProps> = ({
     return 'altar-condition-tip';
   };
 
+  const renderSlotIcon = (name: 'flask' | 'shield' | 'question' | 'close' | 'crown', size?: number, color?: string) => (
+    <Icon name={name} size={size || 28} style={{ color: color || 'var(--color-text-dim)', opacity: 0.6 }} />
+  );
+
   return (
     <div className="simulator-tab-content">
       {/* 祭坛区域 */}
       <div className="altar-section">
-        <div className="altar-title">🧪 合成进化祭坛 (SYNTHESIZER ALTAR)</div>
+        <div className="altar-title">
+          <Icon name="flask" size={18} style={{ color: 'var(--glow-gold)' }} />
+          合成进化祭坛 (SYNTHESIZER ALTAR)
+        </div>
         <div
           className="altar-slots"
           key={match ? `match-${match.evolved}` : 'no-match'}
@@ -211,6 +235,15 @@ export const Simulator: React.FC<SimulatorProps> = ({
           <div
             className={`altar-slot ${altarWeapon ? 'active' : ''}`}
             onClick={() => altarWeapon && setAltarWeapon(null)}
+            role="button"
+            tabIndex={0}
+            aria-label={altarWeapon ? `已选择 ${VS_DATA.items[altarWeapon].name}` : '选择主武器'}
+            onKeyDown={(e) => {
+              if ((e.key === 'Enter' || e.key === ' ') && altarWeapon) {
+                e.preventDefault();
+                setAltarWeapon(null);
+              }
+            }}
           >
             {altarWeapon ? (
               <>
@@ -224,13 +257,14 @@ export const Simulator: React.FC<SimulatorProps> = ({
                     e.stopPropagation();
                     setAltarWeapon(null);
                   }}
+                  aria-label="清除主武器选择"
                 >
                   ×
                 </button>
               </>
             ) : (
               <>
-                <span className="slot-icon">❓</span>
+                <span className="slot-icon">{renderSlotIcon('sword', 28)}</span>
                 <span className="slot-name">选择主武器</span>
               </>
             )}
@@ -242,6 +276,15 @@ export const Simulator: React.FC<SimulatorProps> = ({
           <div
             className={`altar-slot ${altarPassive ? 'active' : ''}`}
             onClick={() => altarPassive && setAltarPassive(null)}
+            role="button"
+            tabIndex={0}
+            aria-label={altarPassive ? `已选择 ${VS_DATA.items[altarPassive].name}` : '选择被动道具'}
+            onKeyDown={(e) => {
+              if ((e.key === 'Enter' || e.key === ' ') && altarPassive) {
+                e.preventDefault();
+                setAltarPassive(null);
+              }
+            }}
           >
             {altarPassive ? (
               <>
@@ -255,13 +298,14 @@ export const Simulator: React.FC<SimulatorProps> = ({
                     e.stopPropagation();
                     setAltarPassive(null);
                   }}
+                  aria-label="清除被动道具选择"
                 >
                   ×
                 </button>
               </>
             ) : (
               <>
-                <span className="slot-icon">❓</span>
+                <span className="slot-icon">{renderSlotIcon('shield', 28)}</span>
                 <span className="slot-name">选择被动道具</span>
               </>
             )}
@@ -286,27 +330,29 @@ export const Simulator: React.FC<SimulatorProps> = ({
                 </>
               ) : (
                 <>
-                  <span className="slot-icon">❌</span>
-                  <span className="slot-name" style={{ color: 'var(--glow-red)' }}>
+                  <span className="slot-icon">
+                    <Icon name="close" size={28} style={{ color: 'var(--color-danger)' }} />
+                  </span>
+                  <span className="slot-name" style={{ color: 'var(--color-danger)' }}>
                     无法合成
                   </span>
                 </>
               )
             ) : (
               <>
-                <span className="slot-icon">❓</span>
+                <span className="slot-icon">
+                  <Icon name="crown" size={28} style={{ color: 'var(--color-text-dim)', opacity: 0.6 }} />
+                </span>
                 <span className="slot-name">进化超级武器</span>
               </>
             )}
           </div>
         </div>
 
-        {/* 进化条件提示 */}
         <div className={getConditionTipClass()}>
           {getConditionTip()}
         </div>
 
-        {/* 进化链路径预览 */}
         <div className="altar-preview-paths">
           {getPreviewPaths()}
         </div>
@@ -319,15 +365,17 @@ export const Simulator: React.FC<SimulatorProps> = ({
           placeholder="输入武器/道具名称或描述以全局过滤..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
+          aria-label="搜索过滤物品"
         />
       </div>
 
       {/* 选择池网格 */}
-      <div className="sim-pools-container" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1rem', marginTop: '0.5rem' }}>
+      <div className="sim-pools-container">
         {/* 主武器池 */}
         <div>
-          <h3 className="section-title" style={{ fontSize: '0.85rem', marginBottom: '0.5rem', borderLeft: '3px solid var(--glow-blue)', paddingLeft: '5px' }}>
-            ⚔️ 主武器选择池
+          <h3 className="section-title" style={{ borderLeft: '3px solid var(--glow-blue)' }}>
+            <Icon name="sword" size={18} style={{ color: 'var(--glow-blue)' }} />
+            主武器选择池
           </h3>
           <div className="sim-grid" id="sim-weapons-grid">
             {filteredWeaponKeys.map(key => {
@@ -346,6 +394,16 @@ export const Simulator: React.FC<SimulatorProps> = ({
                   className={itemClass}
                   key={key}
                   onClick={() => handleSelectWeapon(key)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={item.name}
+                  aria-disabled={isDisabled}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      handleSelectWeapon(key);
+                    }
+                  }}
                 >
                   <span className="item-icon">
                     <GameIcon item={item} size={28} />
@@ -359,8 +417,9 @@ export const Simulator: React.FC<SimulatorProps> = ({
 
         {/* 被动道具池 */}
         <div>
-          <h3 className="section-title" style={{ fontSize: '0.85rem', marginBottom: '0.5rem', borderLeft: '3px solid var(--glow-green)', paddingLeft: '5px' }}>
-            🛡️ 被动道具选择池
+          <h3 className="section-title" style={{ borderLeft: '3px solid var(--glow-green)' }}>
+            <Icon name="shield" size={18} style={{ color: 'var(--glow-green)' }} />
+            被动道具选择池
           </h3>
           <div className="sim-grid" id="sim-passives-grid">
             {filteredPassiveKeys.map(key => {
@@ -379,6 +438,16 @@ export const Simulator: React.FC<SimulatorProps> = ({
                   className={itemClass}
                   key={key}
                   onClick={() => handleSelectPassive(key)}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={item.name}
+                  aria-disabled={isDisabled}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      handleSelectPassive(key);
+                    }
+                  }}
                 >
                   <span className="item-icon">
                     <GameIcon item={item} size={28} />
