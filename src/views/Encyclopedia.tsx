@@ -126,6 +126,12 @@ export const Encyclopedia: React.FC<EncyclopediaProps> = ({
     <div className="wiki-tab-content">
       <div className="wiki-filter-panel" style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.6rem', background: 'rgba(15, 7, 27, 0.5)', padding: '0.5rem', borderRadius: '8px', border: '1px solid rgba(139,92,246,0.15)' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem', alignItems: 'center' }}>
+          <button
+            className={`filter-badge ${dlcFilter === 'all' ? 'active' : ''}`}
+            onClick={() => setDlcFilter('all')}
+          >
+            全部
+          </button>
           {Object.keys(VS_DATA.categories).map(catKey => (
             <button
               key={catKey}

@@ -94,6 +94,12 @@ export const Biography: React.FC<BiographyProps> = ({
     <div className="char-tab-content">
       <div className="wiki-filter-panel" style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.6rem', background: 'rgba(15, 7, 27, 0.5)', padding: '0.5rem', borderRadius: '8px', border: '1px solid rgba(139,92,246,0.15)' }}>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem', alignItems: 'center' }}>
+          <button
+            className={`filter-badge ${dlcFilter === 'all' ? 'active' : ''}`}
+            onClick={() => setDlcFilter('all')}
+          >
+            全部
+          </button>
           {Object.keys(VS_DATA.categories).map(catKey => (
             <button key={catKey}
               className={`filter-badge ${dlcFilter === catKey ? 'active' : ''}`}
@@ -113,66 +119,20 @@ export const Biography: React.FC<BiographyProps> = ({
       <div className="char-grid">
         {filteredCharKeys.map(key => {
           const char = VS_DATA.characters[key];
-          const initWeapon = VS_DATA.items[char.initWeaponKey];
           return (
             <div className="char-card" key={key}
               onClick={() => setActiveCharKey(key)}
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setActiveCharKey(key); } }}
               role="button" tabIndex={0}
+              title={char.name}
             >
-              <span className="char-badge">{VS_DATA.categories[char.category] || '未知'}</span>
               <div className="char-card-header">
                 <div className="char-avatar-box">
                   <GameIcon item={char} size={32} />
                 </div>
                 <div className="char-name-group">
                   <h4>{char.name}</h4>
-                  <span>{char.nameEn}</span>
                 </div>
-              </div>
-              <div className="char-desc-block">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '2px' }}>
-                  <Icon name="mask" size={14} style={{ color: 'var(--color-text-dim)' }} />
-                  <strong>特性：</strong>
-                </div>
-                {char.passiveDesc}
-              </div>
-              <div className="char-unlock-cond">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '2px' }}>
-                  <Icon name="key" size={14} style={{ color: 'var(--glow-gold)' }} />
-                  <strong>解锁：</strong>
-                </div>
-                {char.unlock}
-              </div>
-              <div className="char-build-section" style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.25rem', fontSize: '0.75rem', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '0.4rem', marginTop: '0.4rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  <Icon name="gun" size={14} style={{ color: 'var(--color-text-dim)' }} />
-                  <strong>初始武器:</strong>&nbsp;
-                  {initWeapon ? (
-                    <span style={{ color: 'var(--color-text-muted)' }}>{initWeapon.name}</span>
-                  ) : '无'}
-                </div>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '4px' }}>
-                  <Icon name="shield" size={14} style={{ color: 'var(--color-text-dim)' }} />
-                  <div>
-                    <strong>推荐装配:</strong>&nbsp;
-                    <span style={{ color: 'var(--color-text-muted)' }}>
-                      {char.recommends.map(r => VS_DATA.items[r]?.name).filter(Boolean).slice(0, 3).join(', ')}...
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div className="char-actions">
-                <button className="char-action-btn" onClick={(e) => { e.stopPropagation(); handleImportToAltar(char); }}
-                  title="将该角色初始武器放入合成祭坛">
-                  <Icon name="flask" size={14} />
-                  导入合成
-                </button>
-                <button className="char-action-btn" onClick={(e) => { e.stopPropagation(); handleImportToBuild(char); }}
-                  title="将该角色推荐配装导入规划器">
-                  <Icon name="shield" size={14} />
-                  导入 Build
-                </button>
               </div>
             </div>
           );
